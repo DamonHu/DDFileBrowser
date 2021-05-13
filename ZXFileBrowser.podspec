@@ -11,6 +11,8 @@ s.requires_arc = true
 s.ios.deployment_target = '11.0'
 s.subspec 'core' do |cs|
     cs.source_files = "pod/*.swift", "pod/view/*.swift", "pod/vc/*.swift", "pod/model/*.swift", "pod/localizable/**/*"
+    cs.dependency 'ZXKitUtil'
+    cs.dependency 'SnapKit'
 end
 s.subspec 'zxkit' do |cs|
     cs.resource_bundles = {
