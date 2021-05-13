@@ -26,15 +26,23 @@ ZXFileBrowser.shared().start()
 
 ## Support `ZXKit`
 
-If you need to support `ZXKit`, you can use cocoapods to quickly integrate it, and then register to use it in the list display
+**If you have integrated `ZXKitSwift`, the file browser will be automatically displayed in the plug-in list, so there is no need to repeat the integration.**
+
+If you need to support `ZXKit`, you can use cocoapods to quickly integrate it
 
 ```ruby
 pod 'ZXFileBrowser/zxkit'
 ```
 
+then register to `ZXKit` in `AppDelegate`
+
 ```swift
-//ZXKit registration
-ZXKit.regist(plugin: ZXFileBrowser.shared())
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+	
+	ZXKit.regist(plugin: ZXFileBrowser.shared())
+	
+	return true
+}
 ```
 
 ## Preview

@@ -23,15 +23,25 @@ ZXFileBrowser.shared().start()
 
 ## 支持`ZXKit`
 
-如果需要支持`ZXKit`，可以使用cocoapods快速集成，之后注册即可在列表显示使用
+**如果您已经集成了`ZXKitSwift`，插件列表中会自动显示该文件浏览器，不需要再重复集成。**
+
+如果需要支持`ZXKit`，可以使用cocoapods快速集成
 
 ```ruby
 pod 'ZXFileBrowser/zxkit'
 ```
 
+之后可在`AppDelegate`的启动函数中注册到`ZXKit`即可
+
 ```swift
-//ZXKit注册
-ZXKit.regist(plugin: ZXFileBrowser.shared())
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+	
+	//ZXKit注册
+	ZXKit.regist(plugin: ZXFileBrowser.shared())
+	
+	return true
+}
+
 ```
 
 ## 预览
