@@ -21,14 +21,22 @@ open class ZXFileBrowser: NSObject {
     }
 
     public func start() {
+        #if canImport(ZXKitCore)
+        ZXKit.hide()
+        #endif
+        self.mNavigationController.dismiss(animated: false) { [weak self] in
+            guard let self = self else { return }
+            ZXKitUtil.shared().getCurrentVC()?.present(self.mNavigationController, animated: true, completion: nil)
+        }
+    }
+
+    //MARK: UI
+    lazy var mNavigationController: UINavigationController = {
         let rootViewController = ZXFileBrowserVC()
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.navigationBar.barTintColor = UIColor.white
-        ZXKitUtil.shared().getCurrentVC()?.present(navigation, animated: true, completion: nil)
-        #if canImport(ZXKitCore)
-        ZXKit.close()
-        #endif
-    }
+        return navigation
+    }()
 }
 
 extension ZXFileBrowser {
