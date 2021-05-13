@@ -2,7 +2,9 @@
 
 iOS端沙盒文件浏览器，可查看、复制、移动、删除文件等操作。
 
-该项目是[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)的内置功能插件，只需要集成`ZXKitSwift`无须配置即可使用。您也可以单独集成当做独立功能使用。
+该项目是[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)的内置功能插件，也可以单独集成当做独立功能使用。
+
+**如果您已经集成了`ZXKitSwift`，插件列表中会自动显示该文件浏览器，不需要再重复集成。**
 
 
 ## 独立集成
