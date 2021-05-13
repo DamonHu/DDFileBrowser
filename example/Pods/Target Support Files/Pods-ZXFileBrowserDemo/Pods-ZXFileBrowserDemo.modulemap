@@ -1,0 +1,6 @@
+framework module Pods_ZXFileBrowserDemo {
+  umbrella header "Pods-ZXFileBrowserDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

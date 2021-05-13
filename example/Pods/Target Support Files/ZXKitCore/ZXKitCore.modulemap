@@ -1,0 +1,6 @@
+framework module ZXKitCore {
+  umbrella header "ZXKitCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
