@@ -18,6 +18,8 @@
 		E47EB8DC264BBAAF00C17260 /* ZXFileBrowserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EB8DB264BBAAF00C17260 /* ZXFileBrowserVC.swift */; };
 		E47EB8E1264BC3D800C17260 /* ZXFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EB8E0264BC3D800C17260 /* ZXFileTableViewCell.swift */; };
 		E47EB8E4264BD4E700C17260 /* ZXFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EB8E3264BD4E700C17260 /* ZXFileModel.swift */; };
+		E47EB8E9264D0C0300C17260 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8E6264D0C0300C17260 /* Localizable.strings */; };
+		E47EB8EC264D11EB00C17260 /* zxfilebrowser.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		E47EB8DB264BBAAF00C17260 /* ZXFileBrowserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXFileBrowserVC.swift; sourceTree = "<group>"; };
 		E47EB8E0264BC3D800C17260 /* ZXFileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXFileTableViewCell.swift; sourceTree = "<group>"; };
 		E47EB8E3264BD4E700C17260 /* ZXFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXFileModel.swift; sourceTree = "<group>"; };
+		E47EB8E7264D0C0300C17260 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E47EB8E8264D0C0300C17260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zxfilebrowser.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,8 @@
 		E47EB8D5264A944500C17260 /* pod */ = {
 			isa = PBXGroup;
 			children = (
+				E47EB8EA264D10D400C17260 /* assets */,
+				E47EB8E5264D0C0300C17260 /* localizable */,
 				E47EB8E2264BD4CD00C17260 /* model */,
 				E47EB8DF264BC12100C17260 /* vc */,
 				E47EB8DD264BC10A00C17260 /* view */,
@@ -142,6 +149,22 @@
 				E47EB8E3264BD4E700C17260 /* ZXFileModel.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		E47EB8E5264D0C0300C17260 /* localizable */ = {
+			isa = PBXGroup;
+			children = (
+				E47EB8E6264D0C0300C17260 /* Localizable.strings */,
+			);
+			path = localizable;
+			sourceTree = "<group>";
+		};
+		E47EB8EA264D10D400C17260 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +210,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = E47EB8B5264A92ED00C17260;
 			productRefGroup = E47EB8BF264A92ED00C17260 /* Products */;
@@ -204,6 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47EB8CE264A92EE00C17260 /* LaunchScreen.storyboard in Resources */,
+				E47EB8EC264D11EB00C17260 /* zxfilebrowser.png in Resources */,
+				E47EB8E9264D0C0300C17260 /* Localizable.strings in Resources */,
 				E47EB8CB264A92EE00C17260 /* Assets.xcassets in Resources */,
 				E47EB8C9264A92ED00C17260 /* Main.storyboard in Resources */,
 			);
@@ -285,6 +311,15 @@
 				E47EB8CD264A92EE00C17260 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E47EB8E6264D0C0300C17260 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E47EB8E7264D0C0300C17260 /* zh-Hans */,
+				E47EB8E8264D0C0300C17260 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

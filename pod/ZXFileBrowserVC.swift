@@ -95,35 +95,35 @@ private extension ZXFileBrowserVC {
 
     func _showMore() {
         guard let filePath = mSelectedFilePath else { return }
-        let alertVC = UIAlertController(title:"文件操作",message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
+        let alertVC = UIAlertController(title:NSLocalizedString("File operations", comment: ""),message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
         if let popoverPresentationController = alertVC.popoverPresentationController {
             popoverPresentationController.sourceView = self.view
             popoverPresentationController.sourceRect = CGRect(x: 10, y: UIScreenHeight - 300, width: UIScreenWidth - 20, height: 300)
         }
 
-        let alertAction1 = UIAlertAction(title: "分享", style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction1 = UIAlertAction(title: NSLocalizedString("share", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
             self._share()
         }
 
-        let alertAction2 = UIAlertAction(title: "复制", style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction2 = UIAlertAction(title: NSLocalizedString("copy", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
-            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("粘贴到此处", comment: ""), style: .plain, target: self, action: #selector(self._copy))
+            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("paste here", comment: ""), style: .plain, target: self, action: #selector(self._copy))
             self.navigationItem.rightBarButtonItem = rightBarItem
         }
 
-        let alertAction3 = UIAlertAction(title: "移动", style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction3 = UIAlertAction(title: NSLocalizedString("move", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
-            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("移动到此处", comment: ""), style: .plain, target: self, action: #selector(self._move))
+            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("move here", comment: ""), style: .plain, target: self, action: #selector(self._move))
             self.navigationItem.rightBarButtonItem = rightBarItem
         }
 
-        let alertAction4 = UIAlertAction(title: "删除", style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
+        let alertAction4 = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
             guard let self = self else { return }
             self._delete(filePath: filePath)
         }
 
-        let cancelAction = UIAlertAction(title: "关闭", style: UIAlertAction.Style.cancel) { (alertAction) in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertAction.Style.cancel) { (alertAction) in
 
         }
         alertVC.addAction(alertAction1)
