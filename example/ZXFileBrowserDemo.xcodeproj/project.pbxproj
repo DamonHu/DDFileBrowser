@@ -20,6 +20,8 @@
 		E47EB8E4264BD4E700C17260 /* ZXFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47EB8E3264BD4E700C17260 /* ZXFileModel.swift */; };
 		E47EB8E9264D0C0300C17260 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8E6264D0C0300C17260 /* Localizable.strings */; };
 		E47EB8EC264D11EB00C17260 /* zxfilebrowser.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */; };
+		E47EB8EF264D131D00C17260 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8ED264D131D00C17260 /* folder.png */; };
+		E47EB8F0264D131D00C17260 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8EE264D131D00C17260 /* file.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		E47EB8E7264D0C0300C17260 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E47EB8E8264D0C0300C17260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zxfilebrowser.png; sourceTree = "<group>"; };
+		E47EB8ED264D131D00C17260 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		E47EB8EE264D131D00C17260 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,8 @@
 		E47EB8EA264D10D400C17260 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E47EB8EE264D131D00C17260 /* file.png */,
+				E47EB8ED264D131D00C17260 /* folder.png */,
 				E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */,
 			);
 			path = assets;
@@ -232,6 +238,8 @@
 				E47EB8E9264D0C0300C17260 /* Localizable.strings in Resources */,
 				E47EB8CB264A92EE00C17260 /* Assets.xcassets in Resources */,
 				E47EB8C9264A92ED00C17260 /* Main.storyboard in Resources */,
+				E47EB8EF264D131D00C17260 /* folder.png in Resources */,
+				E47EB8F0264D131D00C17260 /* file.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

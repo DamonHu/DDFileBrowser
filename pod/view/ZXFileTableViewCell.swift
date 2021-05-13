@@ -25,7 +25,7 @@ class ZXFileTableViewCell: UITableViewCell {
     }
 
     func updateUI(model: ZXFileModel) {
-        mImageView.image = model.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
+        mImageView.image = model.isDirectory ? UIImageHDBoundle(named: "folder") : UIImageHDBoundle(named: "file")
         mTitleLabel.text = model.name
         var size = "\(Int(model.size))B"
         if model.size > 1024 * 1024 {

@@ -8,6 +8,13 @@
 import UIKit
 import ZXKitUtil
 
+func UIImageHDBoundle(named: String?) -> UIImage? {
+    guard let name = named else { return nil }
+    guard let bundlePath = Bundle(for: ZXFileBrowser.self).path(forResource: "ZXFileBrowser", ofType: "bundle") else { return nil }
+    let bundle = Bundle(path: bundlePath)
+    return UIImage(named: name, in: bundle, compatibleWith: nil)
+}
+
 class ZXFileBrowserVC: UIViewController {
     var mTableViewList = [ZXFileModel]()
     var mSelectedDirectoryPath = "" //当前的文件夹
