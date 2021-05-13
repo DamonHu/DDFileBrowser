@@ -10,7 +10,12 @@ import ZXKitUtil
 
 class ZXFileBrowserVC: UIViewController {
     var mTableViewList = [ZXFileModel]()
-    var mSelectedPath = ""
+    var mSelectedDirectoryPath = "" //当前的文件夹
+    var mSelectedFilePath: URL?      //选择操作的文件路径
+    var currentDirectoryPath: URL {
+        return ZXKitUtil.shared().getFileDirectory(type: .home).appendingPathComponent(self.mSelectedDirectoryPath, isDirectory: true)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +31,9 @@ class ZXFileBrowserVC: UIViewController {
     }
 
     @objc func _leftBarItemClick() {
-        print(mSelectedPath)
-        var array = mSelectedPath.components(separatedBy: "/")
+        var array = mSelectedDirectoryPath.components(separatedBy: "/")
         array.removeLast()
-        mSelectedPath = array.joined(separator: "/")
+        mSelectedDirectoryPath = array.joined(separator: "/")
         self._loadData()
     }
 
@@ -46,7 +50,7 @@ class ZXFileBrowserVC: UIViewController {
     }()
 }
 
-extension ZXFileBrowserVC {
+private extension ZXFileBrowserVC {
     func _createUI() {
         self.view.backgroundColor = UIColor.zx.color(hexValue: 0xffffff)
         self.view.addSubview(mTableView)
@@ -56,7 +60,7 @@ extension ZXFileBrowserVC {
     }
 
     func _loadData() {
-        if mSelectedPath.isEmpty {
+        if mSelectedDirectoryPath.isEmpty {
             self.navigationItem.leftBarButtonItem = nil
         } else {
             let leftBarItem = UIBarButtonItem(title: NSLocalizedString("back", comment: ""), style: .plain, target: self, action: #selector(_leftBarItemClick))
@@ -64,7 +68,7 @@ extension ZXFileBrowserVC {
         }
         let manager = FileManager.default
         mTableViewList.removeAll()
-        let fileDirectoryPth = ZXKitUtil.shared().getFileDirectory(type: .home).appendingPathComponent(mSelectedPath, isDirectory: true)
+        let fileDirectoryPth = self.currentDirectoryPath
         if manager.fileExists(atPath: fileDirectoryPth.path), let subPath = try? manager.contentsOfDirectory(atPath: fileDirectoryPth.path) {
             for fileName in subPath {
                 let filePath = fileDirectoryPth.path.appending("/\(fileName)")
@@ -72,20 +76,114 @@ extension ZXFileBrowserVC {
                 let fileModel = ZXFileModel(name: fileName)
                 //属性
                 var isDirectory: ObjCBool = false
-                if manager.fileExists(atPath: filePath, isDirectory: &isDirectory), let fileAttributes = try? manager.attributesOfItem(atPath: filePath) {
+                if manager.fileExists(atPath: filePath, isDirectory: &isDirectory) {
                     fileModel.isDirectory = isDirectory.boolValue
-                    fileModel.modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date ?? Date()
-                    if isDirectory.boolValue {
-                        fileModel.size = ZXKitUtil.shared().getFileDirectorySize(fileDirectoryPth: URL(fileURLWithPath: filePath))
-                    } else {
-                        fileModel.size = fileAttributes[FileAttributeKey.size] as? Double ?? 0
+                    if let fileAttributes = try? manager.attributesOfItem(atPath: filePath) {
+                        fileModel.modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date ?? Date()
+                        if isDirectory.boolValue {
+                            fileModel.size = ZXKitUtil.shared().getFileDirectorySize(fileDirectoryPth: URL(fileURLWithPath: filePath))
+                        } else {
+                            fileModel.size = fileAttributes[FileAttributeKey.size] as? Double ?? 0
+                        }
                     }
-
                     mTableViewList.append(fileModel)
                 }
             }
         }
         mTableView.reloadData()
+    }
+
+    func _showMore() {
+        guard let filePath = mSelectedFilePath else { return }
+        let alertVC = UIAlertController(title:"文件操作",message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
+        if let popoverPresentationController = alertVC.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: 10, y: UIScreenHeight - 300, width: UIScreenWidth - 20, height: 300)
+        }
+
+        let alertAction1 = UIAlertAction(title: "分享", style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+            guard let self = self else { return }
+            self._share()
+        }
+
+        let alertAction2 = UIAlertAction(title: "复制", style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+            guard let self = self else { return }
+            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("粘贴到此处", comment: ""), style: .plain, target: self, action: #selector(self._copy))
+            self.navigationItem.rightBarButtonItem = rightBarItem
+        }
+
+        let alertAction3 = UIAlertAction(title: "移动", style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+            guard let self = self else { return }
+            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("移动到此处", comment: ""), style: .plain, target: self, action: #selector(self._move))
+            self.navigationItem.rightBarButtonItem = rightBarItem
+        }
+
+        let alertAction4 = UIAlertAction(title: "删除", style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
+            guard let self = self else { return }
+            self._delete(filePath: filePath)
+        }
+
+        let cancelAction = UIAlertAction(title: "关闭", style: UIAlertAction.Style.cancel) { (alertAction) in
+
+        }
+        alertVC.addAction(alertAction1)
+        alertVC.addAction(alertAction2)
+        alertVC.addAction(alertAction3)
+        alertVC.addAction(alertAction4)
+        alertVC.addAction(cancelAction)
+        self.present(alertVC, animated: true, completion: nil)
+    }
+
+    func _share() {
+        guard let filePath = mSelectedFilePath else { return }
+        let activityVC = UIActivityViewController(activityItems: [filePath], applicationActivities: nil)
+        if UIDevice.current.model == "iPad" {
+            activityVC.modalPresentationStyle = UIModalPresentationStyle.popover
+            activityVC.popoverPresentationController?.sourceView = self.view
+            activityVC.popoverPresentationController?.sourceRect = CGRect(x: 10, y: UIScreenHeight - 300, width: UIScreenWidth - 20, height: 300)
+        }
+        self.present(activityVC, animated: true, completion: nil)
+    }
+
+    @objc func _copy() {
+        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        self.navigationItem.rightBarButtonItem = rightBarItem
+
+        guard let filePath = mSelectedFilePath else { return }
+        let manager = FileManager.default
+        let currentPath = self.currentDirectoryPath.appendingPathComponent(filePath.lastPathComponent, isDirectory: false)
+        do {
+            try manager.copyItem(at: filePath, to: currentPath)
+        } catch {
+            print(error)
+        }
+        self._loadData()
+    }
+
+    @objc func _move() {
+        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        self.navigationItem.rightBarButtonItem = rightBarItem
+
+        guard let filePath = mSelectedFilePath else { return }
+        let manager = FileManager.default
+        let currentPath = self.currentDirectoryPath.appendingPathComponent(filePath.lastPathComponent, isDirectory: false)
+        do {
+            try manager.moveItem(at: filePath, to: currentPath)
+        } catch {
+            print(error)
+        }
+        self._loadData()
+    }
+
+    func _delete(filePath: URL) {
+        guard let filePath = mSelectedFilePath else { return }
+        let manager = FileManager.default
+        do {
+            try manager.removeItem(at: filePath)
+        } catch {
+            print(error)
+        }
+        self._loadData()
     }
 }
 
@@ -119,12 +217,13 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.mTableViewList[indexPath.row]
         if model.isDirectory {
-            print(model.name)
-            mSelectedPath = mSelectedPath + "/" + model.name
+            mSelectedDirectoryPath = mSelectedDirectoryPath + "/" + model.name
             self._loadData()
         } else {
-            print(model.name, "文件操作")
+            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+            self.navigationItem.rightBarButtonItem = rightBarItem
+            self.mSelectedFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
+            self._showMore()
         }
-
     }
 }
