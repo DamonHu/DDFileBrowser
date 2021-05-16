@@ -12,12 +12,12 @@ import ZXKitCore
 #endif
 
 open class ZXFileBrowser: NSObject {
-    public required override init() {
-
+    private static let instance = ZXFileBrowser()
+    open class var shared: ZXFileBrowser {
+        return instance
     }
-    
-    public static func shared() -> Self {
-        return Self()
+    private override init() {
+        
     }
 
     public func start() {

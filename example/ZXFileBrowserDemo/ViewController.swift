@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.createUI()
-        ZXKit.regist(plugin: ZXFileBrowser.shared())
+        ZXKit.regist(plugin: ZXFileBrowser.shared)
+        
     }
 
     func createUI() {
