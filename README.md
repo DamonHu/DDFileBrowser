@@ -21,7 +21,7 @@ pod 'ZXFileBrowser'
 ### Use
 
 ```swift
-ZXFileBrowser.shared().start()
+ZXFileBrowser.shared.start()
 ```
 
 ## Support `ZXKit`
@@ -39,7 +39,7 @@ then register to `ZXKit` in `AppDelegate`
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 	
-	ZXKit.regist(plugin: ZXFileBrowser.shared())
+	ZXKit.regist(plugin: ZXFileBrowser.shared)
 	
 	return true
 }

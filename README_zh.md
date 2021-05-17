@@ -18,7 +18,7 @@ pod 'ZXFileBrowser'
 ### 使用
 
 ```swift
-ZXFileBrowser.shared().start()
+ZXFileBrowser.shared.start()
 ```
 
 ## 支持`ZXKit`
@@ -37,7 +37,7 @@ pod 'ZXFileBrowser/zxkit'
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 	
 	//ZXKit注册
-	ZXKit.regist(plugin: ZXFileBrowser.shared())
+	ZXKit.regist(plugin: ZXFileBrowser.shared)
 	
 	return true
 }
