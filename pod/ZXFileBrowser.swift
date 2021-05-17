@@ -16,9 +16,6 @@ open class ZXFileBrowser: NSObject {
     open class var shared: ZXFileBrowser {
         return instance
     }
-    private override init() {
-        
-    }
 
     public func start() {
         #if canImport(ZXKitCore)
