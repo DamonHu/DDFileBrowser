@@ -26,7 +26,7 @@ open class ZXFileBrowser: NSObject {
         #endif
         self.mNavigationController.dismiss(animated: false) { [weak self] in
             guard let self = self else { return }
-            ZXKitUtil.shared().getCurrentVC()?.present(self.mNavigationController, animated: true, completion: nil)
+            ZXKitUtil.shared.getCurrentVC()?.present(self.mNavigationController, animated: true, completion: nil)
         }
     }
 

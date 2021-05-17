@@ -20,7 +20,7 @@ class ZXFileBrowserVC: UIViewController {
     var mSelectedDirectoryPath = "" //当前的文件夹
     var mSelectedFilePath: URL?      //选择操作的文件路径
     var currentDirectoryPath: URL {
-        return ZXKitUtil.shared().getFileDirectory(type: .home).appendingPathComponent(self.mSelectedDirectoryPath, isDirectory: true)
+        return ZXKitUtil.shared.getFileDirectory(type: .home).appendingPathComponent(self.mSelectedDirectoryPath, isDirectory: true)
     }
 
 
@@ -88,7 +88,7 @@ private extension ZXFileBrowserVC {
                     if let fileAttributes = try? manager.attributesOfItem(atPath: filePath) {
                         fileModel.modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date ?? Date()
                         if isDirectory.boolValue {
-                            fileModel.size = ZXKitUtil.shared().getFileDirectorySize(fileDirectoryPth: URL(fileURLWithPath: filePath))
+                            fileModel.size = ZXKitUtil.shared.getFileDirectorySize(fileDirectoryPth: URL(fileURLWithPath: filePath))
                         } else {
                             fileModel.size = fileAttributes[FileAttributeKey.size] as? Double ?? 0
                         }
