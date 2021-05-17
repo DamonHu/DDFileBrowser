@@ -80,6 +80,7 @@ public class ZXKit: NSObject {
                     self.window = ZXKitWindow(frame: UIScreen.main.bounds)
                 }
                 self.window?.isHidden = false
+                self.window?.reloadData()
             }
         }
     }

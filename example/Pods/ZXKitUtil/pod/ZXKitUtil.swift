@@ -9,11 +9,11 @@
 import Foundation
 
 open class ZXKitUtil: NSObject {
-    public required override init() {
-
+    private static let instance = ZXKitUtil()
+    open class var shared: ZXKitUtil {
+        return instance
     }
-
-    public static func shared() -> Self {
-        return Self()
+    private override init() {
+        
     }
 }

@@ -141,6 +141,7 @@ extension ZXKitWindow: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let complete = self.inputComplete {
             complete(textField.text ?? "")
+            self.reloadData()
         }
     }
 
