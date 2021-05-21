@@ -7,6 +7,7 @@
 
 import UIKit
 import ZXKitUtil
+import MobileCoreServices
 
 func UIImageHDBoundle(named: String?) -> UIImage? {
     guard let name = named else { return nil }
@@ -226,11 +227,17 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
         if model.isDirectory {
             mSelectedDirectoryPath = mSelectedDirectoryPath + "/" + model.name
             self._loadData()
+            if let type = ZXFileBrowser.shared.getFileType(filePath: ZXKitUtil.shared.getFileDirectory(type: .documents)) {
+                print(type, UTTypeConformsTo(type, kUTTypeDirectory))
+            }
+
         } else {
             let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
             self.navigationItem.rightBarButtonItem = rightBarItem
             self.mSelectedFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
             self._showMore()
+
+            ZXFileBrowser.shared.getFileType(filePath: self.mSelectedFilePath)
         }
     }
 }

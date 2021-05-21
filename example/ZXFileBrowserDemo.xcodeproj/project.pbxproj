@@ -22,6 +22,7 @@
 		E47EB8EC264D11EB00C17260 /* zxfilebrowser.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */; };
 		E47EB8EF264D131D00C17260 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8ED264D131D00C17260 /* folder.png */; };
 		E47EB8F0264D131D00C17260 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = E47EB8EE264D131D00C17260 /* file.png */; };
+		E4EC33EC2657BF5C00074E19 /* 1470296169586813.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4EC33EB2657BF5B00074E19 /* 1470296169586813.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E47EB8EB264D11EB00C17260 /* zxfilebrowser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zxfilebrowser.png; sourceTree = "<group>"; };
 		E47EB8ED264D131D00C17260 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		E47EB8EE264D131D00C17260 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
+		E4EC33EB2657BF5B00074E19 /* 1470296169586813.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1470296169586813.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				E47EB8D5264A944500C17260 /* pod */,
 				E47EB8C1264A92ED00C17260 /* AppDelegate.swift */,
 				E47EB8C5264A92ED00C17260 /* ViewController.swift */,
+				E4EC33EB2657BF5B00074E19 /* 1470296169586813.jpg */,
 				E47EB8C7264A92ED00C17260 /* Main.storyboard */,
 				E47EB8CA264A92EE00C17260 /* Assets.xcassets */,
 				E47EB8CC264A92EE00C17260 /* LaunchScreen.storyboard */,
@@ -240,6 +243,7 @@
 				E47EB8C9264A92ED00C17260 /* Main.storyboard in Resources */,
 				E47EB8EF264D131D00C17260 /* folder.png in Resources */,
 				E47EB8F0264D131D00C17260 /* file.png in Resources */,
+				E4EC33EC2657BF5C00074E19 /* 1470296169586813.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

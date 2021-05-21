@@ -7,6 +7,7 @@
 
 import UIKit
 import ZXKitCore
+import ZXKitUtil
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.createUI()
         ZXKit.regist(plugin: ZXFileBrowser.shared)
+
+
+
         
     }
 
@@ -28,6 +32,16 @@ class ViewController: UIViewController {
 
     @objc func _click() {
         ZXKit.show()
+
+
+        let path = Bundle.main.path(forResource: "1470296169586813", ofType: "jpg")
+        if let path = path, let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
+            do {
+                try data.write(to: ZXKitUtil.shared.getFileDirectory(type: .caches).appendingPathComponent("3333.jpg"))
+            } catch  {
+                print(error)
+            }
+        }
     }
 
 }
