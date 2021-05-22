@@ -85,7 +85,7 @@ private extension ZXFileBrowserVC {
                 //属性
                 var isDirectory: ObjCBool = false
                 if manager.fileExists(atPath: filePath, isDirectory: &isDirectory) {
-                    fileModel.isDirectory = isDirectory.boolValue
+                    fileModel.fileType = ZXFileBrowser.shared.getFileType(filePath: URL(fileURLWithPath: filePath))
                     if let fileAttributes = try? manager.attributesOfItem(atPath: filePath) {
                         fileModel.modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date ?? Date()
                         if isDirectory.boolValue {
@@ -204,7 +204,7 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
         let model = self.mTableViewList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ZXFileTableViewCell") as! ZXFileTableViewCell
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        if model.isDirectory {
+        if model.fileType == .folder {
             cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         } else {
             cell.accessoryType = UITableViewCell.AccessoryType.none
@@ -224,20 +224,15 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.mTableViewList[indexPath.row]
-        if model.isDirectory {
+        if model.fileType == .folder {
             mSelectedDirectoryPath = mSelectedDirectoryPath + "/" + model.name
             self._loadData()
-            if let type = ZXFileBrowser.shared.getFileType(filePath: ZXKitUtil.shared.getFileDirectory(type: .documents)) {
-                print(type, UTTypeConformsTo(type, kUTTypeDirectory))
-            }
-
         } else {
             let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
             self.navigationItem.rightBarButtonItem = rightBarItem
             self.mSelectedFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
             self._showMore()
-
-            ZXFileBrowser.shared.getFileType(filePath: self.mSelectedFilePath)
+            
         }
     }
 }

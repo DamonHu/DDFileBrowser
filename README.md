@@ -24,6 +24,12 @@ pod 'ZXFileBrowser'
 ZXFileBrowser.shared.start()
 ```
 
+you can get the file type of the specified path by this function
+
+```swift
+ZXFileBrowser.shared.getFileType(filePath: path)
+```
+
 ## Support `ZXKit`
 
 **If you have integrated `ZXKitSwift`, the file browser will be automatically displayed in the plug-in list, so there is no need to repeat the integration.**
@@ -46,6 +52,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 ## Preview
+
+
+![](./preview/demo1.png)
+
+![](./preview/demo2.png)
 
 ![](./preview.gif)
 

@@ -21,6 +21,12 @@ pod 'ZXFileBrowser'
 ZXFileBrowser.shared.start()
 ```
 
+你可以调用下面这个函数获取指定路径的文件类型
+
+```swift
+ZXFileBrowser.shared.getFileType(filePath: path)
+```
+
 ## 支持`ZXKit`
 
 **如果您已经集成了`ZXKitSwift`，插件列表中会自动显示该文件浏览器，不需要再重复集成。**
@@ -46,7 +52,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ## 预览
 
-![](./preview.gif)
+![](./preview/demo1.png)
+
+![](./preview/demo2.png)
+
+![](./preview/preview.gif)
 
 
 ## License

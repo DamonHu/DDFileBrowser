@@ -12,8 +12,23 @@ import ZXKitCore
 #endif
 import MobileCoreServices
 
-enum ZXFileType {
+public enum ZXFileType {
     case unknown
+    case folder     //文件夹
+    case image      //图片
+    case video      //视频
+    case audio      //音频
+    case web        //链接
+    case application    //应用和执行文件
+    case zip        //压缩包
+    case log        //日志
+    case excel     //表格
+    case word       //word文档
+    case ppt        //ppt
+    case pdf        //pdf
+    case system     //系统文件
+    case txt        //文本
+    case db         //数据库
 }
 
 open class ZXFileBrowser: NSObject {
@@ -31,6 +46,51 @@ open class ZXFileBrowser: NSObject {
             ZXKitUtil.shared.getCurrentVC()?.present(self.mNavigationController, animated: true, completion: nil)
         }
     }
+    
+    public func getFileType(filePath: URL?) -> ZXFileType {
+        guard let filePath = filePath else { return .unknown }
+        if (filePath.lastPathComponent.hasPrefix(".")) {
+            return .system
+        } else if let utType = self.getFileUTType(filePath: filePath) {
+            if UTTypeConformsTo(utType, kUTTypeDirectory) {
+                return .folder
+            } else if UTTypeConformsTo(utType, kUTTypeImage) {
+                return .image
+            } else if (UTTypeConformsTo(utType, kUTTypeVideo) || UTTypeConformsTo(utType, kUTTypeMovie) || UTTypeConformsTo(utType, kUTTypeMPEG4) || UTTypeConformsTo(utType, kUTTypeAVIMovie) || UTTypeConformsTo(utType, kUTTypeQuickTimeMovie)) {
+                return .video
+            } else if (UTTypeConformsTo(utType, kUTTypeAudio) || UTTypeConformsTo(utType, kUTTypeMP3) || UTTypeConformsTo(utType, kUTTypeMPEG4Audio)) {
+                return .audio
+            } else if UTTypeConformsTo(utType, kUTTypeApplication) || UTTypeConformsTo(utType, kUTTypeSourceCode) {
+                return .application
+            } else if (UTTypeConformsTo(utType, kUTTypeZipArchive) || UTTypeConformsTo(utType, kUTTypeGNUZipArchive) || UTTypeConformsTo(utType, kUTTypeBzip2Archive)) {
+                return .zip
+            } else if (UTTypeConformsTo(utType, kUTTypeHTML) || UTTypeConformsTo(utType, kUTTypeURL) || UTTypeConformsTo(utType, kUTTypeFileURL)) {
+                return .web
+            } else if UTTypeConformsTo(utType, kUTTypeLog) {
+                return .log
+            } else if UTTypeConformsTo(utType, kUTTypePDF) {
+                return .pdf
+            } else if UTTypeConformsTo(utType, kUTTypeText) || UTTypeConformsTo(utType, kUTTypeRTF) {
+                return .txt
+            } else {
+                let string = String(utType)
+                if string == "org.openxmlformats.wordprocessingml.document" || string == "com.microsoft.word.doc" {
+                    return .word
+                } else if string == "org.openxmlformats.presentationml.presentation" || string == "com.microsoft.powerpoint.ppt" {
+                    return .ppt
+                } else if string == "org.openxmlformats.spreadsheetml.sheet" || string == "com.microsoft.excel.xls" {
+                    return .excel
+                } else if filePath.pathExtension == "db" {
+                    //TODO: db格式的utiType暂不确定，根据后缀判断
+                    return .db
+                } else {
+                    return .unknown
+                }
+            }
+        } else {
+            return .unknown
+        }
+    }
 
     //MARK: UI
     lazy var mNavigationController: UINavigationController = {
@@ -42,22 +102,24 @@ open class ZXFileBrowser: NSObject {
 }
 
 extension ZXFileBrowser {
-    func getFileType(filePath: URL?) -> CFString? {
+    func getFileUTType(filePath: URL?) -> CFString? {
         guard let filePath = filePath else { return nil }
         let fileExt = filePath.pathExtension
+        if fileExt.isEmpty {
+            var isDirectory: ObjCBool = false
+            if FileManager.default.fileExists(atPath: filePath.path, isDirectory: &isDirectory) {
+                if isDirectory.boolValue {
+                    return kUTTypeFolder
+                }
+            }
+        }
         // 把文件转换成 Uniform Type Identifiers 后获取文件的 tag
         let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExt as CFString, nil)
         if let retainedValue = uti?.takeRetainedValue() {
-            // 通过UTTypeConformsTo 方法来判断文件类型是否为图片，kUTTypeImage 是需要比较的文件类型
-//            if UTTypeConformsTo((uti?.takeRetainedValue())!, kUTTypeImage){
-//                print("这是一个图片")
-//                // 接下来的操作
-//            }
             print(retainedValue)
             return retainedValue
         } else {
             return nil
         }
-
     }
 }

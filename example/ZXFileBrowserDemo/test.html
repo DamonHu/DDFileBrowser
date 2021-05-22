@@ -1,0 +1,1311 @@
+<!DOCTYPE HTML>
+<html class="small-scroll-bar no-js bg" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="UTF-8">
+    <!--IE 8浏览器的页面渲染方式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <!--默认使用极速内核：针对国内浏览器产商-->
+    <meta name="renderer" content="webkit">
+    <!--chrome Android 地址栏颜色-->
+            <meta name="theme-color" content="#3a3f51"/>
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//cdn.hudongdong.com" />
+<link rel="dns-prefetch" href="//cpro.baidu.com" />
+
+    <title>胡东东博客 - 分享手游和app开发的日常点滴</title>
+            <link rel="icon" type="image/ico" href="/favicon.ico">
+        <meta name="description" content="胡东东博客,主要记录Cocos2d-x和Unity3D手游开发,OC和C/C++等手机app开发中遇到的问题和知识总结.为同为开发者的你提供提供一些思路,坚韧沉稳,谦逊忍耐,菜鸟总会有高飞的那一天" />
+<meta name="keywords" content="胡东东,胡东东博客,手机游戏,cocos2d,cocos2d-x,C,C++,iphone,OC,开发,BUG记录,Xcode,eclipse,Ios,Android,安卓,苹果手游" />
+<meta name="generator" content="Typecho 1.2/18.10.23" />
+<meta name="template" content="handsome" />
+<link rel="alternate" type="application/rss+xml" title="胡东东博客 &raquo; RSS 2.0" href="https://blog.hudongdong.com/feed/" />
+<link rel="alternate" type="application/rdf+xml" title="胡东东博客 &raquo; RSS 1.0" href="https://blog.hudongdong.com/feed/rss/" />
+<link rel="alternate" type="application/atom+xml" title="胡东东博客 &raquo; ATOM 1.0" href="https://blog.hudongdong.com/feed/atom/" />
+<link rel="stylesheet" type="text/css" href="https://blog.hudongdong.com/usr/plugins/GoTop/css/szgotop.css" />
+
+    
+    
+    <script type="text/javascript">
+
+        window['LocalConst'] = {
+            //base
+            BASE_SCRIPT_URL: 'https://blog.hudongdong.com/usr/themes/handsome/',
+            BLOG_URL: 'https://blog.hudongdong.com/',
+            BLOG_URL_N: 'https://blog.hudongdong.com',
+            STATIC_PATH: 'https://blog.hudongdong.com/usr/themes/handsome/assets/',
+            BLOG_URL_PHP: 'https://blog.hudongdong.com/',
+            VDITOR_CDN: 'https://cdn.jsdelivr.net/npm/vditor@3.4.5',
+            MATHJAX_SVG_CDN: 'https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-svg.js',
+            THEME_VERSION: '7.3.12020081501',
+            THEME_VERSION_PRO: '7.3.1',
+
+            //comment
+            COMMENT_NAME_INFO: 'Must fill in nickname or name',
+            COMMENT_EMAIL_INFO: 'E-mail address must be filled in',
+            COMMENT_EMAIL_LEGAL_INFO: 'E-mail address is not legal',
+            COMMENT_CONTENT_INFO: 'Must fill in the comments',
+            COMMENT_SUBMIT_ERROR: 'Submit failed, please try again!',
+            COMMENT_CONTENT_LEGAL_INFO: '提交失败,评论被拦截或者进入审核区域',
+            COMMENT_CONTENT_CHECK_INFO: '评论进入审核区域，请勿重复评论',
+            COMMENT_TITLE: 'Commentary notice',
+
+            //login
+            LOGIN_TITLE: 'Login notification',
+            LOGIN_USERNAME_INFO: 'Must fill in the user name',
+            LOGIN_PASSWORD_INFO: 'Please fill in the password',
+            LOGIN_SUBMIT_ERROR: 'Login failed, please log in again',
+            LOGIN_SUBMIT_INFO: 'Username or password is wrong, please try again',
+            LOGIN_SUBMIT_SUCCESS: 'Login successful',
+            CLICK_TO_REFRESH: '点击以刷新页面',
+            LOGOUT_SUCCESS_REFRESH: 'The exit is successful and the current page is being refreshed',
+
+            LOGOUT_ERROR: 'Exit failed, please try again',
+            LOGOUT_SUCCESS: 'Exit successful',
+            SUBMIT_PASSWORD_INFO: 'Password is wrong, please try again',
+
+            //comment
+            ChANGYAN_APP_KEY: '',
+            CHANGYAN_CONF: '',
+
+            COMMENT_SYSTEM: '0',
+            COMMENT_SYSTEM_ROOT: '0',
+            COMMENT_SYSTEM_CHANGYAN: '1',
+            COMMENT_SYSTEM_OTHERS: '2',
+            EMOJI: 'Emoji',
+            COMMENT_NEED_EMAIL: '0',
+            COMMENT_REJECT_PLACEHOLDER: 'just say something...',
+            COMMENT_PLACEHOLDER: 'say something…',
+
+            //pjax
+            IS_PJAX: '',
+            IS_PAJX_COMMENT: '1',
+            PJAX_ANIMATE: 'loading-bar',
+            PJAX_TO_TOP: '0',
+            TO_TOP_SPEED: '100',
+
+
+            USER_COMPLETED: {"data":""},
+
+            //ui
+            OPERATION_NOTICE: '操作通知',
+            SCREENSHOT_BEGIN: '正在生成当前页面截图……',
+            SCREENSHOT_NOTICE: '点击顶部下载按钮保存当前卡片',
+            SCREENSHORT_ERROR: '由于图片跨域原因导致截图失败',
+            SCREENSHORT_SUCCESS: '截图成功',
+
+            //music
+            MUSIC_NOTICE: '播放通知',
+            MUSIC_FAILE: '当前音乐地址无效，自动为您播放下一首',
+            MUSIC_FAILE_END: '当前音乐地址无效',
+            MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
+
+            //option
+            TOC_TITLE: 'Article Directory',
+            HEADER_FIX: 'Fix head',
+            ASIDE_FIX: 'Fix navigation',
+            ASIDE_FOLDED: 'Fold navigation',
+            ASIDE_DOCK: 'Top navigation',
+            CONTAINER_BOX: 'Box model',
+            DARK_MODE: 'Dark Mode',
+            DARK_MODE_AUTO: 'Dark Mode(Auto)',
+            DARK_MODE_FIXED: 'Dark Mode(Fixed)',
+            EDITOR_CHOICE: 'origin',
+
+
+            CDN_NAME: '',
+            LAZY_LOAD: '1',
+            PAGE_ANIMATE: '',
+            THEME_COLOR: '8',
+            THEME_COLOR_EDIT: '',
+            THEME_HEADER_FIX: '1',
+            THEME_ASIDE_FIX: '1',
+            THEME_ASIDE_FOLDED: '',
+            THEME_ASIDE_DOCK: '',
+            THEME_CONTAINER_BOX: '1',
+            THEME_HIGHLIGHT_CODE: '1',
+            THEME_MATHJAX: '',
+            THEME_TOC: '1',
+            THEME_DARK_MODE: 'auto',
+            THEME_DARK_MODE_VALUE: 'compatible',
+            SHOW_SETTING_BUTTON: '1',
+
+            THEME_DARK_HOUR: '19',
+            THEME_LIGHT_HOUR: '7',
+            THUMB_STYLE: 'normal',
+            AUTO_READ_MODE: '',
+
+            //代码高亮
+            CODE_STYLE_LIGHT: 'dracula',
+            CODE_STYLE_DARK: 'dracula',
+
+            //other
+            OFF_SCROLL_HEIGHT: '50',
+            SHOW_IMAGE_ALT: '1',
+            USER_LOGIN: '',
+            USE_CACHE: '',
+            POST_SPEECH: '1',
+        };
+
+        if ('serviceWorker' in navigator) {
+            if (LocalConst.USE_CACHE) {
+                navigator.serviceWorker.register(LocalConst.BLOG_URL + 'sw.min.js?v=7.3.12020081501')
+                    .then(function (reg) {
+
+                    }).catch(function (error) {
+                    console.log('cache failed with ' + error); // registration failed
+                });
+            } else {
+                navigator.serviceWorker.getRegistrations()
+                    .then(function (registrations) {
+                        for (let registration of registrations) {
+                            registration.unregister();
+                            // 清除缓存
+                            window.caches && caches.keys && caches.keys().then(function (keys) {
+                                keys.forEach(function (key) {
+                                    caches.delete(key);
+                                });
+                            });
+                            console.log("unregister success")
+                        }
+                    });
+            }
+        }
+    </script>
+
+
+    
+
+    <!-- 第三方CDN加载CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- 本地css静态资源 -->
+
+        <link rel="stylesheet" href="https://blog.hudongdong.com/usr/themes/handsome/assets/css/origin/function.min.css?v=7.3.12020081501" type="text/css"/>
+    <link rel="stylesheet"
+          href="https://blog.hudongdong.com/usr/themes/handsome/assets/css/handsome.min.css?v=7.3.12020081501"
+          type="text/css"/>
+
+        
+    
+    <!--主题组件css文件加载-->
+    
+    <!--引入英文字体文件-->
+            <link rel="stylesheet preload" href="https://blog.hudongdong.com/usr/themes/handsome/assets/css/features/font.min.css?v=7.3.12020081501" as="style"/>
+    
+    <style type="text/css">
+        
+        html.bg {
+        background: #fffceb
+        }
+        .cool-transparent .off-screen+* .app-content-body {
+        background: #fffceb
+        }
+@media (max-width:767px){
+    html.bg {
+        background: #fffceb
+        }
+        .cool-transparent .off-screen+* .app-content-body {
+        background: #fffceb
+        }
+}
+/*首页头像自动旋转*/
+.thumb-lg{
+    width:130px;
+}
+
+.avatar{
+    -webkit-transition: 0.4s;
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    transition: transform 0.4s ease-out;
+    -moz-transition: -moz-transform 0.4s ease-out; 
+}
+
+.avatar:hover{
+    transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+}
+
+#aside-user span.avatar{
+    animation-timing-function:cubic-bezier(0,0,.07,1)!important;
+    border:0 solid
+}
+
+#aside-user span.avatar:hover{
+    transform:rotate(360deg) scale(1.2);
+    border-width:5px;
+    animation:avatar .5s
+}    </style>
+
+    <!--全站jquery-->
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+
+    <!--网站统计代码-->
+    <a href="https://github.com/DamonHu" class="github-corner" aria-label="View source on GitHub"><svg width="110" height="110" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+</head>
+
+<body id="body" class="fix-padding">
+
+
+<!-- aside -->
+  
+  <div id="alllayout" class="app app-aside-fix container app-header-fixed ">  <!-- headnav -->
+  <header id="header" class="app-header navbar box-shadow-bottom-lg" role="menu">
+    <!-- navbar header（交集处） -->
+    <div class="text-ellipsis navbar-header bg-dark">
+    <button class="pull-right visible-xs" ui-toggle-class="show animated animated-lento fadeIn" target=".navbar-collapse">
+        <span class="menu-icons"><i data-feather="search"></i></span>
+    </button>
+    <button class="pull-left visible-xs" ui-toggle-class="off-screen animated" target=".app-aside" ui-scroll="app">
+        <span class="menu-icons"><i data-feather="menu"></i></span>
+    </button>
+    <!-- brand -->
+    <a href="https://blog.hudongdong.com/" class="navbar-brand text-lt">
+        <span id="navbar-brand-day">
+                            <img src="//cdn.hudongdong.com/customeSource/logofoot.png">                    </span>
+            </a>
+    <!-- / brand -->
+    </div>
+    <!-- / navbar header -->
+
+    <!-- navbar collapse（顶部导航栏） -->
+    <div class="collapse pos-rlt navbar-collapse bg-dark">
+    <!-- statitic info-->
+        <ul class="nav navbar-nav hidden-sm">
+        <li class="dropdown pos-stc">
+            <a id="statistic_pane" data-status="false" href="#" data-toggle="dropdown" class="dropdown-toggle feathericons dropdown-toggle"
+               aria-expanded="false">
+                <i data-feather="pie-chart"></i>
+                <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu wrapper w-full bg-white">
+                <div class="row">
+                    <div class="col-sm-8 b-l b-light">
+                        <div class="m-l-xs m-t-xs m-b-sm font-bold">Activity Calendar<span class="info-icons"><i
+                                        data-feather="info"
+                                                                                  data-toggle="tooltip" title="Count the number of articles and author reviews over the last 10 months"></i>
+                            </span></div>
+                        <div class="text-center">
+                            <nav class="loading-echart text-center m-t-lg m-b-lg">
+                                <p class="infinite-scroll-request"><i class="animate-spin fontello fontello-refresh"></i>Loading...</p>
+                            </nav>
+                            <div id="post-calendar" class="top-echart hide"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 b-l b-light">
+                        <div class="m-l-xs m-t-xs m-b-sm font-bold">Radar Chart</div>
+                        <div class="text-center">
+                            <nav class="loading-echart text-center m-t-lg m-b-lg">
+                                <p class="infinite-scroll-request"><i class="animate-spin fontello fontello-refresh"></i>Loading...</p>
+                            </nav>
+                            <div id="category-radar" class="top-echart hide"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 b-l b-light">
+                        <div class="m-l-xs m-t-xs m-b-sm font-bold">Release Chart</div>
+                        <div class="text-center">
+                            <nav class="loading-echart text-center m-t-lg m-b-lg">
+                                <p class="infinite-scroll-request"><i class="animate-spin fontello fontello-refresh"></i>Loading...</p>
+                            </nav>
+                            <div id="posts-chart" class="top-echart hide"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 b-l b-light">
+                        <div class="m-l-xs m-t-xs m-b-sm font-bold">Classification Chart</div>
+                        <div class="text-center">
+                            <nav class="loading-echart text-center m-t-lg m-b-lg">
+                                <p class="infinite-scroll-request"><i class="animate-spin fontello fontello-refresh"></i>Loading...</p>
+                            </nav>
+                            <div id="categories-chart" class="top-echart hide"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 b-l b-light">
+                        <div class="m-l-xs m-t-xs m-b-sm font-bold">Tag Chart</div>
+                        <div class="text-center">
+                            <nav class="loading-echart text-center m-t-lg m-b-lg">
+                                <p class="infinite-scroll-request"><i class="animate-spin fontello fontello-refresh"></i>Loading...</p>
+                            </nav>
+                            <div id="tags-chart" class="top-echart hide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    
+    <!-- search form -->
+
+    <form id="searchform1" class="searchform navbar-form navbar-form-sm navbar-left shift" method="post"
+          role="search">
+        <div class="form-group">
+            <div class="input-group rounded bg-white-pure box-shadow-wrap-normal">
+                <input  autocomplete="off" id="search_input" type="search" name="s" class="transparent rounded form-control input-sm no-borders padder" required placeholder="Search projects...">
+                <!--搜索提示-->
+                <ul id="search_tips_drop" class="small-scroll-bar dropdown-menu hide" style="display: block;top: 
+                30px; left: 0px;">
+                </ul>
+                <span id="search_submit" class="transparent input-group-btn">
+                  <button  type="submit" class="transparent btn btn-sm">
+                      <span class="feathericons" id="icon-search"><i data-feather="search"></i></span>
+                      <span class="feathericons animate-spin  hide" id="spin-search"><i
+                                  data-feather="loader"></i></span>
+                      <!--                      <i class="fontello fontello-search" id="icon-search"></i>-->
+                      <!--                      <i class="animate-spin  fontello fontello-spinner hide" id="spin-search"></i>-->
+                  </button>
+              </span>
+            </div>
+        </div>
+    </form>
+    <a href="" style="display: none" id="searchUrl"></a>
+    <!-- / search form -->
+        <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a target="_self" href="http://weibo.com/544712635" class="dropdown-toggle"><i class="fontello fontello-weibo icon-fw"></i><span class="visible-xs-inline">Weibo</span></a></li><li class="dropdown"><a target="_self" href="/timeLine/" class="dropdown-toggle"><i class="fontello fontello-gratipay icon-fw"></i><span class="visible-xs-inline">大事记</span></a></li><li class="dropdown"><a target="_self" href="/admin/register.php" class="dropdown-toggle"><i class="fontello fontello-edit icon-fw"></i><span class="visible-xs-inline">registered</span></a></li>                    <!--闲言碎语-->
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="feathericons dropdown-toggle">
+                    <i data-feather="twitch"></i>
+                    <span class="visible-xs-inline">
+              New thing              </span>
+                    <span class="badge badge-sm up bg-danger pull-right-xs"></span>
+                </a>
+                <!-- dropdown -->
+                <div class="dropdown-menu w-xl animated fadeInUp">
+                    <div class="panel bg-white">
+                        <div class="panel-heading b-light bg-light">
+                            <strong>
+                                New thing                            </strong>
+                        </div>
+                        <div class="list-group" id="smallRecording">
+                            <a href="https://blog.hudongdong.com/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">网站被攻击了咋办 帮我看看 congdi.com<br><small class="text-muted">2021-3-3 11:53:07</small></span></a><a href="https://blog.hudongdong.com/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">网站被其他克隆镜像了，希望大家别被骗了<br><small class="text-muted">2021-1-7 18:30:11</small></span></a><a href="https://blog.hudongdong.com/cross.html" class="list-group-item"><span class="clear block m-b-none words_contents">曾经以为2020年是一个遥远的未来的日子，现如今只剩四个月了<br><small class="text-muted">2019-8-20 10:35:47</small></span></a>                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--/闲言碎语-->
+                            <!--登录管理-->
+            <li class="dropdown" id="easyLogin">
+                <a onclick="return false" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
+                                            <span class="feathericons"><i data-feather="key"></i></span>
+                                        <b class="caret"></b><!--下三角符号-->
+                </a>
+                <!-- dropdown(已经登录) -->
+                                    <div class="dropdown-menu w-lg wrapper bg-white animated fadeIn" aria-labelledby="navbar-login-dropdown">
+                        <form id="Login_form" action="https://blog.hudongdong.com/index.php/action/login?_=66546c97acdc93a32494cd598524bea1" method="post">
+                            <div class="form-group">
+                                <label for="navbar-login-user">username</label>
+                                <input type="text" name="name" id="navbar-login-user" class="form-control" placeholder="User name or e-mail address"></div>
+                            <div class="form-group">
+                                <label for="navbar-login-password">password</label>
+                                <input autocomplete type="password" name="password" id="navbar-login-password"
+                                       class="form-control" placeholder="password"></div>
+                            <button style="width: 100%" type="submit" id="login-submit" name ="submitLogin" class="btn-rounded box-shadow-wrap-lg btn-gd-primary padder-lg">
+                                <span>Login</span>
+                                <span class="text-active">logging in...</span>
+                                <span class="banLogin_text">刷新页面后登录</span>
+                                <i class="animate-spin  fontello fontello-spinner hide" id="spin-login"></i>
+                                <i class="animate-spin fontello fontello-refresh hide" id="ban-login"></i>
+                            </button>
+
+
+<!--                            -->
+                            <input type="hidden" name="referer" value="https://blog.hudongdong.com/"></form>
+                    </div>
+                            </li>
+            <!--/登录管理-->
+            </ul>
+    </div>
+    <!-- / navbar collapse -->
+</header>
+  <!-- / headnav -->
+
+  <!--选择侧边栏的颜色-->
+  <aside id="aside" class="app-aside hidden-xs bg-light">  <!--<aside>-->
+        <div class="aside-wrap" layout="column">
+        <div class="navi-wrap scroll-y scroll-hide" flex>
+          <!-- user -->
+          <div class="clearfix hidden-xs text-center hide  show" id="aside-user">
+            <div class="dropdown wrapper vertical-wrapper">
+                <div ui-nav>
+                          <a href="https://blog.hudongdong.com/cross.html">
+                            <span class="thumb-lg w-auto-folded avatar m-t-sm  vertical-avatar">
+                  <img src="//cdn.hudongdong.com/img/avatar_big.png" class="img-full img-circle normal-shadow">
+                </span>
+              </a>
+                </div>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded  vertical-flex">
+                <span class="clear">
+                  <span class="block m-t-sm">
+                    <strong class="font-bold text-lt">胡东东博客</strong>
+                    <b class="caret"></b>
+                  </span>
+                  <span class="text-muted text-xs block">坚韧沉稳，谦逊忍耐</span>
+                </span>
+              </a>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animated fadeInRight w hidden-folded no-padder">
+                <li class="wrapper b-b m-b-sm bg-info m-n">
+                  <span class="arrow top hidden-folded arrow-info"></span>
+                  <div>
+                                                  <p>Good morning,ever youthful,ever weeping</p>
+                                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过41.67%" style="width: 41.67%"></div>
+                  </div>
+                </li>
+              </ul>
+              <!-- / dropdown -->
+            </div>
+          </div>
+          <!-- / user -->
+
+          <!-- nav -->
+          <nav ui-nav class="navi clearfix">
+            <ul class="nav">
+             <!--index-->
+                <div class="line dk hidden-folded"></div>
+                <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>Navigation</span>
+              </li>
+                                          <!--主页-->
+              <li>
+                <a href="https://blog.hudongdong.com/" class="auto">
+                    <span class="nav-icon"><i data-feather="home"></i></span>
+                    <span>Home</span>
+                </a>
+              </li>
+              <!-- /主页 -->
+                            <li> <a target="_blank" href="/album/" class ="auto"><span class="nav-icon"><i class="fontello fontello-picture"></i></span><span>图集</span></a></li><li> <a target="_self" href="/book.html" class ="auto"><span class="nav-icon"><i class="fontello fontello-edit"></i></span><span>书单</span></a></li><li> <a target="_self" href="/archive.html" class ="auto"><span class="nav-icon"><i class="fontello fontello-pencil"></i></span><span>归档</span></a></li>                              <li class="line dk"></li>
+			<!--Components-->
+              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>Components</span>
+              </li>
+              <!--分类category-->
+                              <li >
+                <a class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="fontello icon-fw fontello-angle-right text"></i>
+                    <i class="fontello icon-fw fontello-angle-down text-active"></i>
+                  </span>
+<!--                  <i class="glyphicon glyphicon-th"></i>-->
+                    <span class="nav-icon"><i data-feather="grid"></i></span>
+
+                    <span>Categories</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a>
+                      <span>Categories</span>
+                    </a>
+                  </li>
+                  <!--循环输出分类-->
+
+                    <li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/cocos2d/"><b class="badge pull-right">31</b>COCOS2D-X</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/android/"><b class="badge pull-right">1</b>安卓开发</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/mui/"><b class="badge pull-right">5</b>mui框架</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/h5/"><b class="badge pull-right">4</b>Html5</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/more/"><b class="badge pull-right">11</b>其他</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/ios/"><b class="badge pull-right">90</b>iOS开发</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/u3d-C/"><b class="badge pull-right">1</b>C#学习</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/u3d/"><b class="badge pull-right">15</b>Unity3D</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/java/"><b class="badge pull-right">1</b>初识JAVA</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/web/"><b class="badge pull-right">25</b>建站备忘</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/oc/"><b class="badge pull-right">37</b>Objective-C</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/skill/"><b class="badge pull-right">56</b>软件使用</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/demo/"><b class="badge pull-right">5</b>代码片段</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/talk/"><b class="badge pull-right">31</b>乱七八糟</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/bug/"><b class="badge pull-right">77</b>BUG记录</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/c/"><b class="badge pull-right">33</b>C/C++</a></li><li class="category-level-0 category-parent"><a  href="https://blog.hudongdong.com/category/swift/"><b class="badge pull-right">7</b>Swift</a></li>                    
+                    <!--/循环输出分类-->
+
+                </ul>
+              </li>
+              <!--独立页面pages-->
+              <li>
+                <a class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="fontello icon-fw fontello-angle-right text"></i>
+                    <i class="fontello icon-fw fontello-angle-down text-active"></i>
+                  </span>
+                    <span class="nav-icon"><i data-feather="file"></i></span>
+                  <span>Pages</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a data-no-instant>
+                      <span>Pages</span>
+                    </a>
+                  </li><!--这个字段不会被显示出来-->
+                  <!--循环输出独立页面-->
+                                                                                   <li><a href="https://blog.hudongdong.com/links.html"><span>友情链接</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/cross.html"><span>动态</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/book.html"><span>书单</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/urllist.html"><span>网站链接地图</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/jsondata.html"><span>JsonData页面</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/OpenSource.html"><span>开源代码</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/orderlist.html"><span>打赏列表</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/archive.html"><span>文章全集</span></a></li>
+                                                                 <li><a href="https://blog.hudongdong.com/about.html"><span>关于我</span></a></li>
+                                   </ul>
+              </li>
+              <!--友情链接-->
+              <li>
+                <a class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="fontello icon-fw fontello-angle-right text"></i>
+                    <i class="fontello icon-fw fontello-angle-down text-active"></i>
+                  </span>
+                    <span class="nav-icon"><i data-feather="user"></i></span>
+                  <span>Links</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a data-no-instant>
+                      <span>Links</span>
+                    </a>
+                  </li>
+                  <!--使用links插件，输出全站友链-->
+                 <li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="http://blog.hudongdong.com/talk/106.html" target="_blank"><span>申请友链</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="http://muguang.me" target="_blank"><span>暮光博客</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="http://www.ljcoder.com" target="_blank"><span>LJCoder</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.chenweiliang.com" target="_blank"><span>陈沩亮博客</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="http://uycool.com" target="_blank"><span>官仁博客</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="http://zhubenjie.com" target="_blank"><span>朱本杰的个人空间</span></a></li><li data-original-title="初三学渣，不断学习中！" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.xsy.fun" target="_blank"><span>XSY</span></a></li><li data-original-title="技术分享、帝国CMS" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.mochoublog.com" target="_blank"><span>莫愁</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.etufo.org/" target="_blank"><span>UFO</span></a></li><li data-original-title="Stay Hungry, Stay Foolish" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.aengus.top" target="_blank"><span>Aengus | Blog</span></a></li><li data-original-title="一个神秘的人" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.xifarm.com/" target="_blank"><span>xifarm</span></a></li><li data-original-title="懒猪软件" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://www.lazypig.net" target="_blank"><span>懒猪软件</span></a></li><li data-original-title="Learning to program！" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://blog.gaobinzhan.com/" target="_blank"><span>史迪仔博客</span></a></li><li data-original-title="一个80后从事于网站前端设计和平面设计的站长之路。" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="http://www.wenxuands.com" target="_blank"><span>文轩设计之路</span></a></li><li data-original-title="休止千鹤 | 我依旧是一名平凡的学生" data-toggle="tooltip" 
+data-placement="top"><a rel='noopener' href="https://blog.restkhz.com" target="_blank"><span>restkhz</span></a></li>                </ul>
+              </li>
+                            </ul>
+          </nav>
+          <!-- nav -->
+        </div>
+          <!--end of .navi-wrap-->
+          <!--left_footer-->
+                    <div id="left_footer" class="footer wrapper-xs text-center nav-xs lt">
+                  
+                                        <div class="col-xs-4 no-padder">
+                          <a target="_blank" class="tinav" href="https://blog.hudongdong.com/admin/" title="" data-toggle="tooltip" data-placement="top" data-original-title="后台管理">
+                              <span class="left-bottom-icons block"><i data-feather="settings"></i></span>
+                              <small class="text-muted">Admin</small>
+                          </a>
+                      </div>
+                                    <div class="col-xs-4 no-padder">
+                      <a target="_blank" class="tinav" href="https://blog.hudongdong.com/feed/" title="" data-toggle="tooltip" data-placement="top" data-original-title="文章RSS地址">
+                          <span class="left-bottom-icons block"><i data-feather="rss"></i></span>
+                          <small class="text-muted">Post</small>
+                      </a>
+                  </div>
+                  <div class="col-xs-4 no-padder">
+                      <a target="_blank" href="https://blog.hudongdong.com/feed/comments/" title="" data-toggle="tooltip" data-placement="top" data-original-title="评论RSS地址">
+                          <span class="left-bottom-icons block"><i data-feather="message-square"></i></span>
+                          <small class="text-muted">Comment</small>
+                      </a>
+                  </div>
+          </div>
+          
+      </div><!--.aside-wrap-->
+  </aside>
+<!-- content -->
+<div id="content" class="app-content">
+    <!--loading animate-->
+    
+
+
+
+
+
+<!-- / aside -->
+
+<!-- <div id="content" class="app-content"> -->
+<a class="off-screen-toggle hide"></a>
+<main class="app-content-body animated fadeIn">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+        <div class="col center-part">
+                            <!--公告位置-->
+                <div class="alert alert-warning alert-block" style="
+              margin-bottom: 0px;">
+                    <button type="button" class="close" data-dismiss="alert">×</button><p><i class="fontello fontello-volume-up" aria-hidden="true"></i>&nbsp;
+                        如果文章对您有用，麻烦顺手点一下文章的广告吧~</p>
+                </div>
+                <!--/公告位置-->
+                        <header class="bg-light lter wrapper-md">
+                <h1 class="m-n font-thin text-black l-h">胡东东博客</h1>
+                <small class="text-muted letterspacing indexWords">分享手游和app开发的日常点滴，菜鸟总会有高飞的一天。不骄方能师人之长，而自成其学</small>
+            </header>
+            <div class="wrapper-md skt-loading" id="post-panel">
+
+                                <!--首页输出文章-->
+
+                <div class="blog-post"><div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/ios/1164.html">
+            <div class="item-thumb lazy" data-original="http://blog.hudongdong.com/usr/uploads/2021/05/3045500571.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/ios/1164.html">iOS调试工具合集-ZXKit</a></h2><p class="summary l-h-2x text-muted">这段时间闲了，好久没有更新过东西了。闲暇之余，写了一个iOS端整合的调试工具框架取名ZXKit，名字取自我很喜欢的一本小说《诛仙》。天地不仁，以万物为刍狗因为之前开发的调试框架比较分散，所以希望可以通过一个通用的框架，通过插件的结构去组合不同的调试工具。该工具是为了高效的定位解决问题，而不是追求大而全，所以iOS端私有函数、禁用的接口等影响App Store上线的功能，默认都不会提供。项目地...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>May 14, 2021</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/ios/1164.html#comments"> No comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/ios/1164.html#comments">68 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/skill/1161.html">
+            <div class="item-thumb lazy" data-original="http://blog.hudongdong.com/usr/uploads/2021/03/1937795516.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/skill/1161.html">mac平台git全局忽略.DS_Store文件和大小写</a></h2><p class="summary l-h-2x text-muted">又是一篇git操作</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>March 23, 2021</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/skill/1161.html#comments"> No comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/skill/1161.html#comments">423 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/skill/1105.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2021/01/1297689384.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/skill/1105.html">git仓库大文件清理</a></h2><p class="summary l-h-2x text-muted">新同事拉取仓库代码，结果报错pack - out of memory，我们是自己搭建的gitlab，一查服务器的仓库大小，文件有一个多G的大小，拉取代码时，服务器内存直接撑爆了，这就很奇怪了，因为我们的这个项目正常10M之内，这么大肯定是有问题的。查了一下，发现是某个日志文件，每次提交100M，提交的次数过多，导致容量暴增，但是这个日志文件是可以忽略的，所以就需要把这个文件清理掉。如果你也是...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>January 7, 2021</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/skill/1105.html#comments">1  comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/skill/1105.html#comments">1539 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/ios/1095.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2020/10/761842484.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/ios/1095.html">iOS屏幕横竖屏切换</a></h2><p class="summary l-h-2x text-muted">搜了网上的教程是真的乱，废话不多说，这里从启动到具体的VC，横竖屏切换完美搞定。如果你的app只需要支持一个方向，那么不需要看以下内容，只需要将项目的General设置中，将Device Orientation勾选需要支持的方向即可一、启动页LaunchScreen启动页是系统的默认根据info.plist的设置显示，启动时就加载了，加载时机很早，所以你要决定启动页要不要根据手机横竖屏自动旋...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>October 25, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/ios/1095.html#comments">1  comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/ios/1095.html#comments">1460 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/bug/1091.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2020/09/2625138230.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/bug/1091.html">xcode12报错missing one or more architectures required by this target armv7</a></h2><p class="summary l-h-2x text-muted">迫不及待的升级了xcode12，结果在打包的时候报错widget中的一个frameworkmissing one or more architectures required by this target armv7这个只要在打包时把armv7排除掉就行了。解决方案在项目Target的Build Setting中，在Exclude Architectures中，填入armv7就行了，如下图设...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>September 21, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/bug/1091.html#comments"> No comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/bug/1091.html#comments">2838 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/swift/1079.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2020/09/4044220669.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/swift/1079.html">更新一个常用库HDCommonToolsSwift</a></h2><p class="summary l-h-2x text-muted">之前写过OC版本的HDCommonTools，为不同的类型封装不同的Category，根据数据处理、文件管理、多媒体管理、权限管理、系统信息、Appstore操作、加密解密。Swift可以通过桥接文件来使用，但是如果集成到其他库的话还是挺麻烦的，所以就又根据最常用的功能封装了一个HDSwiftCommonTools，移除了OC版本冗余的功能，因为怕影响别人线上已有的业务，所以OC版本中没做修...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>July 11, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/swift/1079.html#comments">2  comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/swift/1079.html#comments">2152 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/swift/1077.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2020/07/3715408091.jpeg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/swift/1077.html">Swift的命名空间式的拓展实现</a></h2><p class="summary l-h-2x text-muted">在OC时代，第三方库为现有系统类添加方法为了防止后续和系统函数冲突，采用了添加自定义前缀的方式，比如Masonry使用mas_前缀[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.equalTo(superview);
+}];Swift因为有着点语法的良好提示，所以现在更流行通过添加命名空间去添加拓...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>July 10, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/swift/1077.html#comments"> No comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/swift/1077.html#comments">881 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/talk/1075.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2020/04/2675210429.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/talk/1075.html">mac常用开发工具安装加速</a></h2><p class="summary l-h-2x text-muted">为了防止万恶的资本主义侵蚀，我们有的开发工具比如Homebrew、cocoapods等受到牵连，所以在没有梯子的情况下，不妨试试这样安装一、HomebrewHomebrew 是一款自由及开放源代码的软件包管理系统，用以简化 macOS 系统上的软件安装过程。它拥有安装、卸载、更新、查看、搜索等很多实用的功能，通过简单的一条指令，就可以实现包管理，十分方便快捷。目前支持macOS和linux系...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>April 23, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/talk/1075.html#comments"> No comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/talk/1075.html#comments">1095 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/web/1072.html">
+            <div class="item-thumb lazy" data-original="http://blog.hudongdong.com/usr/uploads/2020/04/1247274614.jpg" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/web/1072.html">阿里云ubuntu搭建ipv6实践总结</a></h2><p class="summary l-h-2x text-muted">现在阿里云在进行ipv6的推进，相信年底或者不久应该就不需要自己搭建了，但是现在在苹果审核时，还是需要适配一下ipv6网络，经过网络搜索，成功搭建，其他参考链接在文章最后。</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>April 1, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/web/1072.html#comments">2  comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/web/1072.html#comments">1541 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="https://blog.hudongdong.com/swift/1069.html">
+            <div class="item-thumb lazy" data-original="http://cdn.hudongdong.com/usr/uploads/2020/03/1502921397.png" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAA1JREFUCJljePfx038ACXMD0ZVlJAYAAAAASUVORK5CYII=)">
+</div>
+           
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a 
+    href="https://blog.hudongdong.com/swift/1069.html">vapor框架下的极光推送工具HDJGPushTool</a></h2><p class="summary l-h-2x text-muted">vapor是一个swift语言开发的服务器框架，但是由于还比较小众没有极光官方项目的库，所以我写了该项目，可以在vapor框架下快速集成使用极光推送的库。该项目使用swift语言开发，基于极光推送官网的Rest Api接口，三行代码即可快速集成服务器端功能。项目的github地址：https://github.com/DamonHu/vapor-HDJGPushTool一、项目集成可以采用S...</p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="https://blog.hudongdong.com/author/1/">胡东东博客</a></li>
+
+<li><span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>March 13, 2020</li><li><span class="right-small-icons m-r-sm"><i 
+data-feather="message-square"></i></span><a href="https://blog.hudongdong.com/swift/1069.html#comments">1  comments</a></li>
+<li><span class="right-small-icons m-r-sm"><i data-feather="eye"></i></span><a 
+href="https://blog.hudongdong.com/swift/1069.html#comments">1515 views</a></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+</div>                <!--分页首页按钮-->
+                <nav class="text-center m-t-lg m-b-lg" role="navigation">
+                    <ol class="page-navigator"><li class="current"><a href="https://blog.hudongdong.com/page/1/">1</a></li><li><a href="https://blog.hudongdong.com/page/2/">2</a></li><li><a href="https://blog.hudongdong.com/page/3/">3</a></li><li><a href="https://blog.hudongdong.com/page/4/">4</a></li><li><span>...</span></li><li><a href="https://blog.hudongdong.com/page/43/">43</a></li><li class="next"><a href="https://blog.hudongdong.com/page/2/"><i class="fontello fontello-chevron-right"></i></a></li></ol>                </nav>
+                <style>
+                    .page-navigator>li>a, .page-navigator>li>span{
+                        line-height: 1.42857143;
+                        padding: 6px 12px;
+                    }
+                </style>
+            </div>
+        </div>
+        <!--首页右侧栏-->
+                 <aside class="asideBar col w-md bg-white-only bg-auto no-border-xs" role="complementary">
+     <div id="sidebar">
+      <section id="tabs-4" class="widget widget_tabs clear">
+       <div class="nav-tabs-alt no-js-hide">
+        <ul class="nav nav-tabs nav-justified box-shadow-bottom-normal tablist" role="tablist">
+         <li data-index="0" class="active" role="presentation"> <a href="#widget-tabs-4-hots" role="tab" aria-controls="widget-tabs-4-hots" aria-expanded="true" data-toggle="tab"><div class="sidebar-icon wrapper-sm"><i data-feather="thumbs-up"></i></div><span class="sr-only">Popular articles</span> </a></li>
+                            <li role="presentation" data-index="1"> <a href="#widget-tabs-4-comments" role="tab" aria-controls="widget-tabs-4-comments" aria-expanded="false" data-toggle="tab"><div class="sidebar-icon wrapper-sm"><i  data-feather="message-square"></i></div> <span class="sr-only">Latest comments</span> </a></li>
+                        <li data-index="2" role="presentation"> <a href="#widget-tabs-4-random" role="tab" aria-controls="widget-tabs-4-random" aria-expanded="false" data-toggle="tab"> <div class="sidebar-icon wrapper-sm"><i data-feather="gift"></i></div>  <span class="sr-only">Random articles</span>
+             </a></li>
+            <span class="navs-slider-bar"></span>
+        </ul>
+       </div>
+       <div class="tab-content">
+       <!--热门文章-->
+        <div id="widget-tabs-4-hots" class="tab-pane  fade in wrapper-md active" role="tabpanel">
+         <h5 class="widget-title m-t-none text-md">Popular articles</h5>
+         <ul class="list-group no-bg no-borders pull-in m-b-none">
+          <li class="list-group-item">
+                <a href="https://blog.hudongdong.com/talk/106.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/talk/106.html" title="友情链接说明和申请"> 友情链接说明和申请 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views"> <span class="right-small-icons"><i data-feather="message-circle"></i></span>  <span class="sr-only">评论数：</span> <span class="meta-value">47</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/talk/369.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/talk/369.html" title="IOS监测其他APP是否打开的思路"> IOS监测其他APP是否打开的思路 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views"> <span class="right-small-icons"><i data-feather="message-circle"></i></span>  <span class="sr-only">评论数：</span> <span class="meta-value">40</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/ios/550.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/ios/550.html" title="IOS视频编辑功能详解下篇-视频裁剪、视频拼接、音视频的处理"> IOS视频编辑功能详解下篇-视频裁剪、视频拼接、音视频的处理 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views"> <span class="right-small-icons"><i data-feather="message-circle"></i></span>  <span class="sr-only">评论数：</span> <span class="meta-value">40</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/ios/546.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/ios/546.html" title="IOS视频编辑功能详解上篇-添加水印"> IOS视频编辑功能详解上篇-添加水印 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views"> <span class="right-small-icons"><i data-feather="message-circle"></i></span>  <span class="sr-only">评论数：</span> <span class="meta-value">21</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/web/580.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/web/580.html" title="Typecho搬家及开通伪静态"> Typecho搬家及开通伪静态 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views"> <span class="right-small-icons"><i data-feather="message-circle"></i></span>  <span class="sr-only">评论数：</span> <span class="meta-value">21</span>
+                    </span></small></div></li>         </ul>
+        </div>
+                   <!--最新评论-->
+        <div id="widget-tabs-4-comments" class="tab-pane fade wrapper-md no-js-show" role="tabpanel">
+         <h5 class="widget-title m-t-none text-md">Latest comments</h5>
+         <ul class="list-group no-borders pull-in auto m-b-none no-bg">
+                              <li class="list-group-item">
+
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12509" class="pull-left thumb-sm avatar m-r">
+                  <img nogallery src="https://sdn.geekzu.org/avatar/085daf30bedc5848bd1971e53fb3bc23?s=65&r=PG&d=" class="img-40px photo img-square normal-shadow">              </a>
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12509" class="text-muted">
+                  <!--<i class="iconfont icon-comments-o text-muted pull-right m-t-sm text-sm" title="" aria-hidden="true" data-toggle="tooltip" data-placement="auto left"></i>
+                  <span class="sr-only"></span>-->
+              </a>
+              <div class="clear">
+                  <div class="text-ellipsis">
+                      <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12509" title="一梦"> 一梦 </a>
+                  </div>
+                  <small class="text-muted">
+                      <span>
+                          还是一样错误，实在是太难受啦！                      </span>
+                  </small>
+              </div>
+          </li>
+                    <li class="list-group-item">
+
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12507" class="pull-left thumb-sm avatar m-r">
+                  <img nogallery src="https://sdn.geekzu.org/avatar/085daf30bedc5848bd1971e53fb3bc23?s=65&r=PG&d=" class="img-40px photo img-square normal-shadow">              </a>
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12507" class="text-muted">
+                  <!--<i class="iconfont icon-comments-o text-muted pull-right m-t-sm text-sm" title="" aria-hidden="true" data-toggle="tooltip" data-placement="auto left"></i>
+                  <span class="sr-only"></span>-->
+              </a>
+              <div class="clear">
+                  <div class="text-ellipsis">
+                      <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12507" title="一梦"> 一梦 </a>
+                  </div>
+                  <small class="text-muted">
+                      <span>
+                          确认过了，类型和版本都是一样的                      </span>
+                  </small>
+              </div>
+          </li>
+                    <li class="list-group-item">
+
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12505" class="pull-left thumb-sm avatar m-r">
+                  <img nogallery src="https://sdn.geekzu.org/avatar/085daf30bedc5848bd1971e53fb3bc23?s=65&r=PG&d=" class="img-40px photo img-square normal-shadow">              </a>
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12505" class="text-muted">
+                  <!--<i class="iconfont icon-comments-o text-muted pull-right m-t-sm text-sm" title="" aria-hidden="true" data-toggle="tooltip" data-placement="auto left"></i>
+                  <span class="sr-only"></span>-->
+              </a>
+              <div class="clear">
+                  <div class="text-ellipsis">
+                      <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12505" title="一梦"> 一梦 </a>
+                  </div>
+                  <small class="text-muted">
+                      <span>
+                          我想从A服务器搬家到B服务器，我是这样操作的：先在A的数据库全...                      </span>
+                  </small>
+              </div>
+          </li>
+                    <li class="list-group-item">
+
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12503" class="pull-left thumb-sm avatar m-r">
+                  <img nogallery src="https://sdn.geekzu.org/avatar/085daf30bedc5848bd1971e53fb3bc23?s=65&r=PG&d=" class="img-40px photo img-square normal-shadow">              </a>
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12503" class="text-muted">
+                  <!--<i class="iconfont icon-comments-o text-muted pull-right m-t-sm text-sm" title="" aria-hidden="true" data-toggle="tooltip" data-placement="auto left"></i>
+                  <span class="sr-only"></span>-->
+              </a>
+              <div class="clear">
+                  <div class="text-ellipsis">
+                      <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12503" title="一梦"> 一梦 </a>
+                  </div>
+                  <small class="text-muted">
+                      <span>
+                          错误您的 SQL 查询可能有错。如果可能的话，以下会列出 My...                      </span>
+                  </small>
+              </div>
+          </li>
+                    <li class="list-group-item">
+
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12501" class="pull-left thumb-sm avatar m-r">
+                  <img nogallery src="https://sdn.geekzu.org/avatar/085daf30bedc5848bd1971e53fb3bc23?s=65&r=PG&d=" class="img-40px photo img-square normal-shadow">              </a>
+              <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12501" class="text-muted">
+                  <!--<i class="iconfont icon-comments-o text-muted pull-right m-t-sm text-sm" title="" aria-hidden="true" data-toggle="tooltip" data-placement="auto left"></i>
+                  <span class="sr-only"></span>-->
+              </a>
+              <div class="clear">
+                  <div class="text-ellipsis">
+                      <a href="https://blog.hudongdong.com/web/580.html/comment-page-1#comment-12501" title="一梦"> 一梦 </a>
+                  </div>
+                  <small class="text-muted">
+                      <span>
+                          直接倒在第3步，在phpmyadmin，创建了一个新的数据库，...                      </span>
+                  </small>
+              </div>
+          </li>
+                   </ul>
+        </div>
+                   <!--随机文章-->
+        <div id="widget-tabs-4-random" class="tab-pane fade wrapper-md no-js-show" role="tabpanel">
+            <h5 class="widget-title m-t-none text-md">Random articles</h5>
+            <ul class="list-group no-bg no-borders pull-in">
+            <li class="list-group-item">
+                <a href="https://blog.hudongdong.com/u3d/296.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/6.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/u3d/296.html" title="NGUI 3.5教程（四）Atlas和Sprite（制作图片按钮）"> NGUI 3.5教程（四）Atlas和Sprite（制作图片按钮） </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views "> <span class="right-small-icons"><i data-feather="message-circle"></i></span> <span class="sr-only">评论数：</span> <span class="meta-value">0</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/talk/5.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/5.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/talk/5.html" title="博客的开篇寄语"> 博客的开篇寄语 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views "> <span class="right-small-icons"><i data-feather="message-circle"></i></span> <span class="sr-only">评论数：</span> <span class="meta-value">2</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/bug/276.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/4.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/bug/276.html" title="使用enum报错is not a class or namespace的解决方法"> 使用enum报错is not a class or namespace的解决方法 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views "> <span class="right-small-icons"><i data-feather="message-circle"></i></span> <span class="sr-only">评论数：</span> <span class="meta-value">0</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/bug/71.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/8.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/bug/71.html" title="Undefined symbols for architecture i386 error"> Undefined symbols for architecture i386 error </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views "> <span class="right-small-icons"><i data-feather="message-circle"></i></span> <span class="sr-only">评论数：</span> <span class="meta-value">0</span>
+                    </span></small></div></li><li class="list-group-item">
+                <a href="https://blog.hudongdong.com/oc/157.html" class="pull-left thumb-sm m-r"><img src="https://blog.hudongdong.com/usr/themes/handsome/assets/img/sj2/9.jpg" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="https://blog.hudongdong.com/oc/157.html" title="为UIView和子类添加点击事件"> 为UIView和子类添加点击事件 </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-views "> <span class="right-small-icons"><i data-feather="message-circle"></i></span> <span class="sr-only">评论数：</span> <span class="meta-value">0</span>
+                    </span></small></div></li>            </ul>
+        </div>
+       </div>
+      </section>
+      <!--博客信息-->
+               <section id="blog_info" class="widget widget_categories wrapper-md clear">
+       <h5 class="widget-title m-t-none text-md">Blog Info</h5>
+       <ul class="list-group box-shadow-wrap-normal">
+                      <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="award"></i></span> <span
+                       class="badge
+           pull-right">430</span>Posts Num</li>
+           <li class="list-group-item text-second"> <span class="blog-info-icons"> <i data-feather="message-circle"></i></span>
+               <span class="badge
+           pull-right">488</span>Comments Num</li>
+           <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="calendar"></i></span>
+               <span class="badge
+           pull-right">6 Y 113 D</span>Operating Days</li>
+           <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="activity"></i></span> <span
+                       class="badge
+           pull-right">1 Week Ago</span>Last activity</li>
+       </ul>
+      </section>
+                        <!--广告位置-->
+         <section id="a_d_sidebar" class="widget widget_categories wrapper-md clear">
+             <h5 class="widget-title m-t-none text-md">广告</h5>
+            <script type="text/javascript">
+        (function() {
+            var s = "_" + Math.random().toString(36).slice(2);
+            document.write('<div style="" id="' + s + '"></div>');
+            (window.slotbydup = window.slotbydup || []).push({
+                id: "u4051806",
+                container: s
+            });
+        })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" >
+</script>
+<hr/><p><p><font size="3">懒猪优惠券小程序<br/><br/>☞『智能汇集拼多多优惠券』</font></p><a href="#" target="_blank"><img src="https://cdn.lazypig.net/static/lazypigCoupons.jpg"  alt="懒猪优惠券" /></a></p>
+<hr/><hr/>
+<p><p><font size="3">懒猪工具箱小程序<br/><br/>☞『微信小程序快捷工具』</font></p><img src="https://cdn.lazypig.net/static/lazypigTool.jpg"  alt="懒猪工具箱" /></p>
+<hr/><hr/>
+<p><p><font size="3">懒猪时间盒iOS版 - 高效时间规划工具<br/><br/>☞『<a href="https://www.appinn.com/lazypig-timebox/" target="_blank">小众软件推荐</a>』</font></p><a href="https://apps.apple.com/cn/app/id1483174732?l=zh&ls=1" target="_blank"><img src="https://cdn.lazypig.net/static/lazypigquick.png"  alt="懒猪时间盒iOS版" /></a></p>
+<hr/><hr/>
+<p><p><font size="3">懒猪藏书阁iOS版 - 实体书管理新体验<br/><br/>☞『<a href="https://www.appinn.com/lanzhucangshuge-for-ios/" target="_blank">小众软件推荐</a>』</font></p><a href="https://apps.apple.com/cn/app/id1487772232" target="_blank"><img src="https://cdn.lazypig.net/static/lazypiglibrary.png"  alt="懒猪藏书阁iOS版" /></a></p>
+<hr/><hr/>         </section>
+                  <!--非文章页面-->
+            <section id="tag_cloud-2" class="widget widget_tag_cloud wrapper-md clear">
+       <h5 class="widget-title m-t-none text-md">Tag cloud</h5>
+          <div class="tags l-h-2x">
+                                                                    <a href="https://blog.hudongdong.com/tag/ios/" class="label badge" title="ios" data-toggle="tooltip">ios</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E4%BD%BF%E7%94%A8/" class="label badge" title="使用" data-toggle="tooltip">使用</a>
+                                        <a href="https://blog.hudongdong.com/tag/NGUI/" class="label badge" title="NGUI" data-toggle="tooltip">NGUI</a>
+                                        <a href="https://blog.hudongdong.com/tag/cocos2d-x/" class="label badge" title="cocos2d-x" data-toggle="tooltip">cocos2d-x</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E6%95%99%E7%A8%8B/" class="label badge" title="教程" data-toggle="tooltip">教程</a>
+                                        <a href="https://blog.hudongdong.com/tag/xcode/" class="label badge" title="xcode" data-toggle="tooltip">xcode</a>
+                                        <a href="https://blog.hudongdong.com/tag/swift/" class="label badge" title="swift" data-toggle="tooltip">swift</a>
+                                        <a href="https://blog.hudongdong.com/tag/mac/" class="label badge" title="mac" data-toggle="tooltip">mac</a>
+                                        <a href="https://blog.hudongdong.com/tag/oc/" class="label badge" title="oc" data-toggle="tooltip">oc</a>
+                                        <a href="https://blog.hudongdong.com/tag/IOS%E5%BC%80%E5%8F%91/" class="label badge" title="IOS开发" data-toggle="tooltip">IOS开发</a>
+                                        <a href="https://blog.hudongdong.com/tag/list/" class="label badge" title="list" data-toggle="tooltip">list</a>
+                                        <a href="https://blog.hudongdong.com/tag/typecho/" class="label badge" title="typecho" data-toggle="tooltip">typecho</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E5%A4%87%E5%BF%98/" class="label badge" title="备忘" data-toggle="tooltip">备忘</a>
+                                        <a href="https://blog.hudongdong.com/tag/cocoapods/" class="label badge" title="cocoapods" data-toggle="tooltip">cocoapods</a>
+                                        <a href="https://blog.hudongdong.com/tag/GPUImage/" class="label badge" title="GPUImage" data-toggle="tooltip">GPUImage</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E4%BC%98%E5%8C%96/" class="label badge" title="优化" data-toggle="tooltip">优化</a>
+                                        <a href="https://blog.hudongdong.com/tag/svn/" class="label badge" title="svn" data-toggle="tooltip">svn</a>
+                                        <a href="https://blog.hudongdong.com/tag/SmartSVN/" class="label badge" title="SmartSVN" data-toggle="tooltip">SmartSVN</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E9%9D%99%E6%80%81%E5%BA%93/" class="label badge" title="静态库" data-toggle="tooltip">静态库</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="label badge" title="解决方法" data-toggle="tooltip">解决方法</a>
+                                        <a href="https://blog.hudongdong.com/tag/AFNetworking/" class="label badge" title="AFNetworking" data-toggle="tooltip">AFNetworking</a>
+                                        <a href="https://blog.hudongdong.com/tag/error/" class="label badge" title="error" data-toggle="tooltip">error</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="label badge" title="解决办法" data-toggle="tooltip">解决办法</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" class="label badge" title="视频编辑" data-toggle="tooltip">视频编辑</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E8%AE%BE%E7%BD%AE/" class="label badge" title="设置" data-toggle="tooltip">设置</a>
+                                        <a href="https://blog.hudongdong.com/tag/emlog/" class="label badge" title="emlog" data-toggle="tooltip">emlog</a>
+                                        <a href="https://blog.hudongdong.com/tag/Unity3D/" class="label badge" title="Unity3D" data-toggle="tooltip">Unity3D</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E7%BD%91%E7%AB%99/" class="label badge" title="网站" data-toggle="tooltip">网站</a>
+                                        <a href="https://blog.hudongdong.com/tag/MUI%E6%A1%86%E6%9E%B6/" class="label badge" title="MUI框架" data-toggle="tooltip">MUI框架</a>
+                                        <a href="https://blog.hudongdong.com/tag/%E5%88%B6%E4%BD%9C/" class="label badge" title="制作" data-toggle="tooltip">制作</a>
+                                          </div>
+      </section>
+        </div>
+     </aside>
+      </div>
+</main>
+<!-- footer -->
+</div><!-- /content -->
+  <footer id="footer" class="app-footer" role="footer">
+    <div class="wrapper bg-light">
+      <span class="pull-right hidden-xs text-ellipsis">
+      <a class="theme-link" 
+ href="http://blog.hudongdong.com/urllist.html">链接地图</a> ：<a class="theme-link" href="http://blog.hudongdong.com/sitemap.xml">SiteMap</a>|<a class="theme-link" 
+ href="http://blog.hudongdong.com/amp_sitemap.xml">AMP</a>&<a class="theme-link" 
+ href="http://blog.hudongdong.com/mip_sitemap.xml">MIP</a>|<a rel="nofollow" target="_blank" href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=mdhd4jxw&amp;utm_source=mdhd4jxw">阿里云</a> &amp; <a rel="nofollow" target="_blank" href="https://portal.qiniu.com/signup?code=3l7w42al1tnpu">七牛云</a>      Powered by <a target="_blank" href="http://www.typecho.org">Typecho</a>&nbsp;|&nbsp;Theme by <a target="_blank"
+                                                                                                     href="https://www.ihewro.com/archives/489/">handsome</a>
+      </span>
+        <span class="text-ellipsis">&copy;&nbsp;2021 Copyright&nbsp;<a href="https://beian.miit.gov.cn/" title="备案号" target="_blank">豫ICP备16007075号-1</a> | 微博：<a class="theme-link" rel="nofollow"  target="_blank" href="http://weibo.com/544712635">Damon胡东东</a></span>
+    </div>
+      <!--可以去除主题版权信息，最好保留版权信息或者添加主题信息到友链，谢谢你的理解-->
+            <script type="text/template" id="tmpl-customizer">
+          <div class="settings panel panel-default setting_body_panel" aria-hidden="true">
+              <button class="fix-padding btn btn-default no-shadow pos-abt border-radius-half-left"
+                      data-toggle="tooltip" data-placement="left" data-original-title="Preference"
+                      data-toggle-class=".settings=active, .settings-icon=animate-spin">
+                  <i class="fontello fontello-gear settings-icon"></i>
+              </button>
+              <div class="panel-heading">
+                  <button class="pull-right btn btn-xs btn-rounded btn-danger " name="reset" data-toggle="tooltip"
+                          data-placement="left" data-original-title="Restore Defaults" >Reset</button>
+                  Setting
+              </div>
+              <div class="setting_body">
+              <div class="panel-body">
+                  <# for ( var keys = _.keys( data.sections.settings ), i = 0, name; keys.length > i; ++i ) { #>
+                      <div<# if ( i !== ( keys.length - 1 ) ) print( ' class="m-b-sm"' ); else print(' id="mode_set"')
+                  #>>
+                          <label class="i-switch bg-info pull-right">
+                              <input type="checkbox" name="{{ keys[i] }}" <#
+                              print( ' value="'+handsome_UI.mode+data
+                              .defaults[keys[i]]+'"' )
+                              if ((data.defaults[keys[i]]=="auto" && handsome_UI.mode =="dark") || data
+                              .defaults[keys[i]] == true) print( ' checked="checked"' );
+                              #> /> 
+                                  <i></i>
+                          </label>
+
+                  <span> <# if(data.defaults[keys[i]]=="auto") print(LocalConst.DARK_MODE_AUTO); else if(data
+                      .sections.settings[keys[i]] == LocalConst.DARK_MODE) {print(LocalConst.DARK_MODE_FIXED)
+                      }else print(data.sections.settings[keys[i]]);#></span>
+       <# if ( i == ( keys.length - 1 ) ) {print( ' <small id="auto_info"'); if(data.defaults[keys[i]]!=="auto") print(' style="display:none"') ;print('><i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" data-original-title="如果您的设备为深色，网站模式为深色，如果您的设备为亮色，则自动根据时间自动切换，7时至19时为夜间"></i></small>')}; #>
+              </div>
+              <# } #>
+          </div>
+          <div class="wrapper b-t b-light bg-light lter r-b">
+              <div class="row row-sm">
+                  <div class="col-xs-4">
+                      <#
+                              _.each( data.sections.colors, function( color, i ) {
+                              var newColumnBefore = ( i % 5 ) === 4;
+                              #>
+                          <label class="i-checks block<# if ( !newColumnBefore ) print( ' m-b-sm' ); #>">
+                              <input type="radio" name="color" value="{{ i }}"<# if ( data.defaults['color'] === i ) print( ' checked="checked"' ); #> />
+                                  <span class="block bg-light clearfix pos-rlt">
+								<span class="active pos-abt w-full h-full bg-black-opacity text-center">
+									<i class="fontello fontello-check text-md text-white m-t-xs"></i>
+								</span>
+								<b class="{{ color.navbarHeader }} header"></b>
+								<b class="{{ color.navbarCollapse }} header"></b>
+								<b class="{{ color.aside.replace( ' b-r', '' ) }}"></b>
+							</span>
+                          </label>
+                          <#
+                                  if ( newColumnBefore && ( i + 1 ) < data.sections.colors.length )
+                          print( '</div><div class="col-xs-4">' );
+                              } );
+                              #>
+                          </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </script>
+
+
+      
+      <div class="topButton panel panel-default">
+          <button id="goToTop" class="fix-padding btn btn-default no-shadow pos-abt hide  border-radius-half-left"
+                  data-toggle="tooltip" data-placement="left" data-original-title="Top">
+              <i class="fontello fontello-chevron-circle-up" aria-hidden="true"></i>
+          </button>
+      </div>
+  </footer>
+  </div><!--end of .app app-header-fixed-->
+
+
+<div class="back-to-top cd-top faa-float animated cd-is-visible" style="top: -900px;"></div><script type="text/javascript" src="https://blog.hudongdong.com/usr/plugins/GoTop/js/szgotop.js"></script>
+
+        
+
+<!--定义全局变量-->
+
+
+
+<!--主题核心js-->
+<script>
+    SearchConfig = {
+        url: "https://blog.hudongdong.com/usr/plugins/Preference/cache/search.json"
+    }
+</script>
+
+
+
+    <script src="https://blog.hudongdong.com/usr/themes/handsome/assets/js/function.min.js?v=7.3.12020081501"></script>
+
+    <script src="https://blog.hudongdong.com/usr/themes/handsome/assets/js/core.min.js?v=7.3.12020081501"></script>
+
+
+
+
+
+<script>
+    if ('serviceWorker' in navigator) {
+        if (LocalConst.USE_CACHE) {
+            navigator.serviceWorker.addEventListener('controllerchange', function (ev) {
+                try {
+                    $.message({
+                        title:"检测到本地缓存需要更新",
+                        message:"<a href='#' onclick='window.location.reload();'>点击刷新页面</a>更新本地缓存",
+                        type:'warning',
+                        time: '300000'
+                    });
+                }catch (e) {
+                }
+            });
+        }
+    }
+
+</script>
+
+<!--主题组件js加载-->
+
+    <!--平滑滚动组件-->
+    <script src="https://blog.hudongdong.com/usr/themes/handsome/assets/js/features/SmoothScroll.min.js"></script>
+
+
+<!--pjax动画组件-->
+    <script>
+        window.paceOptions = {
+            ajax: {
+                ignoreURLs: ['/.*Get.php.*/']
+            },//忽视音乐加载的ajax请求
+            restartOnPushState: false,
+            startOnPageLoad: false,
+            restartOnRequestAfter: false
+        };
+    </script>
+    <script src="https://blog.hudongdong.com/usr/themes/handsome/assets/js/features/pace.min.js"></script>
+
+    <link href="https://blog.hudongdong.com/usr/themes/handsome/assets/css/features/pjax/pace-theme-loading-bar.min.css"
+          rel="stylesheet">
+
+            <style>
+                        .pace .pace-progress{
+      background: #000000;
+      color: #000000;
+}
+
+.pace .pace-activity{
+    box-shadow: inset 0 0 0 2px #000000, inset 0 0 0 7px #FFF;
+}        </style>
+    
+    <script src="https://blog.hudongdong.com/usr/themes/handsome/assets/js/features/lazyload.min.js"></script>
+    <script>
+
+        $(".lazy").lazyload({
+            effect: "fadeIn",
+            threshold: "500"
+        });
+    </script>
+
+
+
+
+
+<!--截图插件-->
+<script src="https://blog.hudongdong.com/usr/themes/handsome/assets/js/features/html2canvas.min.js"></script>
+<!--主题组件js加载结束-->
+
+<!--用户自定义js-->
+<script type="text/javascript">
+    </script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?24f6926af456f14146435bdd8a812a1b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript" src="https://cdn.hudongdong.com/customeSource/commentTyping.js"></script>
+<script src="https://cdn.hudongdong.com/customeSource/jquery-ui.min.js"></script>
+
+</body>
+</html><!--html end-->
+<!-- / footer -->
+
+
+

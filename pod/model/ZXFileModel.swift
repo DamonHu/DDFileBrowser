@@ -11,13 +11,13 @@ class ZXFileModel: NSObject {
     var name: String
     var modificationDate: Date
     var size: Double
-    var isDirectory: Bool
+    var fileType: ZXFileType
 
-    init(name: String = "", modificationDate: Date = Date(), size: Double = 0, isDirectory: Bool = false) {
+    init(name: String = "", modificationDate: Date = Date(), size: Double = 0, fileType: ZXFileType = .unknown) {
         self.name = name
         self.modificationDate = modificationDate
         self.size = size
-        self.isDirectory = isDirectory
+        self.fileType = fileType
         super.init()
     }
 }
