@@ -53,13 +53,13 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ## Preview
 
+|File List|File Type Icon|
+|----|----|
+|![](./preview/demo2.png)|![](./preview/demo1.png)|
 
-![](./preview/demo1.png)
-
-![](./preview/demo2.png)
+Function example
 
 ![](./preview.gif)
-
 
 ## License
 

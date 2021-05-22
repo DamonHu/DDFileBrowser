@@ -52,9 +52,12 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ## 预览
 
-![](./preview/demo1.png)
 
-![](./preview/demo2.png)
+|文件列表|文件类型|
+|----|----|
+|![](./preview/demo2.png)|![](./preview/demo1.png)|
+
+功能示例
 
 ![](./preview/preview.gif)
 
