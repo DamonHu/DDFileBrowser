@@ -59,7 +59,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 Function example
 
-![](./preview.gif)
+![](./preview/preview.gif)
 
 ## License
 
