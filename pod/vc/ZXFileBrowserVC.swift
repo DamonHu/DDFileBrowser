@@ -48,6 +48,7 @@ class ZXFileBrowserVC: UIViewController {
     lazy var mTableView: UITableView = {
         let tTableView = UITableView(frame: CGRect.zero, style: UITableView.Style.grouped)
         tTableView.rowHeight = 60
+        tTableView.estimatedRowHeight = 60
         tTableView.backgroundColor = UIColor.clear
         tTableView.showsVerticalScrollIndicator = false
         tTableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine

@@ -73,14 +73,13 @@ open class ZXFileBrowser: NSObject {
             } else if UTTypeConformsTo(utType, kUTTypeText) || UTTypeConformsTo(utType, kUTTypeRTF) {
                 return .txt
             } else {
-                let string = String(utType)
-                if string == "org.openxmlformats.wordprocessingml.document" || string == "com.microsoft.word.doc" {
+                if UTTypeConformsTo(utType, "org.openxmlformats.wordprocessingml.document" as CFString) || UTTypeConformsTo(utType, "com.microsoft.word.doc" as CFString) {
                     return .word
-                } else if string == "org.openxmlformats.presentationml.presentation" || string == "com.microsoft.powerpoint.ppt" {
+                } else if UTTypeConformsTo(utType, "org.openxmlformats.presentationml.presentation" as CFString) || UTTypeConformsTo(utType, "com.microsoft.powerpoint.ppt" as CFString) {
                     return .ppt
-                } else if string == "org.openxmlformats.spreadsheetml.sheet" || string == "com.microsoft.excel.xls" {
+                } else if UTTypeConformsTo(utType, "org.openxmlformats.spreadsheetml.sheet" as CFString) || UTTypeConformsTo(utType, "com.microsoft.excel.xls" as CFString) {
                     return .excel
-                } else if filePath.pathExtension == "db" {
+                } else if filePath.pathExtension.lowercased() == "db" {
                     //TODO: db格式的utiType暂不确定，根据后缀判断
                     return .db
                 } else {
@@ -116,7 +115,6 @@ extension ZXFileBrowser {
         // 把文件转换成 Uniform Type Identifiers 后获取文件的 tag
         let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExt as CFString, nil)
         if let retainedValue = uti?.takeRetainedValue() {
-            print(retainedValue)
             return retainedValue
         } else {
             return nil
