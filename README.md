@@ -5,7 +5,7 @@
 
 The iOS sandbox file browser can view, copy, move, delete files and other operations.
 
-This project is a built-in function plug-in of [ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift), and it can also be integrated separately and used as an independent function.
+This project is a built-in function plug-in of [ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift), and it can also be integrated separately and used as an independent function. Use `quick look` framework to preview and long press to display more operations
 
 **If you have integrated `ZXKitSwift`, the file browser will be automatically displayed in the plug-in list, so there is no need to repeat the integration.**
 
