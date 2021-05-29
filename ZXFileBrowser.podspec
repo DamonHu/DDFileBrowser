@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'ZXFileBrowser'
 s.swift_version = '5.0'
-s.version = '0.0.8'
+s.version = '1.0.0'
 s.license= { :type => "Apache-2.0", :file => "LICENSE" }
 s.summary = 'iOS Sandbox file browser, iOS沙盒文件浏览器'
 s.homepage = 'https://github.com/ZXKitCode/ZXFileBrowser'
