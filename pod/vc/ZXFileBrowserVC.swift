@@ -8,6 +8,7 @@
 import UIKit
 import ZXKitUtil
 import MobileCoreServices
+import QuickLook
 
 func UIImageHDBoundle(named: String?) -> UIImage? {
     guard let name = named else { return nil }
@@ -233,7 +234,12 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
             let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
             self.navigationItem.rightBarButtonItem = rightBarItem
             self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
-            self._showMore()
+//            self._showMore()
+            //预览
+            let previewVC = QLPreviewController()
+            previewVC.delegate = self
+            previewVC.dataSource = self
+            self.navigationController?.pushViewController(previewVC, animated: true)
         }
     }
     
@@ -254,5 +260,15 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
 
+    }
+}
+
+extension ZXFileBrowserVC: QLPreviewControllerDelegate, QLPreviewControllerDataSource {
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return 1
+    }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        return self.operateFilePath! as QLPreviewItem
     }
 }
