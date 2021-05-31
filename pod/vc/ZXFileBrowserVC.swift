@@ -103,7 +103,7 @@ private extension ZXFileBrowserVC {
         mTableView.reloadData()
     }
 
-    func _showMore() {
+    func _showMore(isDirectory: Bool) {
         guard let filePath = operateFilePath else { return }
         let alertVC = UIAlertController(title:NSLocalizedString("File operations", comment: ""),message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
         if let popoverPresentationController = alertVC.popoverPresentationController {
@@ -127,19 +127,30 @@ private extension ZXFileBrowserVC {
             let rightBarItem = UIBarButtonItem(title: NSLocalizedString("move here", comment: ""), style: .plain, target: self, action: #selector(self._move))
             self.navigationItem.rightBarButtonItem = rightBarItem
         }
-
-        let alertAction4 = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
+        
+        let alertAction4 = UIAlertAction(title: NSLocalizedString("Hash value of the file", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
-            self._delete(filePath: filePath)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self._hash()
+            }
+            
         }
 
+        let alertAction5 = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
+            guard let self = self else { return }
+            self._delete()
+        }
+        
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertAction.Style.cancel) { (alertAction) in
 
         }
         alertVC.addAction(alertAction1)
         alertVC.addAction(alertAction2)
         alertVC.addAction(alertAction3)
-        alertVC.addAction(alertAction4)
+        if !isDirectory {
+            alertVC.addAction(alertAction4)
+        }
+        alertVC.addAction(alertAction5)
         alertVC.addAction(cancelAction)
         self.present(alertVC, animated: true, completion: nil)
     }
@@ -186,7 +197,7 @@ private extension ZXFileBrowserVC {
         self._loadData()
     }
 
-    func _delete(filePath: URL) {
+    func _delete() {
         guard let filePath = operateFilePath else { return }
         let manager = FileManager.default
         do {
@@ -195,6 +206,30 @@ private extension ZXFileBrowserVC {
             print(error)
         }
         self._loadData()
+    }
+    
+    func _hash() {
+        guard let filePath = operateFilePath else { return }
+        var hashValue = ""
+        do {
+            let data = try Data(contentsOf: filePath)
+            hashValue = "MD5: " + data.zx.encryptString(encryType: .md5) + "\n\n" + "SHA1: " + data.zx.encryptString(encryType: .sha1) + "\n\n" + "SHA256: " + data.zx.encryptString(encryType: .sha256) + "\n\n" + "SHA384: " + data.zx.encryptString(encryType: .sha384) + "\n\n" + "SHA512: " + data.zx.encryptString(encryType: .sha512)
+        } catch  {
+            print(error)
+            hashValue = error.localizedDescription
+        }
+        
+        let alertVC = UIAlertController(title: NSLocalizedString("Hash value of the file", comment: ""), message: hashValue, preferredStyle: UIAlertController.Style.alert)
+        let alertAction1 = UIAlertAction(title: NSLocalizedString("copy", comment: ""), style: UIAlertAction.Style.default) { _ in
+            UIPasteboard.general.string = hashValue
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("close", comment: ""), style: UIAlertAction.Style.cancel) { _ in
+
+        }
+        alertVC.addAction(alertAction1)
+        alertVC.addAction(cancelAction)
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
 
@@ -234,8 +269,7 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
             let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
             self.navigationItem.rightBarButtonItem = rightBarItem
             self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
-//            self._showMore()
-            //预览
+            //preview
             let previewVC = QLPreviewController()
             previewVC.delegate = self
             previewVC.dataSource = self
@@ -251,10 +285,12 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
         let model = self.mTableViewList[indexPath.row]
         if model.fileType == .folder {
             self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: true)
+            self._showMore(isDirectory: true)
         } else {
             self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
+            self._showMore(isDirectory: false)
         }
-        self._showMore()
+        
         return true
     }
     
