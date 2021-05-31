@@ -46,7 +46,7 @@ public extension ZXKitUtil {
         
         
         if musicURL.absoluteString.hasPrefix("http://") || musicURL.absoluteString.hasPrefix("https://") {
-            let name = musicURL.path.zx.encryptString(encryType: .md5)
+            guard let name = musicURL.path.zx.encryptString(encryType: .md5) else { return nil }
             let path = ZXKitUtil.shared.createFileDirectory(in: .caches, directoryName: "music").appendingPathComponent(name, isDirectory: false)
             let audioData = try? Data(contentsOf: musicURL)
             try? audioData?.write(to: path)

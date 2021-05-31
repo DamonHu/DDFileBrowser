@@ -2,7 +2,7 @@
 
 [中文说明](./README_zh.md)
 
-`ZXKitUtil` is a collection of commonly used functions. This tool is updated and modified by [HDCommonToolsSwift](https://github.com/DamonHu/HDCommonToolsSwift), which integrates common functions simply and efficiently. In addition, ZXKitUtilCommonTools has an OC version available.
+`ZXKitUtil` is a collection of commonly used functions. This tool is updated and modified by [HDCommonTools](https://github.com/DamonHu/HDCommonTools), which integrates common functions simply and efficiently. In addition, ZXKitUtilCommonTools has an OC version available.
 
 ## import the project
 
@@ -24,7 +24,7 @@ Download the project and import the contents of the `pod` folder under the proje
 
 ## API list
 
-Existing data type operations can be used through the syntax of `.zx`, and other operations can be used through the singleton of `ZXKitUtil.shared()`.
+Existing data type operations can be used through the syntax of `.zx`, and other operations can be used through the singleton of `ZXKitUtil.shared`.
 
 * There is no difference between singleton and `.zx`, singleton will be more unified and simple. The advantage of `.zx` syntax is that it does not need to be imported where it is used
 
@@ -32,11 +32,11 @@ Existing data type operations can be used through the syntax of `.zx`, and other
 
 |Name|Function description|Example|
 |----|----|----|
-|func getCurrentNormalWindow()|Get the current NormalWindow|ZXKitUtil.shared().getCurrentNormalWindow()|
-|func getCurrentVC()|Get the current ViewController|ZXKitUtil.shared().getCurrentVC()|
-|func getImage(color: UIColor)|Generate a solid color background image by color|ZXKitUtil.shared().getImage(color: UIColor.red) <br/>or<br/> UIImage.zx.getImage(color: UIColor .red)|
-|func getLinearGradientImage(colors: [UIColor], directionType: ZXKitUtilGradientDirection, size: CGSize = CGSize(width: 100, height: 100))|Generate a linear gradient image|ZXKitUtil.shared().getLinearGradientImage(colors: [UIColor.red , UIColor.black, UIColor.blue] <br/>or<br/> UIImage.zx.getLinearGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)|
-|func getRadialGradientImage(colors: [UIColor], raduis: CGFloat, size: CGSize = CGSize(width: 100, height: 100))|Generate an angular gradient image|ZXKitUtil.shared().getRadialGradientImage(colors: [UIColor.red , UIColor.black, UIColor.blue], raduis: 45) <br/> or<br/> UIImage.zx.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)|
+|func getCurrentNormalWindow()|Get the current NormalWindow|ZXKitUtil.shared.getCurrentNormalWindow()|
+|func getCurrentVC()|Get the current ViewController|ZXKitUtil.shared.getCurrentVC()|
+|func getImage(color: UIColor)|Generate a solid color background image by color|ZXKitUtil.shared.getImage(color: UIColor.red) <br/>or<br/> UIImage.zx.getImage(color: UIColor .red)|
+|func getLinearGradientImage(colors: [UIColor], directionType: ZXKitUtilGradientDirection, size: CGSize = CGSize(width: 100, height: 100))|Generate a linear gradient image|ZXKitUtil.shared.getLinearGradientImage(colors: [UIColor.red , UIColor.black, UIColor.blue] <br/>or<br/> UIImage.zx.getLinearGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], directionType: .leftToRight)|
+|func getRadialGradientImage(colors: [UIColor], raduis: CGFloat, size: CGSize = CGSize(width: 100, height: 100))|Generate an angular gradient image|ZXKitUtil.shared.getRadialGradientImage(colors: [UIColor.red , UIColor.black, UIColor.blue], raduis: 45) <br/> or<br/> UIImage.zx.getRadialGradientImage(colors: [UIColor.red, UIColor.black, UIColor.blue], raduis: 45)|
 |func getColor(hexString: String, alpha: CGFloat = 1.0)|Get color by hexadecimal string| UIColor.zx.color(hexString: "#FFFFFF")|
 |func UIColor(hexValue: Int, darkHexValue: Int = 0x333333, alpha: Float = 1.0, darkAlpha: Float = 1.0)|Get color by hexadecimal| UIColor.zx.color(hexValue: 0xffffff)|
 |UIScreenWidth|Screen width||
@@ -51,48 +51,48 @@ Existing data type operations can be used through the syntax of `.zx`, and other
 
 |Name|Function description|Example|
 |----|----|----|
-|func getAppVersionString()|Get software version|ZXKitUtil.shared().getAppVersionString()|
-|func getAppBuildVersionString()|Get software build version|ZXKitUtil.shared().getAppBuildVersionString()|
-|func getIOSVersionString()|Get the iOS version of the system|ZXKitUtil.shared().getIOSVersionString()|
-|func getIOSLanguageStr()|Get system language|ZXKitUtil.shared().getIOSLanguageStr()|
-|func getBundleIdentifier()|Get Software Bundle Identifier|ZXKitUtil.shared().getBundleIdentifier()|
-|func getSystemHardware()|Get the machine model identification|ZXKitUtil.shared().getSystemHardware()|
-|func getSystemUpTime()|Get the last restart time of this machine|ZXKitUtil.shared().getSystemUpTime()|
-|func getIDFAString(idfvIfFailed: Bool = true)|The unique identification of the simulation software|ZXKitUtil.shared().getIDFAString()|
-|func getMacAddress()|To get the MAC address of the mobile phone WIFI, you need to enable Access WiFi information|ZXKitUtil.shared().getMacAddress()|
-|func openSystemSetting()|Open system settings|ZXKitUtil.shared().openSystemSetting()|
-|func openAppStorePage(openType: ZXKitUtilOpenAppStoreType, appleID: String)|Open the App Store page corresponding to the software|ZXKitUtil.shared().openAppStorePage(openType: .app, appleID: "1123211")|
-|func openAppStoreReviewPage(openType: ZXKitUtilOpenAppStoreType, appleID: String = "")|Open the score page corresponding to the software|ZXKitUtil.shared().openAppStoreReviewPage(openType: .app)|
+|func getAppVersionString()|Get software version|ZXKitUtil.shared.getAppVersionString()|
+|func getAppBuildVersionString()|Get software build version|ZXKitUtil.shared.getAppBuildVersionString()|
+|func getIOSVersionString()|Get the iOS version of the system|ZXKitUtil.shared.getIOSVersionString()|
+|func getIOSLanguageStr()|Get system language|ZXKitUtil.shared.getIOSLanguageStr()|
+|func getBundleIdentifier()|Get Software Bundle Identifier|ZXKitUtil.shared.getBundleIdentifier()|
+|func getSystemHardware()|Get the machine model identification|ZXKitUtil.shared.getSystemHardware()|
+|func getSystemUpTime()|Get the last restart time of this machine|ZXKitUtil.shared.getSystemUpTime()|
+|func getIDFAString(idfvIfFailed: Bool = true)|The unique identification of the simulation software|ZXKitUtil.shared.getIDFAString()|
+|func getMacAddress()|To get the MAC address of the mobile phone WIFI, you need to enable Access WiFi information|ZXKitUtil.shared.getMacAddress()|
+|func openSystemSetting()|Open system settings|ZXKitUtil.shared.openSystemSetting()|
+|func openAppStorePage(openType: ZXKitUtilOpenAppStoreType, appleID: String)|Open the App Store page corresponding to the software|ZXKitUtil.shared.openAppStorePage(openType: .app, appleID: "1123211")|
+|func openAppStoreReviewPage(openType: ZXKitUtilOpenAppStoreType, appleID: String = "")|Open the score page corresponding to the software|ZXKitUtil.shared.openAppStoreReviewPage(openType: .app)|
 
 ### Software permissions
 
 |Name|Function description|Example|
 |----|----|----|
-|func requestPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|Request permission|ZXKitUtil.shared().requestPermission(type: .notification) {(status) in print("Permission setting callback" , status) }|
-|func checkPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|Checking software permissions|ZXKitUtil.shared().checkPermission(type: .notification) {(status) in print("Current permission status ", status) }|
-|func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|Detection software IDFA permission|ZXKitUtil.shared().requestIDFAPermission {(status) in print("Current idfa permission status", status)} |
-|func checkIDFAPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|Detection software idfa permission|ZXKitUtil.shared().checkIDFAPermission {(status) in print("Current Permission Status", status) }|
+|func requestPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|Request permission|ZXKitUtil.shared.requestPermission(type: .notification) {(status) in print("Permission setting callback" , status) }|
+|func checkPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|Checking software permissions|ZXKitUtil.shared.checkPermission(type: .notification) {(status) in print("Current permission status ", status) }|
+|func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|Detection software IDFA permission|ZXKitUtil.shared.requestIDFAPermission {(status) in print("Current idfa permission status", status)} |
+|func checkIDFAPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|Detection software idfa permission|ZXKitUtil.shared.checkIDFAPermission {(status) in print("Current Permission Status", status) }|
 
 ### Multimedia operation
 
 |Name|Function description|Example|
 |----|----|----|
-|func getVideoDuration(videoURL: URL) -> Double|Get the duration of the specified video, in seconds | ZXKitUtil.shared().getVideoDuration(videoURL: URL(fileURLWithPath: path))|
-|func getVideoSize(videoURL: URL)|Get the specified video resolution, support local or network address|ZXKitUtil.shared().getVideoSize(videoURL: URL(fileURLWithPath: path))|
-|func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback)|Play music|ZXKitUtil.shared().playMusic(url: url, repeated: false)|
-|func stopMusic()|Turn off music playback|ZXKitUtil.shared().stopMusic()|
-|func playEffect(url: URL?, vibrate: Bool = false)|Play sound effects, silent mode will not play sound effects|ZXKitUtil.shared().playEffect(url: url, vibrate: true)|
-|func startVibrate(repeated: Bool = false)|Start vibration|ZXKitUtil.shared().startVibrate()|
-|func stopVibrate()|End vibration|ZXKitUtil.shared().stopVibrate()|
+|func getVideoDuration(videoURL: URL) -> Double|Get the duration of the specified video, in seconds | ZXKitUtil.shared.getVideoDuration(videoURL: URL(fileURLWithPath: path))|
+|func getVideoSize(videoURL: URL)|Get the specified video resolution, support local or network address|ZXKitUtil.shared.getVideoSize(videoURL: URL(fileURLWithPath: path))|
+|func playMusic(url: URL?, repeated: Bool = false, audioSessionCategory: AVAudioSession.Category = AVAudioSession.Category.playback)|Play music|ZXKitUtil.shared.playMusic(url: url, repeated: false)|
+|func stopMusic()|Turn off music playback|ZXKitUtil.shared.stopMusic()|
+|func playEffect(url: URL?, vibrate: Bool = false)|Play sound effects, silent mode will not play sound effects|ZXKitUtil.shared.playEffect(url: url, vibrate: true)|
+|func startVibrate(repeated: Bool = false)|Start vibration|ZXKitUtil.shared.startVibrate()|
+|func stopVibrate()|End vibration|ZXKitUtil.shared.stopVibrate()|
 
 ### File operations
 
 |Name|Function description|Example|
 |----|----|----|
-|func getFileDirectory(type: ZXKitUtilFileDirectoryType)|Get folder path|ZXKitUtil.shared().getFileDirectory(type: .documents)|
-|func createFileDirectory(in type: ZXKitUtilFileDirectoryType, directoryName: String)|Create a folder in the specified folder|ZXKitUtil.shared().createFileDirectory(in: .documents, directoryName: "filePath")|
-|func getFileSize(filePath: URL)|Get the size of the specified file|ZXKitUtil.shared().getFileSize(filePath: url)|
-|func getFileDirectorySize(fileDirectoryPth: URL)|Get the size of the specified folder|ZXKitUtil.shared().getFileDirectorySize(fileDirectoryPth: url)|
+|func getFileDirectory(type: ZXKitUtilFileDirectoryType)|Get folder path|ZXKitUtil.shared.getFileDirectory(type: .documents)|
+|func createFileDirectory(in type: ZXKitUtilFileDirectoryType, directoryName: String)|Create a folder in the specified folder|ZXKitUtil.shared.createFileDirectory(in: .documents, directoryName: "filePath")|
+|func getFileSize(filePath: URL)|Get the size of the specified file|ZXKitUtil.shared.getFileSize(filePath: url)|
+|func getFileDirectorySize(fileDirectoryPth: URL)|Get the size of the specified folder|ZXKitUtil.shared.getFileDirectorySize(fileDirectoryPth: url)|
 
 ### Other
 

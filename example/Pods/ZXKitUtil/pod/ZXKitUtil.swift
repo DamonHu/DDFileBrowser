@@ -13,7 +13,4 @@ open class ZXKitUtil: NSObject {
     open class var shared: ZXKitUtil {
         return instance
     }
-    private override init() {
-        
-    }
 }

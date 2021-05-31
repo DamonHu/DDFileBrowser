@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CommonCrypto
 
 public enum ZXKitUtilFileDirectoryType {
     case home       //程序主目录
