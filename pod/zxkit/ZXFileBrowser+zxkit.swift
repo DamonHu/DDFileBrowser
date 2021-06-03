@@ -18,7 +18,7 @@ extension ZXFileBrowser: ZXKitPluginProtocol {
     }
 
     public var pluginTitle: String {
-        return NSLocalizedString("FileBrowser", comment: "")
+        return "FileBrowser".ZXLocaleString
     }
 
     public var pluginType: ZXKitPluginType {

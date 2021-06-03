@@ -12,9 +12,18 @@ import QuickLook
 
 func UIImageHDBoundle(named: String?) -> UIImage? {
     guard let name = named else { return nil }
-    guard let bundlePath = Bundle(for: ZXFileBrowser.self).path(forResource: "ZXFileBrowser", ofType: "bundle") else { return nil }
-    let bundle = Bundle(path: bundlePath)
+    guard let bundlePath = Bundle(for: ZXFileBrowser.self).path(forResource: "ZXFileBrowser", ofType: "bundle") else { return UIImage(named: name) }
+    guard let bundle = Bundle(path: bundlePath) else { return UIImage(named: name) }
     return UIImage(named: name, in: bundle, compatibleWith: nil)
+}
+
+extension String{
+    var ZXLocaleString: String {
+        guard let bundlePath = Bundle(for: ZXFileBrowser.self).path(forResource: "ZXFileBrowser", ofType: "bundle") else { return NSLocalizedString(self, comment: "") }
+        guard let bundle = Bundle(path: bundlePath) else { return NSLocalizedString(self, comment: "") }
+        let msg = NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        return msg
+    }
 }
 
 class ZXFileBrowserVC: UIViewController {
@@ -28,7 +37,7 @@ class ZXFileBrowserVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         self.navigationItem.rightBarButtonItem = rightBarItem
 
         self._createUI()
@@ -73,7 +82,7 @@ private extension ZXFileBrowserVC {
         if extensionDirectoryPath.isEmpty {
             self.navigationItem.leftBarButtonItem = nil
         } else {
-            let leftBarItem = UIBarButtonItem(title: NSLocalizedString("back", comment: ""), style: .plain, target: self, action: #selector(_leftBarItemClick))
+            let leftBarItem = UIBarButtonItem(title: "back".ZXLocaleString, style: .plain, target: self, action: #selector(_leftBarItemClick))
             self.navigationItem.leftBarButtonItem = leftBarItem
         }
         let manager = FileManager.default
@@ -105,30 +114,30 @@ private extension ZXFileBrowserVC {
 
     func _showMore(isDirectory: Bool) {
         guard let filePath = operateFilePath else { return }
-        let alertVC = UIAlertController(title:NSLocalizedString("File operations", comment: ""),message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
+        let alertVC = UIAlertController(title: "File operations".ZXLocaleString, message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
         if let popoverPresentationController = alertVC.popoverPresentationController {
             popoverPresentationController.sourceView = self.view
             popoverPresentationController.sourceRect = CGRect(x: 10, y: UIScreenHeight - 300, width: UIScreenWidth - 20, height: 300)
         }
 
-        let alertAction1 = UIAlertAction(title: NSLocalizedString("share", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction1 = UIAlertAction(title: "share".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
             self._share()
         }
 
-        let alertAction2 = UIAlertAction(title: NSLocalizedString("copy", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction2 = UIAlertAction(title: "copy".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
-            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("paste here", comment: ""), style: .plain, target: self, action: #selector(self._copy))
+            let rightBarItem = UIBarButtonItem(title: "paste here".ZXLocaleString, style: .plain, target: self, action: #selector(self._copy))
             self.navigationItem.rightBarButtonItem = rightBarItem
         }
 
-        let alertAction3 = UIAlertAction(title: NSLocalizedString("move", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction3 = UIAlertAction(title: "move".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
-            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("move here", comment: ""), style: .plain, target: self, action: #selector(self._move))
+            let rightBarItem = UIBarButtonItem(title: "move here".ZXLocaleString, style: .plain, target: self, action: #selector(self._move))
             self.navigationItem.rightBarButtonItem = rightBarItem
         }
         
-        let alertAction4 = UIAlertAction(title: NSLocalizedString("Hash value of the file", comment: ""), style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction4 = UIAlertAction(title: "Hash value of the file".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self._hash()
@@ -136,12 +145,12 @@ private extension ZXFileBrowserVC {
             
         }
 
-        let alertAction5 = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
+        let alertAction5 = UIAlertAction(title: "delete".ZXLocaleString, style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
             guard let self = self else { return }
             self._delete()
         }
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertAction.Style.cancel) { (alertAction) in
+        let cancelAction = UIAlertAction(title: "cancel".ZXLocaleString, style: UIAlertAction.Style.cancel) { (alertAction) in
 
         }
         alertVC.addAction(alertAction1)
@@ -167,7 +176,7 @@ private extension ZXFileBrowserVC {
     }
 
     @objc func _copy() {
-        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         self.navigationItem.rightBarButtonItem = rightBarItem
 
         guard let filePath = operateFilePath else { return }
@@ -183,7 +192,7 @@ private extension ZXFileBrowserVC {
     }
 
     @objc func _move() {
-        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         self.navigationItem.rightBarButtonItem = rightBarItem
 
         guard let filePath = operateFilePath else { return }
@@ -219,12 +228,12 @@ private extension ZXFileBrowserVC {
             hashValue = error.localizedDescription
         }
         
-        let alertVC = UIAlertController(title: NSLocalizedString("Hash value of the file", comment: ""), message: hashValue, preferredStyle: UIAlertController.Style.alert)
-        let alertAction1 = UIAlertAction(title: NSLocalizedString("copy", comment: ""), style: UIAlertAction.Style.default) { _ in
+        let alertVC = UIAlertController(title: "Hash value of the file".ZXLocaleString, message: hashValue, preferredStyle: UIAlertController.Style.alert)
+        let alertAction1 = UIAlertAction(title: "copy".ZXLocaleString, style: UIAlertAction.Style.default) { _ in
             UIPasteboard.general.string = hashValue
         }
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("close", comment: ""), style: UIAlertAction.Style.cancel) { _ in
+        let cancelAction = UIAlertAction(title: "close".ZXLocaleString, style: UIAlertAction.Style.cancel) { _ in
 
         }
         alertVC.addAction(alertAction1)
@@ -266,7 +275,7 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
             extensionDirectoryPath = extensionDirectoryPath + "/" + model.name
             self._loadData()
         } else {
-            let rightBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+            let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
             self.navigationItem.rightBarButtonItem = rightBarItem
             self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
             //preview
