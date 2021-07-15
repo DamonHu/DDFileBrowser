@@ -85,8 +85,8 @@ private extension ZXFileBrowserVC {
             let leftBarItem = UIBarButtonItem(title: "back".ZXLocaleString, style: .plain, target: self, action: #selector(_leftBarItemClick))
             self.navigationItem.leftBarButtonItem = leftBarItem
         }
-        let manager = FileManager.default
         mTableViewList.removeAll()
+        let manager = FileManager.default
         let fileDirectoryPth = self.currentDirectoryPath
         if manager.fileExists(atPath: fileDirectoryPth.path), let subPath = try? manager.contentsOfDirectory(atPath: fileDirectoryPth.path) {
             for fileName in subPath {
@@ -266,6 +266,14 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
 
