@@ -8,14 +8,6 @@
 
 import Foundation
 
-public struct ZXKitUtilNameSpace <T> {
-    let object: T       //存储的实例对象
-    
-    internal init(object: T) {
-        self.object = object
-    }
-}
-
 //实现命名空间需遵守的协议
 public protocol ZXKitUtilNameSpaceWrappable {
     associatedtype WrapperType
@@ -23,6 +15,15 @@ public protocol ZXKitUtilNameSpaceWrappable {
     static var zx: WrapperType.Type { get }
 }
 
+public struct ZXKitUtilNameSpace <T> {
+    let object: T       //存储的实例对象
+    static var classObject: T.Type {
+        return T.self
+    }
+    internal init(object: T) {
+        self.object = object
+    }
+}
 
 //协议默认的实现方式
 public extension ZXKitUtilNameSpaceWrappable {

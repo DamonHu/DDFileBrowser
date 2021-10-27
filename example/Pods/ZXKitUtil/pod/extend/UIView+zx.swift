@@ -45,4 +45,12 @@ public extension ZXKitUtilNameSpace where T : UIView {
             object.frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: height)
         }
     }
+
+    func className() -> String {
+        return String("\(type(of: object))")
+    }
+
+    static func className() -> String {
+        return String("\(classObject.self)")
+    }
 }

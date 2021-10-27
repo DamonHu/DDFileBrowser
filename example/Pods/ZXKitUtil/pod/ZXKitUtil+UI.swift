@@ -51,7 +51,7 @@ public extension ZXKitUtil {
     }
     
     ///获取当前显示的vc
-    func getCurrentVC() -> UIViewController? {
+    func getCurrentVC(ignoreChildren: Bool = true) -> UIViewController? {
         let currentWindow = self.getCurrentNormalWindow()
         guard let window = currentWindow else { return nil }
         var vc: UIViewController?
@@ -66,24 +66,25 @@ public extension ZXKitUtil {
             vc = window.rootViewController
         }
         
-        if let currentVC = vc {
-            if currentVC is UITabBarController {
-                let tabBarController = currentVC as! UITabBarController
+        while (vc is UINavigationController) || (vc is UITabBarController) {
+            if vc is UITabBarController {
+                let tabBarController = vc as! UITabBarController
                 vc = tabBarController.selectedViewController
-            }
-        }
-        if let currentVC = vc {
-            if currentVC is UINavigationController {
-                let navigationController = currentVC as! UINavigationController
+            } else if vc is UINavigationController {
+                let navigationController = vc as! UINavigationController
                 vc = navigationController.visibleViewController
             }
+        }
+
+        if !ignoreChildren, let children = vc?.children, children.count > 0 {
+            return children.last
         }
         return vc
     }
     
     ///通过颜色获取纯色图片
-    func getImage(color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    func getImage(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         var image: UIImage?
         
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
@@ -194,10 +195,12 @@ public extension ZXKitUtil {
     }
 }
 
-///高度坐标配置
+///屏幕宽度
 public var UIScreenWidth: CGFloat {
     return UIScreen.main.bounds.size.width
 }
+
+///屏幕高度
 public var UIScreenHeight: CGFloat {
     return UIScreen.main.bounds.size.height
 }
@@ -205,6 +208,16 @@ public var UIScreenHeight: CGFloat {
 ///状态栏高度
 public var ZXKitUtil_StatusBar_Height: CGFloat {
     return UIApplication.shared.statusBarFrame.size.height
+}
+
+///底部Home Indicator高度
+public var ZXKitUtil_HomeIndicator_Height: CGFloat {
+    if #available(iOS 11.0, *) {
+        if let window = ZXKitUtil.shared.getCurrentNormalWindow() {
+            return window.safeAreaInsets.bottom
+        }
+    }
+    return 0
 }
 
 ///导航栏高度

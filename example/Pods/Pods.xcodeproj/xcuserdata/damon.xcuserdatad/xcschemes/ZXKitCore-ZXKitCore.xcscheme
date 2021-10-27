@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23CC5B423FA68CF6FCACD593F1FEDCF6"
-               BuildableName = "ZXKitCore.framework"
-               BlueprintName = "ZXKitCore"
+               BlueprintIdentifier = "6535447A49D8AE5353316E9D3CA44597"
+               BuildableName = "ZXKitCore.bundle"
+               BlueprintName = "ZXKitCore-ZXKitCore"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

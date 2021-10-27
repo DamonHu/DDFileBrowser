@@ -137,7 +137,7 @@ private extension ZXFileBrowserVC {
             self.navigationItem.rightBarButtonItem = rightBarItem
         }
         
-        let alertAction4 = UIAlertAction(title: "Hash value of the file".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+        let alertAction4 = UIAlertAction(title: "hash value".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
             guard let self = self else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self._hash()
@@ -222,13 +222,14 @@ private extension ZXFileBrowserVC {
         var hashValue = ""
         do {
             let data = try Data(contentsOf: filePath)
-            hashValue = "MD5: " + data.zx.encryptString(encryType: .md5) + "\n\n" + "SHA1: " + data.zx.encryptString(encryType: .sha1) + "\n\n" + "SHA256: " + data.zx.encryptString(encryType: .sha256) + "\n\n" + "SHA384: " + data.zx.encryptString(encryType: .sha384) + "\n\n" + "SHA512: " + data.zx.encryptString(encryType: .sha512)
+
+            hashValue = "MD5: \n" + data.zx.hashString(hashType: .md5) + "\n\n" + "SHA1: \n" + data.zx.hashString(hashType: .sha1) + "\n\n" + "SHA256: \n" + data.zx.hashString(hashType: .sha256) + "\n\n" + "SHA384: \n" + data.zx.hashString(hashType: .sha384) + "\n\n" + "SHA512: \n" + data.zx.hashString(hashType: .sha512)
         } catch  {
             print(error)
             hashValue = error.localizedDescription
         }
         
-        let alertVC = UIAlertController(title: "Hash value of the file".ZXLocaleString, message: hashValue, preferredStyle: UIAlertController.Style.alert)
+        let alertVC = UIAlertController(title: "Hash Value".ZXLocaleString, message: hashValue, preferredStyle: UIAlertController.Style.alert)
         let alertAction1 = UIAlertAction(title: "copy".ZXLocaleString, style: UIAlertAction.Style.default) { _ in
             UIPasteboard.general.string = hashValue
         }

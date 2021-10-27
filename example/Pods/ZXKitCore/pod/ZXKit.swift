@@ -7,6 +7,15 @@
 
 import UIKit
 
+extension String{
+    var ZXLocaleString: String {
+        guard let bundlePath = Bundle(for: ZXKit.self).path(forResource: "ZXKitCore", ofType: "bundle") else { return NSLocalizedString(self, comment: "") }
+        guard let bundle = Bundle(path: bundlePath) else { return NSLocalizedString(self, comment: "") }
+        let msg = NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        return msg
+    }
+}
+
 public extension NSNotification.Name {
     static let ZXKitPluginRegist = NSNotification.Name("ZXKitPluginRegist")
     static let ZXKitShow = NSNotification.Name("ZXKitShow")
@@ -30,7 +39,7 @@ public class ZXKit: NSObject {
 
     public static func resetFloatButton() {
         self.floatButton?.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
-        self.floatButton?.setTitle(NSLocalizedString("Z", comment: ""), for: UIControl.State.normal)
+        self.floatButton?.setTitle("Z".ZXLocaleString, for: UIControl.State.normal)
         self.floatButton?.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         self.floatButton?.layer.borderColor = UIColor.zx.color(hexValue: 0xffffff).cgColor
         self.floatButton?.zx.addLayerShadow(color: UIColor.zx.color(hexValue: 0x333333), offset: CGSize(width: 2, height: 2), radius: 4, cornerRadius: 30)
@@ -39,7 +48,6 @@ public class ZXKit: NSObject {
     }
 
     public static func regist(plugin: ZXKitPluginProtocol) {
-        NotificationCenter.default.post(name: .ZXKitPluginRegist, object: plugin)
         var index = 0
         switch plugin.pluginType {
             case .ui:
@@ -59,6 +67,7 @@ public class ZXKit: NSObject {
                 window.reloadData()
             }
         }
+        NotificationCenter.default.post(name: .ZXKitPluginRegist, object: self.pluginList)
     }
 
     public static func show() {

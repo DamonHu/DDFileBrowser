@@ -62,7 +62,7 @@ class ZXKitWindow: UIWindow {
         tTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 14, height: 10))
         tTextField.backgroundColor = UIColor.zx.color(hexValue: 0xffffff, alpha: 0.8)
         tTextField.font = .systemFont(ofSize: 14)
-        tTextField.placeholder = NSLocalizedString("input text", comment: "")
+        tTextField.placeholder = "input text".ZXLocaleString
         tTextField.clearButtonMode = .always
         tTextField.layer.borderWidth = 1.0
         tTextField.layer.borderColor = UIColor.zx.color(hexValue: 0xcccccc).cgColor
@@ -74,7 +74,7 @@ class ZXKitWindow: UIWindow {
     lazy var mButton: UIButton = {
         let tButton = UIButton(type: .custom)
         tButton.addTarget(self, action: #selector(_endTextField), for: .touchUpInside)
-        tButton.setTitle(NSLocalizedString("confirm", comment: ""), for: .normal)
+        tButton.setTitle("confirm".ZXLocaleString, for: .normal)
         tButton.setTitleColor(UIColor.zx.color(hexValue: 0xffffff), for: .normal)
         tButton.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
         tButton.layer.borderWidth = 1.0
@@ -97,7 +97,7 @@ extension ZXKitWindow {
     func hideInput() {
         self.mTextField.endEditing(true)
         self.mInputBGView.isHidden = true
-        self.mTextField.placeholder = NSLocalizedString("input text", comment: "")
+        self.mTextField.placeholder = "input text".ZXLocaleString
         self.mTextField.text = ""
     }
 }
@@ -118,7 +118,7 @@ extension ZXKitWindow: UICollectionViewDelegate,UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let title = [NSLocalizedString("UI", comment: ""), NSLocalizedString("Data", comment: ""), NSLocalizedString("Other", comment: "")]
+        let title = ["UI".ZXLocaleString, "Data".ZXLocaleString, "Other".ZXLocaleString]
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ZXKitCollectionViewHeaderView", for: indexPath) as! ZXKitCollectionViewHeaderView
         cell.updateUI(title: title[indexPath.section])
         return cell
@@ -153,7 +153,7 @@ extension ZXKitWindow: UITextFieldDelegate {
 private extension ZXKitWindow {
 
     func _initVC() {
-        self.backgroundColor = UIColor.zx.color(hexValue: 0xfcecdd, alpha: 0.6)
+        self.backgroundColor = UIColor.zx.color(hexValue: 0xfcecdd, alpha: 0.93)
         let rootViewController = UIViewController()
 
         let navigation = UINavigationController(rootViewController: rootViewController)
@@ -168,9 +168,9 @@ private extension ZXKitWindow {
         }
         rootViewController.navigationItem.titleView = view
         //navigationBar
-        let leftBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_leftBarItemClick))
+        let leftBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_leftBarItemClick))
         rootViewController.navigationItem.leftBarButtonItem = leftBarItem
-        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("hide", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        let rightBarItem = UIBarButtonItem(title: "hide".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         rootViewController.navigationItem.rightBarButtonItem = rightBarItem
         //
         self.rootViewController = navigation

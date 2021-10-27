@@ -30,7 +30,7 @@ class ZXKitFloatWindow: UIWindow {
     lazy var mButton: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
-        button.setTitle(NSLocalizedString("Z", comment: ""), for: UIControl.State.normal)
+        button.setTitle("Z".ZXLocaleString, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         button.layer.borderColor = UIColor.zx.color(hexValue: 0xffffff).cgColor
         button.zx.addLayerShadow(color: UIColor.zx.color(hexValue: 0x333333), offset: CGSize(width: 2, height: 2), radius: 4, cornerRadius: 30)

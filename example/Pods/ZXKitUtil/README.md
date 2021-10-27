@@ -41,11 +41,13 @@ Existing data type operations can be used through the syntax of `.zx`, and other
 |func UIColor(hexValue: Int, darkHexValue: Int = 0x333333, alpha: Float = 1.0, darkAlpha: Float = 1.0)|Get color by hexadecimal| UIColor.zx.color(hexValue: 0xffffff)|
 |UIScreenWidth|Screen width||
 |UIScreenHeight|Screen height||
-|ZXKitUtil_StatusBar_Height|Status Bar Height||
+|ZXKitUtil_StatusBar_Height|Status Bar height||
+|ZXKitUtil_HomeIndicator_Height|Home Indicator height||
 |func ZXKitUtil_Default_NavigationBar_Height(vc: UIViewController? = nil)|Navigation Bar Height|ZXKitUtil_Default_NavigationBar_Height()|
 |func func ZXKitUtil_Default_Tabbar_Height(vc: UIViewController? = nil)|tabbar height|ZXKitUtil_Default_Tabbar_Height()|
 |func addLayerShadow(color: UIColor, offset: CGSize, radius: CGFloat, cornerRadius: CGFloat? = nil)|Add a shadow to the view|view.zx.addLayerShadow(color: UIColor.black, offset: CGSize(width: 2, height : 0), radius: 10)|
 |func setFrame(x: CGFloat? = nil, y: CGFloat? = nil, width: CGFloat? = nil, height: CGFloat? = nil)|view individually sets a certain value of Frame|view.zx.setFrame(x: 10)|
+|func className() -> String| get view's class name|button.zx.className()|
 
 ### System and software information
 
@@ -53,6 +55,7 @@ Existing data type operations can be used through the syntax of `.zx`, and other
 |----|----|----|
 |func getAppVersionString()|Get software version|ZXKitUtil.shared.getAppVersionString()|
 |func getAppBuildVersionString()|Get software build version|ZXKitUtil.shared.getAppBuildVersionString()|
+|func getAppNameString()|get app's Name|ZXKitUtil.shared.getAppNameString()|
 |func getIOSVersionString()|Get the iOS version of the system|ZXKitUtil.shared.getIOSVersionString()|
 |func getIOSLanguageStr()|Get system language|ZXKitUtil.shared.getIOSLanguageStr()|
 |func getBundleIdentifier()|Get Software Bundle Identifier|ZXKitUtil.shared.getBundleIdentifier()|
@@ -70,8 +73,8 @@ Existing data type operations can be used through the syntax of `.zx`, and other
 |----|----|----|
 |func requestPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|Request permission|ZXKitUtil.shared.requestPermission(type: .notification) {(status) in print("Permission setting callback" , status) }|
 |func checkPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void))|Checking software permissions|ZXKitUtil.shared.checkPermission(type: .notification) {(status) in print("Current permission status ", status) }|
-|func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|Detection software IDFA permission|ZXKitUtil.shared.requestIDFAPermission {(status) in print("Current idfa permission status", status)} |
-|func checkIDFAPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|Detection software idfa permission|ZXKitUtil.shared.checkIDFAPermission {(status) in print("Current Permission Status", status) }|
+|func requestIDFAPermission(complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|request idfa permission|ZXKitUtil.shared.requestIDFAPermission {(status) in print("Current idfa permission status", status)} |
+|func checkIDFAPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void|check software idfa permission|ZXKitUtil.shared.checkIDFAPermission {(status) in print("Current Permission Status", status) }|
 
 ### Multimedia operation
 
@@ -96,16 +99,41 @@ Existing data type operations can be used through the syntax of `.zx`, and other
 
 ### Other
 
+#### ZXKitUtil
+
 |Name|Function description|Example|
 |----|----|----|
-|func compare(anotherDate: Date, ignoreTime: Bool = false)|Compare dates and set whether to ignore time|Date().zx.compare(anotherDate: date)|
-|func subString(rang: NSRange)|Intercept string|string.zx.subString(rang: NSRange(location: 2, length: 5))|
-|func unicodeDecode()|unicode to Chinese|"\\u54c8\\u54c8\\u54c8".zx.unicodeDecode()|
-|func unicodeEncode()|Character string to unicode|"Haha is the phone charge".zx.unicodeEncode()|
-|func base64Decode(lowercase: Bool = true)|base64 decoding|"5ZOI5ZOI5piv55S16K+d6LS5".zx.base64Decode()|
-|func aes256Decrypt(password: String, ivString: String = "abcdefghijklmnop")|aes256 decrypt|string.zx.aes256Decrypt(password: "password")|
-|func aes256Encrypt(password: String, ivString: String = "abcdefghijklmnop")|aes256 encryption|string.zx.aes256Encrypt(password: "password")|
-|func encryptString(encryType: ZXKitUtilEncryType, lowercase: Bool = true)|String encryption|string.zx.encryptString(encryType: ZXKitUtilEncryType.md5) <br/> Support md5/sha1/sha224/sha256/sha384/sha512/base64 encryption |
+|func getDictionary(object: Any, debug: Bool = false) -> [String: Any]| get all key and value from class\struct|ZXKitUtil.shared.getDictionary(object: testModel)|
+|func runInMainThread(type: ZXMainThreadType = .default, function: @escaping ()->Void)|run function in main thread|ZXKitUtil.shared.runInMainThread(type: .sync) { ... }|
+
+
+#### String
+
+|Name|Function description|Example|
+|----|----|----|
+|func subString(rang: NSRange)|截取字符串|string.zx.subString(rang: NSRange(location: 2, length: 5))|
+|func unicodeDecode()|unicode转中文|"\\u54c8\\u54c8\\u54c8".zx.unicodeDecode()|
+|func unicodeEncode()|字符串转unicode|"哈哈是电话费".zx.unicodeEncode()|
+|func encodeString(from originType: ZXKitUtilEncodeType = .system(.utf8), to encodeType: ZXKitUtilEncodeType)|字符串修改编码显示|"5ZOI5ZOI5piv55S16K+d6LS5".zx.encodeString(from: .base64, to: .system(.utf8))|
+|func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc Encrypt |string.zx.aesCBCEncrypt(password: "password")|
+|func aesCBCDecrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc Decrypt |string.zx.aesCBCDecrypt(password: "password")|
+|func hashString(hashType: ZXKitUtilHashType, lowercase: Bool = true)|get hash value of the string|string.zx.hashString(hashType: .md5) <br/> Support md5/sha1/sha224/sha256/sha384/sha512|
+|func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce())|aes gcm Encrypt |string.zx.aesGCMEncrypt(password: "password")|
+|func aesGCMDecrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64)|aes gcm Decrypt |string.zx.aesGCMDecrypt(password: "password")|
+|func hmac(hashType: ZXKitUtilHashType, password: String, encodeType: ZXKitUtilEncodeType = .base64)|HMAC|"ZXKitUtil".zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex)|
+
+#### Data
+
+|Name|Function description|Example|
+|----|----|----|
+|static func data(from string: String, encodeType: ZXKitUtilEncodeType)|get data from string with encodeType | Data.zx.data(from: "d5a423f64b607ea7c65b311d855dc48f36114b227bd0c7a3d403f6158a9e4412", encodeType: .hex)|
+|func encodeString(encodeType: ZXKitUtilEncodeType)| encode data to string with encodeType | data.zx.encodeString(encodeType: .hex)|
+|func aesCBCEncrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc Encrypt|data.zx.aesCBCEncrypt(password: "password")|
+|func aesCBCDecrypt(password: String, ivString: String = "abcdefghijklmnop")|aes cbc Decrypt|data.zx.aesCBCDecrypt(password: "password")|
+|func hashString(hashType: ZXKitUtilHashType, lowercase: Bool = true)|get hash value of the string|data.zx. hashString(hashType: .md5) <br/> 支持md5/sha1/sha224/sha256/sha384/sha512|
+|func aesGCMEncrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64, nonce: AES.GCM.Nonce? = AES.GCM.Nonce())|aes gcm Encrypt|data.zx.aesGCMEncrypt(password: "password")|
+|func aesGCMDecrypt(password: String, encodeType: ZXKitUtilEncodeType = .base64)|aes gcm Decrypt|data.zx.aesGCMDecrypt(password: "password")|
+|func hmac(hashType: ZXKitUtilHashType, password: String, encodeType: ZXKitUtilEncodeType = .base64)|HMAC|data.zx.hmac(hashType: .sha1, password: "67FG", encodeType: .hex)|
 
 ## other
 

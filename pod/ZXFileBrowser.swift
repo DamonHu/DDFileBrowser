@@ -37,7 +37,17 @@ open class ZXFileBrowser: NSObject {
         return instance
     }
 
-    public func start() {
+    //MARK: UI
+    lazy var mNavigationController: UINavigationController = {
+        let rootViewController = ZXFileBrowserVC()
+        let navigation = UINavigationController(rootViewController: rootViewController)
+        navigation.navigationBar.barTintColor = UIColor.white
+        return navigation
+    }()
+}
+
+public extension ZXFileBrowser {
+    func start() {
         #if canImport(ZXKitCore)
         ZXKit.hide()
         #endif
@@ -46,12 +56,12 @@ open class ZXFileBrowser: NSObject {
             ZXKitUtil.shared.getCurrentVC()?.present(self.mNavigationController, animated: true, completion: nil)
         }
     }
-    
-    public func getFileType(filePath: URL?) -> ZXFileType {
+
+    func getFileType(filePath: URL?) -> ZXFileType {
         guard let filePath = filePath else { return .unknown }
         if (filePath.lastPathComponent.hasPrefix(".")) {
             return .system
-        } else if let utType = self.getFileUTType(filePath: filePath) {
+        } else if let utType = self._getFileUTType(filePath: filePath) {
             if UTTypeConformsTo(utType, kUTTypeDirectory) {
                 return .folder
             } else if UTTypeConformsTo(utType, kUTTypeImage) {
@@ -90,18 +100,10 @@ open class ZXFileBrowser: NSObject {
             return .unknown
         }
     }
-
-    //MARK: UI
-    lazy var mNavigationController: UINavigationController = {
-        let rootViewController = ZXFileBrowserVC()
-        let navigation = UINavigationController(rootViewController: rootViewController)
-        navigation.navigationBar.barTintColor = UIColor.white
-        return navigation
-    }()
 }
 
-extension ZXFileBrowser {
-    func getFileUTType(filePath: URL?) -> CFString? {
+private extension ZXFileBrowser {
+    func _getFileUTType(filePath: URL?) -> CFString? {
         guard let filePath = filePath else { return nil }
         let fileExt = filePath.pathExtension
         if fileExt.isEmpty {
