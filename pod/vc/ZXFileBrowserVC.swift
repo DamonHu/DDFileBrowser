@@ -57,6 +57,11 @@ class ZXFileBrowserVC: UIViewController {
 
     lazy var mTableView: UITableView = {
         let tTableView = UITableView(frame: CGRect.zero, style: UITableView.Style.grouped)
+        if #available(iOS 15.0, *) {
+            tTableView.sectionHeaderTopPadding = 0
+        }
+        tTableView.estimatedSectionHeaderHeight = 0
+        tTableView.estimatedSectionFooterHeight = 0
         tTableView.rowHeight = 60
         tTableView.estimatedRowHeight = 60
         tTableView.backgroundColor = UIColor.clear
