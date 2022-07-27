@@ -1,68 +1,49 @@
 # ZXFileBrowser
 
-[中文文档](./README_zh.md)
+![](https://img.shields.io/badge/CocoaPods-supported-brightgreen) ![](https://img.shields.io/badge/Swift-5.0-brightgreen) ![](https://img.shields.io/badge/License-MIT-brightgreen) ![](https://img.shields.io/badge/version-iOS11.0-brightgreen)
+
+[English](./README_en.md)
+
+如果您需要的是快速集成多个调试功能，例如日志查看、网速测试、文件查看等功能，请使用 [DamonHu/ZXKitSwift](https://github.com/DamonHu/ZXKitSwift)。
+
+**该插件已经默认集成在[ZXKitSwift](https://github.com/DamonHu/ZXKitSwift)中，如果您已经集成了`ZXKitSwift`，无需重复集成该插件**
 
 
-The iOS sandbox file browser can view, copy, move, delete files and other operations.
-
-This project is a built-in function plug-in of [ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift), and it can also be integrated separately and used as an independent function. Use `quick look` framework to preview and long press to display more operations
-
-**If you have integrated `ZXKitSwift`, the file browser will be automatically displayed in the plug-in list, so there is no need to repeat the integration.**
+iOS端沙盒文件浏览器，可查看、复制、移动、删除文件等操作，使用苹果的`Quick Look`框架实现预览，长按显示更多操作
 
 
-## Independent integration
+## 集成
 
-cocoapods
+cocoapods快速集成
 
 ```ruby
 pod 'ZXFileBrowser'
 ```
 
-### Use
+### 使用
 
 ```swift
 ZXFileBrowser.shared.start()
 ```
 
-you can get the file type of the specified path by this function
+你可以调用下面这个函数获取指定路径的文件类型
 
 ```swift
 ZXFileBrowser.shared.getFileType(filePath: path)
 ```
 
-## Support `ZXKit`
+## 预览
 
-**If you have integrated `ZXKitSwift`, the file browser will be automatically displayed in the plug-in list, so there is no need to repeat the integration.**
 
-If you need to support `ZXKit`, you can use cocoapods to quickly integrate it
-
-```ruby
-pod 'ZXFileBrowser/zxkit'
-```
-
-then register to `ZXKit` in `AppDelegate`
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-	
-	ZXKit.regist(plugin: ZXFileBrowser.shared)
-	
-	return true
-}
-```
-
-## Preview
-
-|File List|File Type Icon|
+|文件列表|文件类型|
 |----|----|
 |![](./preview/demo2.png)|![](./preview/demo1.png)|
 
-Function example
+功能示例
 
 ![](./preview/preview.gif)
 
+
 ## License
 
-![](https://camo.githubusercontent.com/eb9066a6d8e0950066f3757c420e3a607c0929583b48ebda6fd9a6f50ccfc8f1/68747470733a2f2f7777772e6170616368652e6f72672f696d672f41534632307468416e6e69766572736172792e6a7067)
-
-Base on Apache-2.0 License
+该项目基于MIT协议，您可以自由修改使用
