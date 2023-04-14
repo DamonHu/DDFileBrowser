@@ -96,48 +96,48 @@ public extension ZXKitUtil {
     ///打开软件对应的App Store页面
     func openAppStorePage(openType: ZXKitUtilOpenAppStoreType, appleID: String, completion: ((Bool, Error?) -> Void)? = nil) -> Void {
         switch openType {
-        case .app:
-            let storeProductVC = SKStoreProductViewController()
-            storeProductVC.delegate = self
-            storeProductVC.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : appleID]) { (success, error) in
-                if success {
-                    self.getCurrentVC()?.present(storeProductVC, animated: true, completion: {
+            case .app:
+                let storeProductVC = SKStoreProductViewController()
+                storeProductVC.delegate = self
+                storeProductVC.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : appleID]) { (success, error) in
+                    if success {
+                        self.getCurrentVC()?.present(storeProductVC, animated: true, completion: {
+                            if let completion = completion {
+                                completion(true, nil)
+                            }
+                        })
+                    } else {
                         if let completion = completion {
-                            completion(true, nil)
+                            completion(false, error)
                         }
-                    })
-                } else {
-                    if let completion = completion {
-                        completion(false, error)
                     }
                 }
-            }
-        case .appStore:
-            let url = URL(string: "https://itunes.apple.com/app/id\(appleID)")!
+            case .appStore:
+                let url = URL(string: "https://itunes.apple.com/app/id\(appleID)")!
                 UIApplication.shared.open(url, options: [:]) { success in
                     if let completion = completion {
                         completion(success, nil)
                     }
                 }
-        case .auto:
-            let storeProductVC = SKStoreProductViewController()
-            storeProductVC.delegate = self
-            storeProductVC.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : appleID]) { (success, error) in
-                if success {
-                    self.getCurrentVC()?.present(storeProductVC, animated: true, completion: {
-                        if let completion = completion {
-                            completion(true, nil)
-                        }
-                    })
-                } else {
-                    let url = URL(string: "https://itunes.apple.com/app/id\(appleID)")!
-                    UIApplication.shared.open(url, options: [:]) { success in
-                        if let completion = completion {
-                            completion(success, nil)
+            case .auto:
+                let storeProductVC = SKStoreProductViewController()
+                storeProductVC.delegate = self
+                storeProductVC.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier : appleID]) { (success, error) in
+                    if success {
+                        self.getCurrentVC()?.present(storeProductVC, animated: true, completion: {
+                            if let completion = completion {
+                                completion(true, nil)
+                            }
+                        })
+                    } else {
+                        let url = URL(string: "https://itunes.apple.com/app/id\(appleID)")!
+                        UIApplication.shared.open(url, options: [:]) { success in
+                            if let completion = completion {
+                                completion(success, nil)
+                            }
                         }
                     }
                 }
-            }
         }
     }
 
@@ -148,24 +148,38 @@ public extension ZXKitUtil {
     ///   - openWriteAction: 是否直接到输入评论的页面，仅对跳转到appStore有效
     func openAppStoreReviewPage(openType: ZXKitUtilOpenAppStoreType, appleID: String = "", openWriteAction: Bool = true) -> Void {
         switch openType {
-        case .app:
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            } else {
-                assert(false, "ios10.3以下版本不支持")
-            };
-        case .appStore:
-            var url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)&mt=8")!
-            if openWriteAction {
-                url = URL(string: "itms-apps://itunes.apple.com/cn/app/id\(appleID)?mt=8&action=write-review")!
-            }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        case .auto:
-            if #available(iOS 10.3, *) {
-                self.openAppStoreReviewPage(openType: .app, appleID: appleID)
-            } else {
-                self.openAppStoreReviewPage(openType: .appStore, appleID: appleID)
-            }
+            case .app:
+                if #available(iOS 14.0, *) {
+                    var scene: UIWindowScene?
+                    for windowScene:UIWindowScene in ((UIApplication.shared.connectedScenes as? Set<UIWindowScene>)!) {
+                        if windowScene.activationState == .foregroundActive {
+                            scene = windowScene
+                            break
+                        }
+                    }
+                    if let scene = scene {
+                        SKStoreReviewController.requestReview(in: scene)
+                    } else {
+                        //使用链接方式
+                        self.openAppStoreReviewPage(openType: .appStore, appleID: appleID)
+                    }
+                } else if #available(iOS 10.3, *) {
+                    SKStoreReviewController.requestReview()
+                } else {
+                    assert(false, "ios10.3以下版本不支持")
+                };
+            case .appStore:
+                var url = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(appleID)&mt=8")!
+                if openWriteAction {
+                    url = URL(string: "itms-apps://itunes.apple.com/cn/app/id\(appleID)?mt=8&action=write-review")!
+                }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            case .auto:
+                if #available(iOS 10.3, *) {
+                    self.openAppStoreReviewPage(openType: .app, appleID: appleID)
+                } else {
+                    self.openAppStoreReviewPage(openType: .appStore, appleID: appleID)
+                }
         }
     }
 }

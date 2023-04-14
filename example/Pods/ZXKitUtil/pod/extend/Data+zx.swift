@@ -177,6 +177,7 @@ public extension ZXKitUtilNameSpace where T == Data {
     }
 }
 
+#if canImport(CryptoKit)
 @available(iOS 13.0, *)
 public extension ZXKitUtilNameSpace where T == Data {
     //AES GCM加密
@@ -237,6 +238,7 @@ public extension ZXKitUtilNameSpace where T == Data {
         }
     }
 }
+#endif
 
 private extension ZXKitUtilNameSpace where T == Data {
     func _crypt(data: Data, password: String, ivString: String, option: CCOperation) -> Data? {

@@ -13,15 +13,24 @@ extension UIColor: ZXKitUtilNameSpaceWrappable {
 }
 
 public extension ZXKitUtilNameSpace where T : UIColor {
-    ///16进制颜色转为UIColor 0xffffff
-    static func color(hexValue: Int, darkHexValue: Int = 0x333333, alpha: Float = 1.0, darkAlpha: Float = 1.0) -> UIColor {
+
+    /// 16进制颜色转为UIColor
+    /// - Parameters:
+    ///   - hexValue: 颜色 0xffffff
+    ///   - darkHexValue: 仅当支持暗黑模式且设置该参数，暗黑模式下才会显示该颜色。否则依旧显示hexValue
+    ///   - alpha: 透明度
+    ///   - darkAlpha: 仅当支持暗黑模式且设置该参数，暗黑模式下才会使用该透明度.否则依旧显示alpha
+    /// - Returns: 颜色对象
+    static func color(hexValue: Int, darkHexValue: Int? = nil, alpha: Float = 1.0, darkAlpha: Float? = nil) -> UIColor {
         if #available(iOS 10.0, *) {
             if #available(iOS 13.0, *) {
                 let dyColor = UIColor { (traitCollection) -> UIColor in
                     if traitCollection.userInterfaceStyle == .light {
                         return UIColor(displayP3Red: CGFloat(((Float)((hexValue & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((hexValue & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(hexValue & 0xFF))/255.0), alpha: CGFloat(alpha))
                     } else {
-                        return UIColor(displayP3Red: CGFloat(((Float)((darkHexValue & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((darkHexValue & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(darkHexValue & 0xFF))/255.0), alpha: CGFloat(darkAlpha))
+                        let displayHex = darkHexValue ?? hexValue
+                        let displayAlpha = darkAlpha ?? alpha
+                        return UIColor(displayP3Red: CGFloat(((Float)((displayHex & 0xFF0000) >> 16))/255.0), green: CGFloat(((Float)((displayHex & 0xFF00) >> 8))/255.0), blue: CGFloat(((Float)(displayHex & 0xFF))/255.0), alpha: CGFloat(displayAlpha))
                     }
                 }
                 return dyColor
@@ -33,14 +42,22 @@ public extension ZXKitUtilNameSpace where T : UIColor {
         };
     }
     
-    ///16进制字符串转为UIColor #ffffff
-    static func color(hexString: String, darkHexString: String = "#333333", alpha: CGFloat = 1.0, darkAlpha: CGFloat = 1.0) -> UIColor {
+    /// 16进制字符串转为UIColor
+    /// - Parameters:
+    ///   - hexValue: 颜色 #ffffff
+    ///   - darkHexValue: 仅当支持暗黑模式且设置该参数，暗黑模式下才会显示该颜色。否则依旧显示hexValue
+    ///   - alpha: 透明度
+    ///   - darkAlpha: 仅当支持暗黑模式且设置该参数，暗黑模式下才会使用该透明度.否则依旧显示alpha
+    /// - Returns: 颜色对象
+    static func color(hexString: String, darkHexString: String? = nil, alpha: CGFloat = 1.0, darkAlpha: CGFloat? = nil) -> UIColor {
         if #available(iOS 13.0, *) {
             let dyColor = UIColor { (traitCollection) -> UIColor in
                 if traitCollection.userInterfaceStyle == .light {
                     return self._getColor(hexString: hexString, alpha: alpha)
                 } else {
-                    return self._getColor(hexString: darkHexString, alpha: darkAlpha)
+                    let displayHex = darkHexString ?? hexString
+                    let displayAlpha = darkAlpha ?? alpha
+                    return self._getColor(hexString: displayHex, alpha: displayAlpha)
                 }
             }
             return dyColor
@@ -59,6 +76,7 @@ private extension ZXKitUtilNameSpace where T : UIColor {
         } else if (hexString.hasPrefix("0x") || hexString.hasPrefix("0X")) {
             hex = String(hexString.suffix(hexString.count - 2))
         }
+        assert(hex.count == 6, "hex value invalid")
         guard hex.count == 6 else {
             //不足6位不符合
             return UIColor.clear

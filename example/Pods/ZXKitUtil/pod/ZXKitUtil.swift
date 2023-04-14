@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 open class ZXKitUtil: NSObject {
     private static let instance = ZXKitUtil()
     open class var shared: ZXKitUtil {
         return instance
     }
+
+    //缓存的数据
+    var cacheHomeIndicatorHeight: CGFloat?
+    var cacheDefaultNavigationBarHeight: CGFloat?
+    var cacheDefaultTabbarHeight: CGFloat?
 }
 
 public enum ZXMainThreadType {
@@ -53,14 +59,23 @@ public extension ZXKitUtil {
     ///     case sync       //在主线程顺序执行，在其他线程同步回归到主线程（同一个线程中，function后面的任务会等待function任务完毕之后继续执行，可能会阻塞界面）
     ///   - function: 执行的函数
     func runInMainThread(type: ZXMainThreadType = .default, function: @escaping ()->Void) {
-        if type == .async {
+        switch type {
+        case .default:
+            if Thread.isMainThread {
+                function()
+            } else {
+                DispatchQueue.main.async {
+                    function()
+                }
+            }
+        case .async:
             DispatchQueue.main.async {
                 function()
             }
-        } else {
+        case .sync:
             if Thread.isMainThread {
                 function()
-            } else if type == .sync {
+            } else {
                 DispatchQueue.main.sync {
                     function()
                 }

@@ -36,35 +36,41 @@ public extension ZXKitUtil {
         switch type {
         case .audio:
             AVCaptureDevice.requestAccess(for: .audio) { (granted) in
-                if granted {
-                    complete(.authorized)
-                } else {
-                    complete(.denied)
+                self.runInMainThread {
+                    if granted {
+                        complete(.authorized)
+                    } else {
+                        complete(.denied)
+                    }
                 }
             }
         case .video:
             AVCaptureDevice.requestAccess(for: .video) { (granted) in
-                if granted {
-                    complete(.authorized)
-                } else {
-                    complete(.denied)
+                self.runInMainThread {
+                    if granted {
+                        complete(.authorized)
+                    } else {
+                        complete(.denied)
+                    }
                 }
             }
         case .photoLibrary:
             PHPhotoLibrary.requestAuthorization { (status) in
-                switch status {
-                case .notDetermined:
-                    complete(.notDetermined)
-                case .restricted:
-                    complete(.restricted)
-                case .denied:
-                    complete(.denied)
-                case .authorized:
-                    complete(.authorized)
-                case .limited:
-                    complete(.limited)
-                default:
-                    complete(.authorized)
+                self.runInMainThread {
+                    switch status {
+                        case .notDetermined:
+                            complete(.notDetermined)
+                        case .restricted:
+                            complete(.restricted)
+                        case .denied:
+                            complete(.denied)
+                        case .authorized:
+                            complete(.authorized)
+                        case .limited:
+                            complete(.limited)
+                        default:
+                            complete(.authorized)
+                    }
                 }
             }
         case .GPS:
@@ -75,10 +81,12 @@ public extension ZXKitUtil {
             locationComplete = complete
         case .notification:
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                if granted {
-                    complete(.authorized)
-                } else {
-                    complete(.denied)
+                self.runInMainThread {
+                    if granted {
+                        complete(.authorized)
+                    } else {
+                        complete(.denied)
+                    }
                 }
             }
         }

@@ -33,7 +33,22 @@ public extension ZXKitUtilNameSpace where T == String {
         string = String(subString)
         return string
     }
-    
+
+    ///Range转换为NSRange
+    func nsRange(from range: Range<String.Index>) -> NSRange? {
+        guard let from = range.lowerBound.samePosition(in: object.utf16), let to = range.upperBound.samePosition(in: object.utf16) else { return nil }
+        return NSRange(location: object.utf16.distance(from: object.utf16.startIndex, to: from), length: object.utf16.distance(from: from, to: to))
+    }
+
+    ///NSRange转换为Range
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard let from16 = object.utf16.index(object.utf16.startIndex, offsetBy: nsRange.location, limitedBy: object.utf16.endIndex),
+              let to16 = object.utf16.index(from16, offsetBy: nsRange.length,limitedBy: object.utf16.endIndex),
+              let from = String.Index(from16, within: object),
+              let to = String.Index(to16, within: object) else { return nil }
+        return from ..< to
+    }
+
     ///unicode转中文
     func unicodeDecode() -> String {
         let tempStr1 = object.replacingOccurrences(of: "\\u", with: "\\U")
@@ -55,7 +70,11 @@ public extension ZXKitUtilNameSpace where T == String {
         return self.encodeString(from: .system(.nonLossyASCII), to: .system(.utf8))
     }
 
-    //字符串转义
+    /// 字符串转格式
+    /// - Parameters:
+    ///   - originType: 字符串原来的编码格式
+    ///   - encodeType: 即将转换的编码格式
+    /// - Returns: 转换成功的新字符串
     func encodeString(from originType: ZXKitUtilEncodeType = .system(.utf8), to encodeType: ZXKitUtilEncodeType) -> String? {
         let data = Data.zx.data(from: object, encodeType: originType)
         return data?.zx.encodeString(encodeType: encodeType)
@@ -91,6 +110,7 @@ public extension ZXKitUtilNameSpace where T == String {
     }
 }
 
+#if canImport(CryptoKit)
 @available(iOS 13.0, *)
 public extension ZXKitUtilNameSpace where T == String {
     /*
@@ -141,3 +161,4 @@ public extension ZXKitUtilNameSpace where T == String {
         return data?.zx.hmac(hashType: hashType, key: key, encodeType: encodeType)
     }
 }
+#endif

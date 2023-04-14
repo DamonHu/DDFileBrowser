@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ZXKitCore
 import ZXKitUtil
 
 class ViewController: UIViewController {
@@ -15,24 +14,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.createUI()
-        ZXKit.regist(plugin: ZXFileBrowser.shared)
-
-
-
-        
     }
 
     func createUI() {
         self.view.backgroundColor = UIColor.white
-        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 60))
+        button.setTitle("写入数据", for: .normal)
         button.backgroundColor = UIColor.red
         self.view.addSubview(button)
-        button.addTarget(self, action: #selector(_click), for: .touchUpInside)
+        button.addTarget(self, action: #selector(_writeData), for: .touchUpInside)
+
+        let button2 = UIButton(frame: CGRect(x: 100, y: 200, width: 100, height: 60))
+        button2.setTitle("打开浏览器", for: .normal)
+        button2.backgroundColor = UIColor.red
+        self.view.addSubview(button2)
+        button2.addTarget(self, action: #selector(_openBrowser), for: .touchUpInside)
     }
 
-    @objc func _click() {
-        ZXKit.show()
-
+    @objc func _writeData() {
         //写入测试数据
         let path = Bundle.main.path(forResource: "1470296169586813", ofType: "jpg")
         if let path = path, let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
@@ -150,6 +149,10 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+    }
+
+    @objc func _openBrowser() {
+        ZXFileBrowser.shared.start()
     }
 
 }

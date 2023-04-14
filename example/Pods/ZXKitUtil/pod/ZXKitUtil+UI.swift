@@ -8,18 +8,29 @@
 
 import UIKit
 
-public enum ZXKitUtilGradientDirection {
-    case leftToRight            //AC - BD
-    case topToBottom            //AB - CD
-    case leftTopToRightBottom   //A - D
-    case leftBottomToRightTop   //C - B
-}
 //      A         B
 //       _________
 //      |         |
 //      |         |
 //       ---------
 //      C         D
+public enum ZXKitUtilGradientDirection {
+    case minXToMaxX         //AC - BD
+    case minYToMaxY         //AB - CD
+    case minXMinYToMaxXMaxY //A - D
+    case minXMaxYToMaxXminY //C - B
+    
+    
+    @available(*, deprecated, message: "user minXToMaxX")
+    case leftToRight            //AC - BD
+    @available(*, deprecated, message: "user minYToMaxY")
+    case topToBottom            //AB - CD
+    @available(*, deprecated, message: "user minXMinYToMaxXMaxY")
+    case leftTopToRightBottom   //A - D
+    @available(*, deprecated, message: "user minXMaxYToMaxXminY")
+    case leftBottomToRightTop   //C - B
+}
+
 
 public extension ZXKitUtil {
     ///获取当前的normalwindow
@@ -118,16 +129,16 @@ public extension ZXKitUtil {
         gradientLayer.colors = cgColors
         gradientLayer.locations = locations
         
-        if (directionType == .leftToRight) {
+        if (directionType == .leftToRight || directionType == .minXToMaxX) {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        } else if (directionType == .topToBottom){
+        } else if (directionType == .topToBottom || directionType == .minYToMaxY){
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        } else if (directionType == .leftTopToRightBottom){
+        } else if (directionType == .leftTopToRightBottom || directionType == .minXMinYToMaxXMaxY){
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
             gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        } else if (directionType == .leftBottomToRightTop){
+        } else if (directionType == .leftBottomToRightTop || directionType == .minXMaxYToMaxXminY){
             gradientLayer.startPoint = CGPoint(x: 0, y: 1)
             gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         }
@@ -213,28 +224,46 @@ public var ZXKitUtil_StatusBar_Height: CGFloat {
 ///底部Home Indicator高度
 public var ZXKitUtil_HomeIndicator_Height: CGFloat {
     if #available(iOS 11.0, *) {
-        if let window = ZXKitUtil.shared.getCurrentNormalWindow() {
-            return window.safeAreaInsets.bottom
+        if let cacheHomeIndicatorHeight = ZXKitUtil.shared.cacheHomeIndicatorHeight {
+            return cacheHomeIndicatorHeight
+        } else if let window = ZXKitUtil.shared.getCurrentNormalWindow() {
+            let bottom = window.safeAreaInsets.bottom
+            ZXKitUtil.shared.cacheHomeIndicatorHeight = bottom
+            return bottom
         }
     }
     return 0
 }
 
 ///导航栏高度
-public func ZXKitUtil_Default_NavigationBar_Height(vc: UIViewController? = nil) -> CGFloat {
-    if let navigationController = vc?.navigationController {
-        return navigationController.navigationBar.frame.size.height
+public func ZXKitUtil_Default_NavigationBar_Height(vc: UIViewController? = nil, cachePrior: Bool = true) -> CGFloat {
+    if cachePrior, let cacheDefaultNavigationBarHeight = ZXKitUtil.shared.cacheDefaultNavigationBarHeight {
+        return cacheDefaultNavigationBarHeight
     } else {
-        return UINavigationController(nibName: nil, bundle: nil).navigationBar.frame.size.height
+        var height: CGFloat = 0
+        if let navigationController = vc?.navigationController {
+            height = navigationController.navigationBar.frame.size.height
+        } else {
+            height = UINavigationController(nibName: nil, bundle: nil).navigationBar.frame.size.height
+        }
+        ZXKitUtil.shared.cacheDefaultNavigationBarHeight = height
+        return height
     }
 }
 
 ///tabbar高度
-public func ZXKitUtil_Default_Tabbar_Height(vc: UIViewController? = nil) -> CGFloat {
-    if let tabbarViewController = vc?.tabBarController {
-        return tabbarViewController.tabBar.frame.size.height
+public func ZXKitUtil_Default_Tabbar_Height(vc: UIViewController? = nil, cachePrior: Bool = true) -> CGFloat {
+    if cachePrior, let cacheDefaultTabbarHeight = ZXKitUtil.shared.cacheDefaultTabbarHeight {
+        return cacheDefaultTabbarHeight
     } else {
-        return UITabBarController(nibName: nil, bundle: nil).tabBar.frame.size.height
+        var height: CGFloat = 0
+        if let tabbarViewController = vc?.tabBarController {
+            height = tabbarViewController.tabBar.frame.size.height
+        } else {
+            height = UITabBarController(nibName: nil, bundle: nil).tabBar.frame.size.height
+        }
+        ZXKitUtil.shared.cacheDefaultTabbarHeight = height
+        return height
     }
 }
 

@@ -8,5 +8,4 @@ target 'ZXFileBrowserDemo' do
   # Pods for ZXFileBrowserDemo
   pod 'SnapKit'
   pod 'ZXKitUtil'
-  pod 'ZXKitCore/core'
 end
