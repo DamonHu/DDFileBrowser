@@ -7,5 +7,5 @@ target 'ZXFileBrowserDemo' do
   
   # Pods for ZXFileBrowserDemo
   pod 'SnapKit'
-  pod 'ZXKitUtil', '~> 4.0.0'
+  pod 'ZXKitUtil', '~> 4.0'
 end

@@ -7,9 +7,6 @@
 
 import UIKit
 import ZXKitUtil
-#if canImport(ZXKitCore)
-import ZXKitCore
-#endif
 import MobileCoreServices
 
 public enum ZXFileType {
@@ -48,9 +45,6 @@ open class ZXFileBrowser: NSObject {
 
 public extension ZXFileBrowser {
     func start() {
-        #if canImport(ZXKitCore)
-        ZXKit.hide()
-        #endif
         self.mNavigationController.dismiss(animated: false) { [weak self] in
             guard let self = self else { return }
             ZXKitUtil.shared.getCurrentVC()?.present(self.mNavigationController, animated: true, completion: nil)

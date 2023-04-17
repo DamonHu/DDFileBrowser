@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'ZXFileBrowser'
 s.swift_version = '5.0'
-s.version = '2.0.1'
+s.version = '2.0.2'
 s.license= { :type => "MIT", :file => "LICENSE" }
 s.summary = 'iOS Sandbox file browser, iOS沙盒文件浏览器'
 s.homepage = 'https://github.com/DamonHu/ZXFileBrowser'
@@ -14,7 +14,7 @@ s.subspec 'core' do |cs|
       'ZXFileBrowser' => ['pod/assets/**/*']
     }
     cs.source_files = "pod/*.swift", "pod/view/*.swift", "pod/vc/*.swift", "pod/model/*.swift"
-    cs.dependency 'ZXKitUtil', '~>4.0.0'
+    cs.dependency 'ZXKitUtil', '~>4.0'
     cs.dependency 'SnapKit'
 end
 s.default_subspecs = "core"
