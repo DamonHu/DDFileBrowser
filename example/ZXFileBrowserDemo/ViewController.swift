@@ -152,6 +152,7 @@ class ViewController: UIViewController {
     }
 
     @objc func _openBrowser() {
+//        ZXFileBrowser.shared.rootDirectoryPath = ZXKitUtil.shared.getFileDirectory(type: .caches)
         ZXFileBrowser.shared.start()
     }
 

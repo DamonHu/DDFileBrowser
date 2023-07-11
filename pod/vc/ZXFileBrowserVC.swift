@@ -31,7 +31,8 @@ class ZXFileBrowserVC: UIViewController {
     var extensionDirectoryPath = "" //选择的相对路径
     var operateFilePath: URL?  //操作的文件路径，例如复制、粘贴等
     var currentDirectoryPath: URL { //当前的文件夹
-        return ZXKitUtil.shared.getFileDirectory(type: .home).appendingPathComponent(self.extensionDirectoryPath, isDirectory: true)
+        print(ZXFileBrowser.shared.rootDirectoryPath)
+        return ZXFileBrowser.shared.rootDirectoryPath.appendingPathComponent(self.extensionDirectoryPath, isDirectory: true)
     }
 
 
@@ -72,6 +73,15 @@ class ZXFileBrowserVC: UIViewController {
         tTableView.register(ZXFileTableViewCell.self, forCellReuseIdentifier: "ZXFileTableViewCell")
         return tTableView
     }()
+    
+    lazy var mEmptyLabel: UILabel = {
+        let label = UILabel()
+        label.isHidden = true
+        label.text = "This folder is empty~"
+        label.textColor = UIColor.zx.color(hexValue: 0x666666)
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
 }
 
 private extension ZXFileBrowserVC {
@@ -80,6 +90,11 @@ private extension ZXFileBrowserVC {
         self.view.addSubview(mTableView)
         mTableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        self.view.addSubview(mEmptyLabel)
+        mEmptyLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
 
@@ -114,6 +129,7 @@ private extension ZXFileBrowserVC {
                 }
             }
         }
+        self.mEmptyLabel.isHidden = !mTableViewList.isEmpty
         mTableView.reloadData()
     }
 

@@ -32,6 +32,14 @@ ZXFileBrowser.shared.start()
 ZXFileBrowser.shared.getFileType(filePath: path)
 ```
 
+#### 指定预览的根目录
+
+默认根目录是app的根目录，如果有特殊需求，比如只让用户查看某个目录，则可以设置根目录即可
+
+```
+ZXFileBrowser.shared.rootDirectoryPath = ZXKitUtil.shared.getFileDirectory(type: .caches)
+```
+
 ## 预览
 
 

@@ -33,7 +33,7 @@ open class ZXFileBrowser: NSObject {
     open class var shared: ZXFileBrowser {
         return instance
     }
-
+    public var rootDirectoryPath = ZXKitUtil.shared.getFileDirectory(type: .home)
     //MARK: UI
     lazy var mNavigationController: UINavigationController = {
         let rootViewController = ZXFileBrowserVC()
