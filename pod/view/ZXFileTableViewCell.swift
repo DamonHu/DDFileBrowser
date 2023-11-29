@@ -25,15 +25,33 @@ class ZXFileTableViewCell: UITableViewCell {
     }
 
     func updateUI(model: ZXFileModel) {
-        mImageView.image = self._getImage(type: model.fileType)
         mTitleLabel.text = model.name
-        var size = "\(Int(model.size))B"
-        if model.size > 1024 * 1024 {
-            size = "\(Int(model.size/1024/1024))MB"
-        } else if model.size > 1024 {
-            size = "\(Int(model.size/1024))KB"
+        
+        //计算文件属性
+        if model.fileType == .unknown {
+            let manager = FileManager.default
+            //属性
+            var isDirectory: ObjCBool = false
+            if manager.fileExists(atPath: model.filepath.path, isDirectory: &isDirectory) {
+                model.fileType = ZXFileBrowser.shared.getFileType(filePath: model.filepath)
+                if let fileAttributes = try? manager.attributesOfItem(atPath: model.filepath.path) {
+                    model.modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date ?? Date()
+                    if isDirectory.boolValue {
+                        mAttributedLabel.text = mDateFormatter.string(from: model.modificationDate)
+                    } else {
+                        model.size = fileAttributes[FileAttributeKey.size] as? Double ?? 0
+                        var size = "\(Int(model.size))B"
+                        if model.size > 1024 * 1024 {
+                            size = "\(Int(model.size/1024/1024))MB"
+                        } else if model.size > 1024 {
+                            size = "\(Int(model.size/1024))KB"
+                        }
+                        mAttributedLabel.text = size + " | " + mDateFormatter.string(from: model.modificationDate)
+                    }
+                }
+            }
         }
-        mAttributedLabel.text = size + " | " + mDateFormatter.string(from: model.modificationDate)
+        mImageView.image = self._getImage(type: model.fileType)
     }
 
     override func awakeFromNib() {

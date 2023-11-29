@@ -9,6 +9,7 @@ import UIKit
 import ZXKitUtil
 import MobileCoreServices
 import QuickLook
+import HDHUD
 
 func UIImageHDBoundle(named: String?) -> UIImage? {
     guard let name = named else { return nil }
@@ -29,7 +30,7 @@ extension String{
 class ZXFileBrowserVC: UIViewController {
     var mTableViewList = [ZXFileModel]()
     var extensionDirectoryPath = "" //选择的相对路径
-    var operateFilePath: URL?  //操作的文件路径，例如复制、粘贴等
+    var operateFileModel: ZXFileModel?  //操作的文件，例如复制、粘贴等
     var currentDirectoryPath: URL { //当前的文件夹
         print(ZXFileBrowser.shared.rootDirectoryPath)
         return ZXFileBrowser.shared.rootDirectoryPath.appendingPathComponent(self.extensionDirectoryPath, isDirectory: true)
@@ -108,34 +109,42 @@ private extension ZXFileBrowserVC {
         mTableViewList.removeAll()
         let manager = FileManager.default
         let fileDirectoryPth = self.currentDirectoryPath
-        if manager.fileExists(atPath: fileDirectoryPth.path), let subPath = try? manager.contentsOfDirectory(atPath: fileDirectoryPth.path) {
-            for fileName in subPath {
-                let filePath = fileDirectoryPth.path.appending("/\(fileName)")
-                //对象
-                let fileModel = ZXFileModel(name: fileName)
-                //属性
-                var isDirectory: ObjCBool = false
-                if manager.fileExists(atPath: filePath, isDirectory: &isDirectory) {
-                    fileModel.fileType = ZXFileBrowser.shared.getFileType(filePath: URL(fileURLWithPath: filePath))
-                    if let fileAttributes = try? manager.attributesOfItem(atPath: filePath) {
-                        fileModel.modificationDate = fileAttributes[FileAttributeKey.modificationDate] as? Date ?? Date()
-                        if isDirectory.boolValue {
-                            fileModel.size = ZXKitUtil.shared.getFileDirectorySize(fileDirectoryPth: URL(fileURLWithPath: filePath))
-                        } else {
-                            fileModel.size = fileAttributes[FileAttributeKey.size] as? Double ?? 0
-                        }
+        
+        if let subPath = try? manager.contentsOfDirectory(atPath: fileDirectoryPth.path) {
+            let total = subPath.count
+            if total <= 100 {
+                self.mTableViewList = subPath.map({ fileName in
+                    let filePath = fileDirectoryPth.path.appending("/\(fileName)")
+                    //对象
+                    let fileModel = ZXFileModel(name: fileName, filepath: URL(fileURLWithPath: filePath))
+                    return fileModel
+                })
+                self.mEmptyLabel.isHidden = !self.mTableViewList.isEmpty
+                self.mTableView.reloadData()
+            } else {
+                //大于100个显示进度条
+                HDHUD.show(icon: .loading, mask: true, didAppear: { [weak self] in
+                    guard let self = self else { return }
+                    for i in 0..<total {
+                        let fileName = subPath[i]
+                        let filePath = fileDirectoryPth.path.appending("/\(fileName)")
+                        //对象
+                        let fileModel = ZXFileModel(name: fileName, filepath: URL(fileURLWithPath: filePath))
+                        self.mTableViewList.append(fileModel)
                     }
-                    mTableViewList.append(fileModel)
-                }
+                    self.mEmptyLabel.isHidden = !self.mTableViewList.isEmpty
+                    self.mTableView.reloadData()
+                    HDHUD.hide()
+                })
             }
+        } else {
+            self.mEmptyLabel.isHidden = !self.mTableViewList.isEmpty
+            self.mTableView.reloadData()
         }
-        self.mEmptyLabel.isHidden = !mTableViewList.isEmpty
-        mTableView.reloadData()
     }
 
-    func _showMore(isDirectory: Bool) {
-        guard let filePath = operateFilePath else { return }
-        let alertVC = UIAlertController(title: "File operations".ZXLocaleString, message: filePath.lastPathComponent, preferredStyle: UIAlertController.Style.actionSheet)
+    func _showMore(model: ZXFileModel) {
+        let alertVC = UIAlertController(title: "File operations".ZXLocaleString, message: model.name, preferredStyle: UIAlertController.Style.actionSheet)
         if let popoverPresentationController = alertVC.popoverPresentationController {
             popoverPresentationController.sourceView = self.view
             popoverPresentationController.sourceRect = CGRect(x: 10, y: UIScreenHeight - 300, width: UIScreenWidth - 20, height: 300)
@@ -163,13 +172,21 @@ private extension ZXFileBrowserVC {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self._hash()
             }
-            
+        }
+        
+        let alertAction5 = UIAlertAction(title: "size".ZXLocaleString, style: UIAlertAction.Style.default) {[weak self] (alertAction) in
+            guard let self = self else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self._size()
+            }
         }
 
-        let alertAction5 = UIAlertAction(title: "delete".ZXLocaleString, style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
+        let alertAction6 = UIAlertAction(title: "delete".ZXLocaleString, style: UIAlertAction.Style.destructive) {[weak self] (alertAction) in
             guard let self = self else { return }
             self._delete()
         }
+        
+        
         
         let cancelAction = UIAlertAction(title: "cancel".ZXLocaleString, style: UIAlertAction.Style.cancel) { (alertAction) in
 
@@ -177,17 +194,17 @@ private extension ZXFileBrowserVC {
         alertVC.addAction(alertAction1)
         alertVC.addAction(alertAction2)
         alertVC.addAction(alertAction3)
-        if !isDirectory {
+        if model.fileType != .folder {
             alertVC.addAction(alertAction4)
         }
         alertVC.addAction(alertAction5)
+        alertVC.addAction(alertAction6)
         alertVC.addAction(cancelAction)
         self.present(alertVC, animated: true, completion: nil)
     }
 
     func _share() {
-        guard let filePath = operateFilePath else { return }
-        let activityVC = UIActivityViewController(activityItems: [filePath], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [self.operateFileModel!.filepath], applicationActivities: nil)
         if UIDevice.current.model == "iPad" {
             activityVC.modalPresentationStyle = UIModalPresentationStyle.popover
             activityVC.popoverPresentationController?.sourceView = self.view
@@ -200,12 +217,12 @@ private extension ZXFileBrowserVC {
         let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         self.navigationItem.rightBarButtonItem = rightBarItem
 
-        guard let filePath = operateFilePath else { return }
+        guard let operateFileModel = self.operateFileModel else { return }
         let manager = FileManager.default
         //同名
-        let currentPath = self.currentDirectoryPath.appendingPathComponent(filePath.lastPathComponent, isDirectory: false)
+        let currentPath = self.currentDirectoryPath.appendingPathComponent(operateFileModel.name, isDirectory: false)
         do {
-            try manager.copyItem(at: filePath, to: currentPath)
+            try manager.copyItem(at: operateFileModel.filepath, to: currentPath)
         } catch {
             print(error)
         }
@@ -216,11 +233,11 @@ private extension ZXFileBrowserVC {
         let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         self.navigationItem.rightBarButtonItem = rightBarItem
 
-        guard let filePath = operateFilePath else { return }
+        guard let operateFileModel = self.operateFileModel else { return }
         let manager = FileManager.default
-        let currentPath = self.currentDirectoryPath.appendingPathComponent(filePath.lastPathComponent, isDirectory: false)
+        let currentPath = self.currentDirectoryPath.appendingPathComponent(operateFileModel.name, isDirectory: false)
         do {
-            try manager.moveItem(at: filePath, to: currentPath)
+            try manager.moveItem(at: operateFileModel.filepath, to: currentPath)
         } catch {
             print(error)
         }
@@ -228,10 +245,10 @@ private extension ZXFileBrowserVC {
     }
 
     func _delete() {
-        guard let filePath = operateFilePath else { return }
+        guard let operateFileModel = self.operateFileModel else { return }
         let manager = FileManager.default
         do {
-            try manager.removeItem(at: filePath)
+            try manager.removeItem(at: operateFileModel.filepath)
         } catch {
             print(error)
         }
@@ -239,10 +256,10 @@ private extension ZXFileBrowserVC {
     }
     
     func _hash() {
-        guard let filePath = operateFilePath else { return }
+        guard let operateFileModel = self.operateFileModel else { return }
         var hashValue = ""
         do {
-            let data = try Data(contentsOf: filePath)
+            let data = try Data(contentsOf: operateFileModel.filepath)
 
             hashValue = "MD5: \n" + data.zx.hashString(hashType: .md5) + "\n\n" + "SHA1: \n" + data.zx.hashString(hashType: .sha1) + "\n\n" + "SHA256: \n" + data.zx.hashString(hashType: .sha256) + "\n\n" + "SHA384: \n" + data.zx.hashString(hashType: .sha384) + "\n\n" + "SHA512: \n" + data.zx.hashString(hashType: .sha512)
         } catch  {
@@ -261,6 +278,35 @@ private extension ZXFileBrowserVC {
         alertVC.addAction(alertAction1)
         alertVC.addAction(cancelAction)
         self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    func _size() {
+        guard let operateFileModel = self.operateFileModel else { return }
+        HDHUD.show(icon: .loading, didAppear: {
+            var size: Double = operateFileModel.size
+            if size == 0 {
+                if operateFileModel.fileType == .folder {
+                    size = ZXKitUtil.shared.getFileDirectorySize(fileDirectoryPth: operateFileModel.filepath)
+                    operateFileModel.size = size
+                } else {
+                    size = ZXKitUtil.shared.getFileSize(filePath: operateFileModel.filepath)
+                    operateFileModel.size = size
+                }
+            }
+            var sizeString =  "\(Int(size))B"
+            if size > 1024 * 1024 {
+                sizeString = "\(Int(size/1024/1024))MB"
+            } else if size > 1024 {
+                sizeString = "\(Int(size/1024))KB"
+            }
+            let alertVC = UIAlertController(title: "size".ZXLocaleString, message: sizeString, preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "close".ZXLocaleString, style: UIAlertAction.Style.cancel) { _ in
+
+            }
+            alertVC.addAction(cancelAction)
+            self.present(alertVC, animated: true, completion: nil)
+            HDHUD.hide()
+        })
     }
 }
 
@@ -307,7 +353,7 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             let rightBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
             self.navigationItem.rightBarButtonItem = rightBarItem
-            self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
+            self.operateFileModel = model
             //preview
             let previewVC = QLPreviewController()
             previewVC.delegate = self
@@ -322,14 +368,8 @@ extension ZXFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         let model = self.mTableViewList[indexPath.row]
-        if model.fileType == .folder {
-            self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: true)
-            self._showMore(isDirectory: true)
-        } else {
-            self.operateFilePath = self.currentDirectoryPath.appendingPathComponent(model.name, isDirectory: false)
-            self._showMore(isDirectory: false)
-        }
-        
+        self.operateFileModel = model
+        self._showMore(model: model)
         return true
     }
     
@@ -344,6 +384,6 @@ extension ZXFileBrowserVC: QLPreviewControllerDelegate, QLPreviewControllerDataS
     }
     
     func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-        return self.operateFilePath! as QLPreviewItem
+        return self.operateFileModel!.filepath as QLPreviewItem
     }
 }

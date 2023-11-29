@@ -1,0 +1,6 @@
+framework module HDHUD {
+  umbrella header "HDHUD-umbrella.h"
+
+  export *
+  module * { export * }
+}

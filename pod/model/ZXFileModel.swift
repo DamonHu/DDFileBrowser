@@ -9,15 +9,15 @@ import UIKit
 
 class ZXFileModel: NSObject {
     var name: String
-    var modificationDate: Date
-    var size: Double
-    var fileType: ZXFileType
+    var filepath: URL
+    
+    var modificationDate: Date = Date()
+    var size: Double = 0
+    var fileType: ZXFileType = .unknown
 
-    init(name: String = "", modificationDate: Date = Date(), size: Double = 0, fileType: ZXFileType = .unknown) {
+    init(name: String , filepath: URL) {
         self.name = name
-        self.modificationDate = modificationDate
-        self.size = size
-        self.fileType = fileType
+        self.filepath = filepath
         super.init()
     }
 }

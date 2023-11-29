@@ -1,22 +1,30 @@
 PODS:
+  - HDHUD (2.1.6):
+    - HDHUD/core (= 2.1.6)
+  - HDHUD/core (2.1.6):
+    - SnapKit
+    - ZXKitUtil
   - SnapKit (5.6.0)
   - ZXKitUtil (4.0.0):
     - ZXKitUtil/core (= 4.0.0)
   - ZXKitUtil/core (4.0.0)
 
 DEPENDENCIES:
+  - HDHUD
   - SnapKit
-  - ZXKitUtil (~> 4.0.0)
+  - ZXKitUtil (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - HDHUD
     - SnapKit
     - ZXKitUtil
 
 SPEC CHECKSUMS:
+  HDHUD: eb0dcb2443530b4a7b5e0475bed3517c5eeabb97
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   ZXKitUtil: 0d23a979cdc7a7f9df0722148a613986ef007288
 
-PODFILE CHECKSUM: 706e46f7de8ca453bf83bbdfc7663486c0165439
+PODFILE CHECKSUM: 38abc67ef5851154d03fe1299e0d68ca0aa7bea8
 
 COCOAPODS: 1.11.2
