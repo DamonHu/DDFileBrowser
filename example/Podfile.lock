@@ -1,4 +1,9 @@
 PODS:
+  - DDUtils/core (5.0.2)
+  - DDUtils/ui (5.0.2):
+    - DDUtils/core
+  - DDUtils/utils (5.0.2):
+    - DDUtils/core
   - HDHUD (2.1.6):
     - HDHUD/core (= 2.1.6)
   - HDHUD/core (2.1.6):
@@ -10,21 +15,24 @@ PODS:
   - ZXKitUtil/core (4.0.0)
 
 DEPENDENCIES:
+  - DDUtils/ui (~> 5.0.0)
+  - DDUtils/utils (~> 5.0.0)
   - HDHUD
   - SnapKit
-  - ZXKitUtil (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - DDUtils
     - HDHUD
     - SnapKit
     - ZXKitUtil
 
 SPEC CHECKSUMS:
+  DDUtils: 56b14d305b574751a3e5336717a6dfd56dd2c58c
   HDHUD: eb0dcb2443530b4a7b5e0475bed3517c5eeabb97
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   ZXKitUtil: 0d23a979cdc7a7f9df0722148a613986ef007288
 
-PODFILE CHECKSUM: 38abc67ef5851154d03fe1299e0d68ca0aa7bea8
+PODFILE CHECKSUM: 4ede763e193ee0d9457287ca57632cebd09fc843
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.14.3

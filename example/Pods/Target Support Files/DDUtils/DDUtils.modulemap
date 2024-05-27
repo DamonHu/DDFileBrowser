@@ -1,0 +1,6 @@
+framework module DDUtils {
+  umbrella header "DDUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}

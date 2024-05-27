@@ -1,12 +1,13 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'ZXFileBrowserDemo' do
+target 'DDFileBrowserDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  # Pods for ZXFileBrowserDemo
+  # Pods for DDFileBrowserDemo
   pod 'SnapKit'
-  pod 'ZXKitUtil', '~> 4.0'
+  pod 'DDUtils/utils', '~> 5.0.0'
+  pod 'DDUtils/ui', '~> 5.0.0'
   pod 'HDHUD'
 end
