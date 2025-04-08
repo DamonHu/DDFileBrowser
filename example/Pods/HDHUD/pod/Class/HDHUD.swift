@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ZXKitUtil
+import DDUtils
 
 public enum HDHUDIconType {
     case none
@@ -85,17 +85,17 @@ open class HDHUD {
     public static var loadingImageURL: URL? = URL(fileURLWithPath: URLPathHDBoundle(named: "loading.gif") ?? "")
     #endif
     ///color and text
-    public static var contentBackgroundColor = UIColor.zx.color(hexValue: 0x000000, alpha: 0.8)
-    public static var backgroundColor = UIColor.zx.color(hexValue: 0x000000, alpha: 0.2) {
+    public static var contentBackgroundColor = UIColor.dd.color(hexValue: 0x000000, alpha: 0.8)
+    public static var backgroundColor = UIColor.dd.color(hexValue: 0x000000, alpha: 0.2) {
         willSet {
             self.shared.bgView.backgroundColor = newValue
         }
     }
-    public static var textColor = UIColor.zx.color(hexValue: 0xFFFFFF)
+    public static var textColor = UIColor.dd.color(hexValue: 0xFFFFFF)
     public static var textFont = UIFont.systemFont(ofSize: 16)
     public static var contentOffset = CGPoint.zero
-    public static var progressTintColor = UIColor.zx.color(hexValue: 0xFF8F0C)
-    public static var trackTintColor = UIColor.zx.color(hexValue: 0xFFFFFF)
+    public static var progressTintColor = UIColor.dd.color(hexValue: 0xFF8F0C)
+    public static var trackTintColor = UIColor.dd.color(hexValue: 0xFFFFFF)
     public static var isShowCloseButton = true
     //private members
     private static var prevTask: HDHUDTask?
@@ -122,7 +122,7 @@ public extension HDHUD {
     static func show(_ content: String? = nil, icon: HDHUDIconType = .none, direction: HDHUDContentDirection = .horizontal, duration: TimeInterval = 2.5, superView: UIView? = nil, mask: Bool = false, priority: HDHUDPriority = .high, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDTask {
         //创建任务
         let task = HDHUDTask(taskType: .text, duration: duration, superView: superView, mask: mask, priority: priority, didAppear: didAppear, completion: completion)
-        ZXKitUtil.shared.runInMainThread(type: .sync) {
+        DDUtils.shared.runInMainThread(type: .sync) {
             //显示的页面
             task.contentView = HDHUDLabelContentView(content: content, icon: icon, direction: direction)
             //展示
@@ -135,7 +135,7 @@ public extension HDHUD {
     @discardableResult
     static func showProgress(_ progress: Float, direction: HDHUDContentDirection = .horizontal, superView: UIView? = nil, mask: Bool = false, priority: HDHUDPriority = .high, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDProgressTask {
         let task = HDHUDProgressTask(taskType: .progress, duration: -1, superView: superView, mask: mask, priority: priority, didAppear: didAppear, completion: completion)
-        ZXKitUtil.shared.runInMainThread(type: .sync) {
+        DDUtils.shared.runInMainThread(type: .sync) {
             //显示的页面
             task.contentView = HDHUDProgressContentView(direction: direction)
             task.progress = progress
@@ -150,7 +150,7 @@ public extension HDHUD {
     static func show(customView: UIView, duration: TimeInterval = 2.5, superView: UIView? = nil, mask: Bool = false, priority: HDHUDPriority = .high, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDTask {
         //创建任务
         let task = HDHUDTask(taskType: .custom, duration: duration, superView: superView, mask: mask, priority: priority, didAppear: didAppear, completion: completion)
-        ZXKitUtil.shared.runInMainThread(type: .sync) {
+        DDUtils.shared.runInMainThread(type: .sync) {
             //显示的页面
             task.contentView = customView
             //展示
@@ -161,7 +161,7 @@ public extension HDHUD {
 
     //display use task
     static func show(task: HDHUDTask) {
-        ZXKitUtil.shared.runInMainThread(type: .sync) {
+        DDUtils.shared.runInMainThread(type: .sync) {
             if task.taskType == .progress {
                 self._showProgress(task: task as! HDHUDProgressTask)
             } else {
@@ -171,7 +171,7 @@ public extension HDHUD {
     }
 
     static func hide(task: HDHUDTask? = nil) {
-        ZXKitUtil.shared.runInMainThread(type: .sync) {
+        DDUtils.shared.runInMainThread(type: .sync) {
             self._hide(task: task, autoNext: true)
         }
     }
@@ -188,7 +188,7 @@ public extension HDHUD {
             }
         }
         self.sequenceTask.removeAll()
-        ZXKitUtil.shared.runInMainThread(type: .sync) {
+        DDUtils.shared.runInMainThread(type: .sync) {
             self._hide(task: nil, autoNext: false)
         }
     }
@@ -316,7 +316,7 @@ private extension HDHUD {
         //show new view
         var tmpSuperView = task.superView
         if HDHUD.displayPosition == .navigationBarMask || HDHUD.displayPosition == .tabBarMask ||  HDHUD.displayPosition == .top ||  HDHUD.displayPosition == .bottom ||  tmpSuperView == nil {
-            tmpSuperView = ZXKitUtil.shared.getCurrentNormalWindow()
+            tmpSuperView = DDUtils.shared.getCurrentNormalWindow()
         }
         guard let tSuperView = tmpSuperView else { return }
         shared.bgView.backgroundColor = self.backgroundColor
@@ -398,7 +398,7 @@ private extension HDHUD {
                 if view.frame.size.width > 0 || view.frame.size.height > 0 {
                     view.snp.remakeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.top.equalToSuperview().offset(ZXKitUtil_StatusBar_Height)
+                        make.top.equalToSuperview().offset(DDUtils_StatusBar_Height)
                         make.bottom.equalTo(navigationBarMaskView)
                         make.width.equalTo(view.frame.size.width)
                         make.height.equalTo(view.frame.size.height)
@@ -406,7 +406,7 @@ private extension HDHUD {
                 } else {
                     view.snp.makeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.top.equalToSuperview().offset(ZXKitUtil_StatusBar_Height)
+                        make.top.equalToSuperview().offset(DDUtils_StatusBar_Height)
                         make.bottom.equalTo(navigationBarMaskView)
                     }
                 }
@@ -414,20 +414,20 @@ private extension HDHUD {
                 if view.frame.size.width > 0 || view.frame.size.height > 0 {
                     view.snp.remakeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.top.equalToSuperview().offset(ZXKitUtil_StatusBar_Height)
+                        make.top.equalToSuperview().offset(DDUtils_StatusBar_Height)
                         make.width.equalTo(view.frame.size.width)
                         make.height.equalTo(view.frame.size.height)
                     }
                 } else {
                     view.snp.makeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.top.equalToSuperview().offset(ZXKitUtil_StatusBar_Height)
+                        make.top.equalToSuperview().offset(DDUtils_StatusBar_Height)
                     }
                 }
             }
             
             let transformAnimation = CABasicAnimation(keyPath: "transform.translation.y")
-            transformAnimation.fromValue = -ZXKitUtil_Default_Nav_And_Status_Height()
+            transformAnimation.fromValue = -DDUtils_Default_Nav_And_Status_Height()
             transformAnimation.duration = 0.3
             transformAnimation.fillMode = CAMediaTimingFillMode.forwards
             transformAnimation.isCumulative = false
@@ -450,7 +450,7 @@ private extension HDHUD {
                 if view.frame.size.width > 0 || view.frame.size.height > 0 {
                     view.snp.remakeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.bottom.equalToSuperview().offset(-ZXKitUtil_HomeIndicator_Height)
+                        make.bottom.equalToSuperview().offset(-DDUtils_HomeIndicator_Height)
                         make.top.equalTo(tabBarMaskView).offset(task.duration < 0 && HDHUD.isShowCloseButton ? 10 : 0)
                         make.width.equalTo(view.frame.size.width)
                         make.height.equalTo(view.frame.size.height)
@@ -458,7 +458,7 @@ private extension HDHUD {
                 } else {
                     view.snp.makeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.bottom.equalToSuperview().offset(-ZXKitUtil_HomeIndicator_Height)
+                        make.bottom.equalToSuperview().offset(-DDUtils_HomeIndicator_Height)
                         make.top.equalTo(tabBarMaskView).offset(task.duration < 0 && HDHUD.isShowCloseButton ? 10 : 0)
                     }
                 }
@@ -466,19 +466,19 @@ private extension HDHUD {
                 if view.frame.size.width > 0 || view.frame.size.height > 0 {
                     view.snp.remakeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.bottom.equalToSuperview().offset(-ZXKitUtil_HomeIndicator_Height)
+                        make.bottom.equalToSuperview().offset(-DDUtils_HomeIndicator_Height)
                         make.width.equalTo(view.frame.size.width)
                         make.height.equalTo(view.frame.size.height)
                     }
                 } else {
                     view.snp.makeConstraints { (make) in
                         make.centerX.equalToSuperview().offset(contentOffset.x)
-                        make.bottom.equalToSuperview().offset(-ZXKitUtil_HomeIndicator_Height)
+                        make.bottom.equalToSuperview().offset(-DDUtils_HomeIndicator_Height)
                     }
                 }
             }
             let transformAnimation = CABasicAnimation(keyPath: "transform.translation.y")
-            transformAnimation.fromValue = UIScreenHeight + ZXKitUtil_Default_Tabbar_Height()
+            transformAnimation.fromValue = UIScreenHeight + DDUtils_Default_Tabbar_Height()
             transformAnimation.duration = 0.3
             transformAnimation.fillMode = CAMediaTimingFillMode.forwards
             transformAnimation.isCumulative = false
@@ -498,7 +498,7 @@ private extension HDHUD {
         }
         if HDHUD.isVibrate {
             DispatchQueue.main.async {
-                ZXKitUtil.shared.startVibrate()
+                DDUtils.shared.startVibrate()
             }
         }
     }

@@ -66,6 +66,7 @@ open class DDFileBrowserVC: UIViewController {
         if #available(iOS 15.0, *) {
             tTableView.sectionHeaderTopPadding = 0
         }
+        tTableView.translatesAutoresizingMaskIntoConstraints = false
         tTableView.estimatedSectionHeaderHeight = 0
         tTableView.estimatedSectionFooterHeight = 0
         tTableView.rowHeight = 60
@@ -81,6 +82,7 @@ open class DDFileBrowserVC: UIViewController {
     
     lazy var mEmptyLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.isHidden = true
         label.text = "This folder is empty~"
         label.textColor = UIColor.dd.color(hexValue: 0x666666)
@@ -93,14 +95,15 @@ private extension DDFileBrowserVC {
     func _createUI() {
         self.view.backgroundColor = UIColor.dd.color(hexValue: 0xffffff)
         self.view.addSubview(mTableView)
-        mTableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        mTableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        mTableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        mTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        mTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
         
         self.view.addSubview(mEmptyLabel)
-        mEmptyLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        mEmptyLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        mEmptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
     }
 
     func _loadData() {

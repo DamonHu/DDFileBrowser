@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ZXKitUtil
+import DDUtils
 #if canImport(Kingfisher)
 import Kingfisher
 #endif

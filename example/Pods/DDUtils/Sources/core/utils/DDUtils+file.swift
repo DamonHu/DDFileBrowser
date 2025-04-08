@@ -1,24 +1,23 @@
 //
-//  ZXKitUtil+file.swift
-//  ZXKitUtil
+//  DDUtils+file.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/4.
 //  Copyright © 2020 Damon. All rights reserved.
 //
 
 import Foundation
-import CommonCrypto
 
-public enum ZXKitUtilFileDirectoryType {
+public enum DDUtilsFileDirectoryType {
     case home       //程序主目录
     case documents  //应用中用户数据可以放在这里，iTunes备份和恢复的时候会包括此目录
     case tmp        //存放临时文件，iTunes不会备份和恢复此目录，此目录下文件可能会在应用退出后删除
     case caches     //存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除，硬盘资源紧张时会被删除
 }
 
-public extension ZXKitUtil {
+public extension DDUtils {
     ///获取文件夹路径
-    func getFileDirectory(type: ZXKitUtilFileDirectoryType) -> URL {
+    func getFileDirectory(type: DDUtilsFileDirectoryType) -> URL {
         let homePath = NSHomeDirectory()
         switch type {
         case .home:
@@ -37,7 +36,7 @@ public extension ZXKitUtil {
     ///   - type: 浮层文件夹类型
     ///   - directoryName: 文件夹名称
     /// - Returns: 创建的文件夹路径
-    func createFileDirectory(in type: ZXKitUtilFileDirectoryType, directoryName: String) -> URL {
+    func createFileDirectory(in type: DDUtilsFileDirectoryType, directoryName: String) -> URL {
         let manager = FileManager.default
         let superDirectory = self.getFileDirectory(type: type)
     

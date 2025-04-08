@@ -7,7 +7,6 @@
 
 import UIKit
 import DDUtils
-import SnapKit
 
 class DDFileTableViewCell: UITableViewCell {
     lazy var mDateFormatter: DateFormatter = {
@@ -67,11 +66,13 @@ class DDFileTableViewCell: UITableViewCell {
 
     lazy var mImageView: UIImageView = {
         let tImageView = UIImageView()
+        tImageView.translatesAutoresizingMaskIntoConstraints = false
         return tImageView
     }()
 
     lazy var mTitleLabel: UILabel = {
         let tLabel = UILabel()
+        tLabel.translatesAutoresizingMaskIntoConstraints = false
         tLabel.font = .systemFont(ofSize: 14)
         tLabel.textColor = UIColor.dd.color(hexValue: 0x333333)
         return tLabel
@@ -79,6 +80,7 @@ class DDFileTableViewCell: UITableViewCell {
 
     lazy var mAttributedLabel: UILabel = {
         let tLabel = UILabel()
+        tLabel.translatesAutoresizingMaskIntoConstraints = false
         tLabel.font = .systemFont(ofSize: 12)
         tLabel.textColor = UIColor.dd.color(hexValue: 0x999999)
         return tLabel
@@ -88,26 +90,20 @@ class DDFileTableViewCell: UITableViewCell {
 private extension DDFileTableViewCell {
     func _createUI() {
         self.contentView.addSubview(mImageView)
-        mImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(10)
-            $0.top.equalToSuperview().offset(10)
-            $0.bottom.equalToSuperview().offset(-10)
-            $0.width.equalTo(mImageView.snp.height)
-        }
-
+        mImageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10).isActive = true
+        mImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
+        mImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
+        mImageView.widthAnchor.constraint(equalTo: self.mImageView.heightAnchor).isActive = true
+        
         self.contentView.addSubview(mTitleLabel)
-        mTitleLabel.snp.makeConstraints {
-            $0.left.equalTo(mImageView.snp.right).offset(10)
-            $0.top.equalToSuperview().offset(5)
-            $0.right.equalToSuperview().offset(-20)
-        }
+        mTitleLabel.leftAnchor.constraint(equalTo: self.mImageView.rightAnchor, constant: 10).isActive = true
+        mTitleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5).isActive = true
+        mTitleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -20).isActive = true
 
         self.contentView.addSubview(mAttributedLabel)
-        mAttributedLabel.snp.makeConstraints {
-            $0.left.equalTo(self.mTitleLabel)
-            $0.bottom.equalToSuperview().offset(-5)
-            $0.right.equalToSuperview().offset(-20)
-        }
+        mAttributedLabel.leftAnchor.constraint(equalTo: self.mTitleLabel.leftAnchor).isActive = true
+        mAttributedLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -5).isActive = true
+        mAttributedLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5).isActive = true
     }
     
     func _getImage(type: DDFileType) -> UIImage? {

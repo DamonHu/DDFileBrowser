@@ -179,13 +179,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DDUtils/DDUtils.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HDHUD/HDHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ZXKitUtil/ZXKitUtil.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DDUtils/DDUtils.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HDHUD/HDHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ZXKitUtil/ZXKitUtil.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

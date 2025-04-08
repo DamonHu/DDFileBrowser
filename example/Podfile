@@ -6,7 +6,6 @@ target 'DDFileBrowserDemo' do
   use_frameworks!
   
   # Pods for DDFileBrowserDemo
-  pod 'SnapKit'
   pod 'DDUtils/utils', '~> 5.0.0'
   pod 'DDUtils/ui', '~> 5.0.0'
   pod 'HDHUD'

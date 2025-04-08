@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'DDFileBrowser'
 s.swift_version = '5.0'
-s.version = '4.0.0'
+s.version = '4.0.1'
 s.license= { :type => "MIT", :file => "LICENSE" }
 s.summary = 'iOS Sandbox file browser, iOS沙盒文件浏览器'
 s.homepage = 'https://github.com/DamonHu/DDFileBrowser'
@@ -16,7 +16,6 @@ s.subspec 'core' do |cs|
     cs.source_files = "pod/*.swift", "pod/view/*.swift", "pod/vc/*.swift", "pod/model/*.swift"
     cs.dependency 'DDUtils/utils'
     cs.dependency 'DDUtils/ui'
-    cs.dependency 'SnapKit'
     cs.dependency 'HDHUD'
 end
 s.default_subspecs = "core"

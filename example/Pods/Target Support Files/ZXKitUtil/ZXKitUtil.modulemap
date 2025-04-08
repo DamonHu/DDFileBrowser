@@ -1,6 +1,0 @@
-framework module ZXKitUtil {
-  umbrella header "ZXKitUtil-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,6 @@
 //
-//  ZXKitUtil+permission.swift
-//  ZXKitUtil
+//  DDUtils+permission.swift
+//  DDUtils
 //
 //  Created by Damon on 2020/7/3.
 //  Copyright © 2020 Damon. All rights reserved.
@@ -12,27 +12,11 @@ import Photos
 import UserNotifications
 
 private var mLocationManager: CLLocationManager?   //定位管理
-private var locationComplete: ((ZXKitUtilPermissionStatus) -> Void)?    //定位结束
+private var locationComplete: ((DDUtilsPermissionStatus) -> Void)?    //定位结束
 
-public enum ZXKitUtilPermissionType {
-    case audio          //麦克风权限
-    case video          //相机权限
-    case photoLibrary   //相册权限
-    case GPS            //定位权限
-    case notification   //通知权限
-}
-
-public enum ZXKitUtilPermissionStatus {
-    case authorized     //用户允许
-    case restricted     //被限制修改不了状态,比如家长控制选项等
-    case denied         //用户拒绝
-    case notDetermined  //用户尚未选择
-    case limited        //部分允许，iOS14之后增加的特性
-}
-
-public extension ZXKitUtil {
+public extension DDUtils {
     ///请求权限
-    func requestPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
+    func requestPermission(type: DDUtilsPermissionType, complete: @escaping ((DDUtilsPermissionStatus) -> Void)) -> Void {
         switch type {
         case .audio:
             AVCaptureDevice.requestAccess(for: .audio) { (granted) in
@@ -93,7 +77,7 @@ public extension ZXKitUtil {
     }
     
     ///检测权限
-    func checkPermission(type: ZXKitUtilPermissionType, complete: @escaping ((ZXKitUtilPermissionStatus) -> Void)) -> Void {
+    func checkPermission(type: DDUtilsPermissionType, complete: @escaping ((DDUtilsPermissionStatus) -> Void)) -> Void {
         switch type {
         case .audio:
             let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
@@ -168,7 +152,7 @@ public extension ZXKitUtil {
     }
 }
 
-extension ZXKitUtil: CLLocationManagerDelegate {
+extension DDUtils: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard let locationComplete = locationComplete  else { return }
         switch status {
