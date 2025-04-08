@@ -26,6 +26,7 @@ you can get the file type of the specified path by this function
 DDFileBrowser.shared.getFileType(filePath: path)
 ```
 
+If you want to control VC navigation yourself, you can use `DDFileBrowserVC`.
 
 ## Preview
 

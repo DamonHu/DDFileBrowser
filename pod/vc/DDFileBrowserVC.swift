@@ -27,7 +27,7 @@ extension String{
     }
 }
 
-class DDFileBrowserVC: UIViewController {
+open class DDFileBrowserVC: UIViewController {
     var mTableViewList = [DDFileModel]()
     var extensionDirectoryPath = "" //选择的相对路径
     var operateFileModel: DDFileModel?  //操作的文件，例如复制、粘贴等
@@ -37,7 +37,7 @@ class DDFileBrowserVC: UIViewController {
     }
 
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         let rightBarItem = UIBarButtonItem(title: "close".DDLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         self.navigationItem.rightBarButtonItem = rightBarItem
@@ -311,11 +311,11 @@ private extension DDFileBrowserVC {
 }
 
 extension DDFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mTableViewList.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.mTableViewList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DDFileTableViewCell") as! DDFileTableViewCell
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
@@ -329,23 +329,23 @@ extension DDFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
     }
 
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
 
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.mTableViewList[indexPath.row]
         if model.fileType == .folder {
             extensionDirectoryPath = extensionDirectoryPath + "/" + model.name
@@ -362,28 +362,28 @@ extension DDFileBrowserVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+    public func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return false
     }
     
-    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+    public func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         let model = self.mTableViewList[indexPath.row]
         self.operateFileModel = model
         self._showMore(model: model)
         return true
     }
     
-    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+    public func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
 
     }
 }
 
 extension DDFileBrowserVC: QLPreviewControllerDelegate, QLPreviewControllerDataSource {
-    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+    public func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
         return 1
     }
     
-    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+    public func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         return self.operateFileModel!.filepath as QLPreviewItem
     }
 }
