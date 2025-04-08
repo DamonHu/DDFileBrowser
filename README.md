@@ -28,6 +28,11 @@ DDFileBrowser.shared.getFileType(filePath: path)
 
 If you want to control VC navigation yourself, you can use `DDFileBrowserVC`.
 
+```
+let vc = DDFileBrowserVC()
+self.navigationController?.pushViewController(vc, animated: true)
+```
+
 ## Preview
 
 |File List|File Type Icon|

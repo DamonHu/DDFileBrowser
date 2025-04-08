@@ -47,7 +47,11 @@ open class DDFileBrowserVC: UIViewController {
     }
 
     @objc func _rightBarItemClick() {
-        self.dismiss(animated: true, completion: nil)
+        if self.isBeingPresented {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 
     @objc func _leftBarItemClick() {
