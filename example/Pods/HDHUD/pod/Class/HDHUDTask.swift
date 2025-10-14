@@ -8,30 +8,19 @@
 import Foundation
 import UIKit
 
-public enum HDHUDTaskType {
-    case text
-    case progress
-    case custom
-}
-
 open class HDHUDTask: NSObject {
     public var didAppear: (()->Void)? = nil
     public var completion: (()->Void)? = nil
-
-    var mask = false
-    var priority = HDHUDPriority.high
-    var taskType = HDHUDTaskType.text
-    var duration: TimeInterval = 2.5
-    var contentView: UIView?
+    public var isVisible: Bool = false
+    
+    var closeButtonDelay: TimeInterval = -1
+    var duration: TimeInterval = 3.5
+    var contentView: UIView = UIView()
     var closeButton: UIButton?
-    var superView: UIView?
 
-    init(taskType: HDHUDTaskType = .text, duration: TimeInterval = 2.5, superView: UIView? = nil, mask: Bool = false, priority: HDHUDPriority = .high, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) {
-        self.taskType = taskType
+    init(duration: TimeInterval = 3.5, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) {
         self.duration = duration
-        self.superView = superView
-        self.mask = mask
-        self.priority = priority
+        self.closeButtonDelay = closeButtonDelay
         self.didAppear = didAppear
         self.completion = completion
         super.init()
@@ -43,6 +32,14 @@ open class HDHUDProgressTask: HDHUDTask {
         willSet {
             if let contentView = self.contentView as? HDHUDProgressContentView {
                 contentView.progress = newValue
+            }
+        }
+    }
+    
+    public var text: String? = nil {
+        willSet {
+            if let contentView = self.contentView as? HDHUDProgressContentView {
+                contentView.text = newValue
             }
         }
     }

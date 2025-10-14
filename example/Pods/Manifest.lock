@@ -1,28 +1,12 @@
 PODS:
-  - DDUtils (5.0.13):
-    - DDUtils/basic (= 5.0.13)
-  - DDUtils/basic (5.0.13):
+  - DDUtils/core (5.0.14)
+  - DDUtils/ui (5.0.14):
     - DDUtils/core
-    - DDUtils/idfa
-    - DDUtils/permission
-    - DDUtils/ui
-    - DDUtils/utils
-  - DDUtils/core (5.0.13)
-  - DDUtils/idfa (5.0.13):
+  - DDUtils/utils (5.0.14):
     - DDUtils/core
-    - DDUtils/permission
-  - DDUtils/permission (5.0.13):
-    - DDUtils/core
-  - DDUtils/ui (5.0.13):
-    - DDUtils/core
-  - DDUtils/utils (5.0.13):
-    - DDUtils/core
-  - HDHUD (3.0.0):
-    - HDHUD/core (= 3.0.0)
-  - HDHUD/core (3.0.0):
-    - DDUtils
-    - SnapKit
-  - SnapKit (5.6.0)
+  - HDHUD (4.0.3):
+    - HDHUD/core (= 4.0.3)
+  - HDHUD/core (4.0.3)
 
 DEPENDENCIES:
   - DDUtils/ui (~> 5.0.0)
@@ -33,13 +17,11 @@ SPEC REPOS:
   trunk:
     - DDUtils
     - HDHUD
-    - SnapKit
 
 SPEC CHECKSUMS:
-  DDUtils: 9d1dab6514cbe6687348bde7ea0f6f2187b55222
-  HDHUD: 9788299d687e18484e39ca297c1deae5ba8e5c66
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  DDUtils: 1865663551fe616abec4eeda4c9c4f9635248c8b
+  HDHUD: 8c52ed1921314e7ec05fe5a3a22a62f27fcc8840
 
-PODFILE CHECKSUM: b81f070028d53c885fcaac20588a29f81c199f5f
+PODFILE CHECKSUM: 054cb22076a6ddfadc7d2873d81d081e42c0fbff
 
 COCOAPODS: 1.16.2

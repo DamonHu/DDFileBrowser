@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'DDFileBrowser'
 s.swift_version = '5.0'
-s.version = '4.0.1'
+s.version = '4.0.2'
 s.license= { :type => "MIT", :file => "LICENSE" }
 s.summary = 'iOS Sandbox file browser, iOS沙盒文件浏览器'
 s.homepage = 'https://github.com/DamonHu/DDFileBrowser'
@@ -19,5 +19,5 @@ s.subspec 'core' do |cs|
     cs.dependency 'HDHUD'
 end
 s.default_subspecs = "core"
-s.documentation_url = 'https://dongge.org/blog/1295.html'
+s.documentation_url = 'https://blog.dongge.org/1295.html'
 end

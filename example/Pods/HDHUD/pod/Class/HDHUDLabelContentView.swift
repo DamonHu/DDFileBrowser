@@ -24,10 +24,13 @@ class HDHUDLabelContentView: HDHUDContentView {
     //MARK: UI
     lazy var mImageView: UIImageView = {
         let tImageView = UIImageView()
+        tImageView.translatesAutoresizingMaskIntoConstraints = false
         return tImageView
     }()
+    
     lazy var mLabel: UILabel = {
         let tLabel = UILabel()
+        tLabel.translatesAutoresizingMaskIntoConstraints = false
         tLabel.numberOfLines = 0
         tLabel.textAlignment = .center
         tLabel.textColor = HDHUD.textColor
@@ -38,6 +41,9 @@ class HDHUDLabelContentView: HDHUDContentView {
 
 extension HDHUDLabelContentView {
     func createUI(content: String?, icon: HDHUDIconType, direction: HDHUDContentDirection) {
+        if (content == nil || content!.isEmpty) && icon == .none {
+            return
+        }
         var imageSize = CGSize.zero
         switch icon {
             case .none:
@@ -52,70 +58,61 @@ extension HDHUDLabelContentView {
                 mImageView.image = HDHUD.successImage
                 imageSize = HDHUD.successImageSize
             case .loading:
-                #if canImport(Kingfisher)
-                if let url = HDHUD.loadingImageURL {
-                    mImageView.kf.setImage(with: url)
-                } else {
-                    mImageView.image = HDHUD.loadingImage
-                }
-                #else
                 mImageView.image = HDHUD.loadingImage
-                #endif
                 imageSize = HDHUD.loadingImageSize
         }
         mLabel.text = content
 
         self.addSubview(mImageView)
         self.addSubview(mLabel)
-
-        self.snp.makeConstraints { (make) in
-            make.width.lessThanOrEqualTo(240)
-        }
-
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(lessThanOrEqualToConstant: 240).isActive = true
+        
         //判断单一存在的情况
-        guard let content = content, !content.isEmpty else {
+        if content == nil || content!.isEmpty {
             if HDHUD.displayPosition == .navigationBarMask || HDHUD.displayPosition == .tabBarMask {
-                self.snp.makeConstraints { (make) in
-                    make.width.equalTo(imageSize.width)
-                    make.height.equalTo(imageSize.height + 20)
-                }
+                self.widthAnchor.constraint(equalToConstant: imageSize.width).isActive = true
+                self.heightAnchor.constraint(equalToConstant: imageSize.height + 20).isActive = true
             } else {
-                self.snp.makeConstraints { (make) in
-                    make.width.height.equalTo(100)
-                }
+                self.widthAnchor.constraint(equalToConstant: 100).isActive = true
+                self.heightAnchor.constraint(equalToConstant: 100).isActive = true
             }
-            mImageView.snp.makeConstraints { (make) in
-                make.center.equalToSuperview()
-                make.size.equalTo(imageSize)
-            }
+            mImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            mImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+            mImageView.widthAnchor.constraint(equalToConstant: imageSize.width * 1.6).isActive = true
+            mImageView.heightAnchor.constraint(equalToConstant: imageSize.height * 1.6).isActive = true
             return
         }
-        guard icon != .none else {
-            mLabel.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview().inset(15)
-            }
+        if icon == .none {
+            mLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
+            mLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
+            mLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
+            mLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15).isActive = true
             return
         }
-
-        mImageView.snp.makeConstraints { (make) in
-            make.size.equalTo(imageSize)
-            if direction == .horizontal {
-                make.left.equalToSuperview().offset(15)
-                make.centerY.equalToSuperview()
-            } else {
-                make.centerX.equalToSuperview()
-                make.top.equalToSuperview().offset(15)
-            }
+        //图文都有
+        mImageView.widthAnchor.constraint(equalToConstant: imageSize.width).isActive = true
+        mImageView.heightAnchor.constraint(equalToConstant: imageSize.height).isActive = true
+        if direction == .horizontal {
+            mImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
+            mImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        } else {
+            mImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            mImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
         }
 
-        mLabel.snp.makeConstraints { (make) in
-            if direction == .horizontal {
-                make.left.equalTo(mImageView.snp.right).offset(8)
-                make.top.bottom.right.equalToSuperview().inset(15)
-            } else {
-                make.top.equalTo(mImageView.snp.bottom).offset(8)
-                make.left.bottom.right.equalToSuperview().inset(15)
-            }
+        //label
+        if direction == .horizontal {
+            mLabel.leftAnchor.constraint(equalTo: mImageView.rightAnchor, constant: 8).isActive = true
+            mLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
+            mLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
+            mLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15).isActive = true
+        } else {
+            mLabel.topAnchor.constraint(equalTo: mImageView.bottomAnchor, constant: 8).isActive = true
+            mLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
+            mLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
+            mLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15).isActive = true
         }
     }
 }

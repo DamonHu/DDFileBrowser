@@ -5,7 +5,7 @@
 
 `DDUtils` is a collection of commonly used features, developed based on Swift, that can be quickly implemented on iOS devices.
 
-### [中文文档](https://ddceo.com/blog/1281.html)
+### [中文文档](https://dongge.org/blog/1281.html)
 
 ## import the project
 

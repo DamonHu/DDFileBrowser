@@ -130,7 +130,7 @@ private extension DDFileBrowserVC {
                 self.mTableView.reloadData()
             } else {
                 //大于100个显示进度条
-                HDHUD.show(icon: .loading, mask: true, didAppear: { [weak self] in
+                HDHUD.show(icon: .loading, didAppear: { [weak self] in
                     guard let self = self else { return }
                     for i in 0..<total {
                         let fileName = subPath[i]

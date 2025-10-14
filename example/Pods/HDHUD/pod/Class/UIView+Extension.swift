@@ -9,7 +9,6 @@ import UIKit
 
 extension UIView {
     func addPopAnimation() {
-        
         //动态弹出
         let scaleAnimation = CABasicAnimation(keyPath: "transform")
         scaleAnimation.fromValue = NSValue(caTransform3D: CATransform3DMakeScale(0, 0, 1))
