@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/CocoaPods-supported-brightgreen) ![](https://img.shields.io/badge/Swift-5.0-brightgreen) ![](https://img.shields.io/badge/License-MIT-brightgreen) ![](https://img.shields.io/badge/version-iOS11.0-brightgreen)
 
-[中文文档](https://dongge.org/blog/1295.html)
+[中文文档](https://blog.dongge.net/1295.html)
 
 The iOS sandbox file browser can view, copy, move, delete files and other operations. Use `quick look` framework to preview and long press to display more operations.
 
