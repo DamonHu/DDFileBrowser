@@ -47,7 +47,7 @@ open class DDFileBrowserVC: UIViewController {
     }
 
     @objc func _rightBarItemClick() {
-        if self.isBeingPresented {
+        if self.presentingViewController != nil {
             self.dismiss(animated: true, completion: nil)
         } else {
             self.navigationController?.popToRootViewController(animated: true)
@@ -130,7 +130,7 @@ private extension DDFileBrowserVC {
                 self.mTableView.reloadData()
             } else {
                 //大于100个显示进度条
-                HDHUD.show(icon: .loading, didAppear: { [weak self] in
+                HDHUD.showLoading(didAppear: { [weak self] in
                     guard let self = self else { return }
                     for i in 0..<total {
                         let fileName = subPath[i]
@@ -141,7 +141,7 @@ private extension DDFileBrowserVC {
                     }
                     self.mEmptyLabel.isHidden = !self.mTableViewList.isEmpty
                     self.mTableView.reloadData()
-                    HDHUD.hide()
+                    HDHUD.hideLoading()
                 })
             }
         } else {
@@ -289,7 +289,7 @@ private extension DDFileBrowserVC {
     
     func _size() {
         guard let operateFileModel = self.operateFileModel else { return }
-        HDHUD.show(icon: .loading, didAppear: {
+        HDHUD.showLoading(didAppear: {
             var size: Double = operateFileModel.size
             if size == 0 {
                 if operateFileModel.fileType == .folder {
@@ -312,7 +312,7 @@ private extension DDFileBrowserVC {
             }
             alertVC.addAction(cancelAction)
             self.present(alertVC, animated: true, completion: nil)
-            HDHUD.hide()
+            HDHUD.hideLoading()
         })
     }
 }
