@@ -9,5 +9,5 @@ target 'DDFileBrowserDemo' do
   # Pods for DDFileBrowserDemo
   pod 'DDUtils/utils', '~> 5.0.0'
   pod 'DDUtils/ui', '~> 5.0.0'
-  pod 'HDHUD'
+  pod 'HDHUD', '~> 4.1.0'
 end

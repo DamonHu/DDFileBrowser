@@ -4,14 +4,14 @@ PODS:
     - DDUtils/core
   - DDUtils/utils (5.0.14):
     - DDUtils/core
-  - HDHUD (4.0.3):
-    - HDHUD/core (= 4.0.3)
-  - HDHUD/core (4.0.3)
+  - HDHUD (4.1.0):
+    - HDHUD/core (= 4.1.0)
+  - HDHUD/core (4.1.0)
 
 DEPENDENCIES:
   - DDUtils/ui (~> 5.0.0)
   - DDUtils/utils (~> 5.0.0)
-  - HDHUD
+  - HDHUD (~> 4.1.0)
 
 SPEC REPOS:
   trunk:
@@ -20,8 +20,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DDUtils: 1865663551fe616abec4eeda4c9c4f9635248c8b
-  HDHUD: 8c52ed1921314e7ec05fe5a3a22a62f27fcc8840
+  HDHUD: cef5477f5e1cb002785ac641fc8d78017b29a9e6
 
-PODFILE CHECKSUM: 054cb22076a6ddfadc7d2873d81d081e42c0fbff
+PODFILE CHECKSUM: b468639ba1d13b5127ba343358b7d0b926f7de2c
 
 COCOAPODS: 1.16.2

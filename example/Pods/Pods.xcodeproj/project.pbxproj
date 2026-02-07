@@ -8,85 +8,86 @@
 
 /* Begin PBXBuildFile section */
 		00784326ED2D2C40741CC1633B26493A /* DDUtils+AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA4B277C6484DB8ED754E44A54F143 /* DDUtils+AppStore.swift */; };
+		009D46F0B4C9712589BD19C7E57D1F4C /* HDHUDTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE914E6E17B218A989C25C8E8C439122 /* HDHUDTask.swift */; };
+		040B9C093A5F0F2DD979065F2C9E121E /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A592E9AA255EA2E907C171749A26C464 /* loading_1.png */; };
+		049993BAA54F8702810EDD0D8572618D /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = C9821939D476268E7891F58DEAF2159C /* loading_0.png */; };
+		04F3AC6F57B27E42BB7D4C9D4F43A077 /* loading_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 995C2D65EA37C4710146A3D0C8426C9D /* loading_3.png */; };
+		052F69936FAA5C8273185E6D1D8B1E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		09888658B610D8BFDDB1E094A081DE03 /* Pods-DDFileBrowserDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F29B3355AF141E476510376520EE1FBA /* Pods-DDFileBrowserDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C1E845678933F9200609547B825B2C5 /* HDHUDProgressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8243798EF34400ECB43ED5319F08B2C /* HDHUDProgressContentView.swift */; };
-		0D4091D199BB033BABE9C10AC2C75BFD /* HDHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560AA809DF0ABF5D25051300BEA52757 /* HDHUD.swift */; };
-		10F5B13DED946B75BBEF0783E35B4EAD /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C59D11AD59C3A161D1861535C24736 /* icon_close@3x.png */; };
-		165787F6B75F79FDA0796977D7C67751 /* HDHUDTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A038A3A1DE2AD60918A0D1CCDCE630 /* HDHUDTaskViewController.swift */; };
-		1676C91D71810DB4BCB5BA170FE61F75 /* loading_8.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C6A370E27272F73CD08913DA36A5DA /* loading_8.png */; };
-		175DEE61F37C02907225AA038BFB4158 /* loading_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C9DF8D92236C4EDDC915F8EF441A7A /* loading_10.png */; };
-		18883935CA7CBEDFD55E1BB94811FD32 /* HDHUD-HDHUD in Resources */ = {isa = PBXBuildFile; fileRef = 00D6B430595638A61AF05164CBEA20FC /* HDHUD-HDHUD */; };
-		21E87A512720DB4810A0188348C1D378 /* HDHUDTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D2A07F0D7EB6B76E43289DEE1500B /* HDHUDTask.swift */; };
-		23365F0E065DB17896B01C7864A2C9AE /* HDHUDWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E71FD29FCEB044A13AB38BB751AAB /* HDHUDWindow.swift */; };
+		1566A34EAF0B722586AE512F52420DF1 /* loading_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C00E1EBB0A1A4FACAB760603B861ED8 /* loading_2.png */; };
+		23B3DF8B203EC74D5C40118BC019E77B /* HDHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C129087EB2339C29468F68760D7031 /* HDHUD-dummy.m */; };
 		2AE8ADEBA7C72360101D4EF0CBADAC99 /* DDUtilsNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08345FCF9E2D38633FA208FE88CC967E /* DDUtilsNameSpace.swift */; };
-		2B65F48009D4A71CA1A61A0EB8D8CD4A /* loading_13.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA26A9F0D8C524664C1A504D95B89B0 /* loading_13.png */; };
 		2BDB3B290CDADA28EDADD00C2146C5ED /* DDUtils+file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C930B069EA32DA35F303B3CDFB040A5 /* DDUtils+file.swift */; };
-		2E9A03367C9D8C9E43F8B4FE0D6D2BF3 /* loading_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7036265034C1C46B27E60AEE06547E7D /* loading_9.png */; };
-		451F1D5DE251C4874B62BD8A35769AD3 /* loading_11.png in Resources */ = {isa = PBXBuildFile; fileRef = C6885DE3A6CDEFB61A7AE10239F0509E /* loading_11.png */; };
-		48D44790F632B22C8132481A6C6E58A3 /* loading_12.png in Resources */ = {isa = PBXBuildFile; fileRef = C9DDE1BA291849536F7C95F4ACA94DA8 /* loading_12.png */; };
-		48EA807790E073C9E72CA729B6194E2E /* HDTaskCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62196E3F707B8748AB33668627A2E /* HDTaskCloseButton.swift */; };
+		2D08B843F5AB5D7AC275703573AA283B /* loading_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 324FF03FC3CEC7CD7FF9521CC95A639A /* loading_5.png */; };
+		314169390F736869EB1971E1EE819D72 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447AEF3E8EAD70006FF6E769886C2496 /* UIView+Extension.swift */; };
+		3483439FD92DAC5ACB9FBF21C469A252 /* ic_success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0173F4923B89B0F987A60B71BC0D55D /* ic_success@3x.png */; };
+		3937589E513876A8AACA5FC633056C3E /* HDHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BCB911EF78FC301820913EFAC1899 /* HDHUD.swift */; };
+		3EF5E8E4FFDBB357E945EEDEAF5AB02B /* HDHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FAFE6C7C810231070652F2CCDB974320 /* HDHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		492631B189F019E62BD5A16F0BF9C4FB /* loading_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9C460A7A77F1C0F9D9B1A0D6DB7E8D /* loading_8.png */; };
 		49C1E112A53FCEC399D151B4B7FE23C7 /* DDUtils+media.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96849DC8179A45050CCBB78B6F1FF58 /* DDUtils+media.swift */; };
-		4AA94E1DED1FE794102ABFF248BCA1F9 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D6601A637C24482C5D14B781B0960382 /* loading_1.png */; };
-		4BE096198BDCB73BDD39BE1DB6E6B205 /* loading_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 7114216B21ED321EAE22402DDEFB098D /* loading_18.png */; };
-		53927828AB440629E0E48A4DA7928529 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E768114ADF81B7B1E989505832FC1169 /* UIView+Extension.swift */; };
-		649EA29B04CECDFED2E4E569E739D4D1 /* loading_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0533DAA21E45A97E895752F7655B78E6 /* loading_7.png */; };
-		6AE3F6C349068C4152681984206C2C74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		4B3EAE769A1D8089C11DF01CACFBDE6C /* loading_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C2D4D3930B28673F7DD6122E436D0 /* loading_18.png */; };
+		4FED010315AE3D72EC10B6A8F4EFEFAF /* HDTaskCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06636E85F18070D89A56F8AFE18225A0 /* HDTaskCloseButton.swift */; };
+		5D561E6F1541C29687AEA701EB4E1CB6 /* loading_15.png in Resources */ = {isa = PBXBuildFile; fileRef = A392563E41BC0135E872DCD17550BF43 /* loading_15.png */; };
 		6BC36E10DBA283BFA6B258642E786A1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		6D9631A02AFD5BD4C653A1767AA8800A /* loading_16.png in Resources */ = {isa = PBXBuildFile; fileRef = D37A7633757841B5110BA643A1D33069 /* loading_16.png */; };
-		739B282672A6E02B0056CAC508FC2E7A /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD6717F034D78C4D221E9A7118CBAAC /* loading_0.png */; };
-		76FC16AF51810DB546B00E15ACEA97F5 /* loading_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 30A407BC251FAF7B621AF08B3A0C734B /* loading_5.png */; };
+		77B8D0555C6141B221F8CEF32725E05F /* loading_17.png in Resources */ = {isa = PBXBuildFile; fileRef = 371E328C0B624D2D9D78AE04D1449B09 /* loading_17.png */; };
 		7AC9D67204DDF81224D399C89944C974 /* Data+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0418E0F49542143EAF5CF88564271 /* Data+zx.swift */; };
-		7D6743A31AA6816BDB63332F8762CCF8 /* loading_4.png in Resources */ = {isa = PBXBuildFile; fileRef = B63A118E972DB1B5A9FCFD98EBD5386B /* loading_4.png */; };
-		813E8DC0FBC898D8F5B687362DB62F5B /* loading_17.png in Resources */ = {isa = PBXBuildFile; fileRef = 626D96C197BC43866D7C8F1A953B993B /* loading_17.png */; };
-		8166458D824B57322570565F021021C3 /* loading_14.png in Resources */ = {isa = PBXBuildFile; fileRef = E7C388EFF4B18103613130E82BCB939B /* loading_14.png */; };
+		7DAA250F00AD198C9D56590D5CA3D185 /* HDHUD-HDHUD in Resources */ = {isa = PBXBuildFile; fileRef = 00D6B430595638A61AF05164CBEA20FC /* HDHUD-HDHUD */; };
+		816E0CA9008133F9B90010972B61C34E /* loading_6.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEC476172B43A0CB6B4F294BAC3E3C6 /* loading_6.png */; };
+		8CE7CB0AD5DE604260382ED6C2BA489A /* loading_11.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E5D0D5FFAE779271789BE6BD7C663B /* loading_11.png */; };
+		8E9B3FE2B7A351B1266D71F257DA49C2 /* loading_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E8E8F540A7155CBF1413199C7A5092 /* loading_12.png */; };
+		8F334D3553DC9857C6B9D2651A46D2C8 /* HDHUDLabelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D4FBF7F77DF2D14E8838181D3D8372 /* HDHUDLabelContentView.swift */; };
+		92C993BC1162FA949F1543E8C2B8BC8A /* loading_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 849453C1C5581EAD6751B2882F482178 /* loading_16.png */; };
 		94637DD98BBF7DFC2395A4BA8B847C16 /* DDUtils-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F3FFC200A9828121F3A8FC2AEB5EB1 /* DDUtils-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97E7308802495611D350048B251FACAB /* DDUtils+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB296C918CD61376017F2F08D59398DB /* DDUtils+UI.swift */; };
-		99703FCFB7694DD90581DF2E6ACEF382 /* ic_warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D984E27F40A35D9BBFBDF422BA2E204 /* ic_warning@3x.png */; };
 		9B43BAB83A841B532ECAF06016E52954 /* String+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539022AAEB238D6555163E85030CC5A7 /* String+zx.swift */; };
+		9BBB671653B147FACA1641C1086ECA71 /* HDHUDProgressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE5FFE3BD0FFE84A9D8B5109A4BB8 /* HDHUDProgressContentView.swift */; };
 		A3EF86D2D2B0A439EA17AA2A8DE0F06C /* UIView+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC741876CFA248400DCD758CF3F4412 /* UIView+zx.swift */; };
+		A560A3AAB1E7FF0BA3D918A6074B6136 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB540F5251F07387BB8F5735B4479EC2 /* icon_close@3x.png */; };
+		A5E16D02E01ED8D8DAD2A70E1E524C2B /* loading_13.png in Resources */ = {isa = PBXBuildFile; fileRef = C5F4CBD15E7BC777F940507F784BAE5F /* loading_13.png */; };
 		A65007A5C0E1D77E4B7201CBDDC62C67 /* Date+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEBC6DFE302DBE8D892C34FAD57DDF6 /* Date+zx.swift */; };
-		A7A87A56296DB7D339B14CFB966C9B76 /* loading_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 201158EB92947DCD038AEDA68B3EA2D8 /* loading_3.png */; };
+		A72F0C694DD69430179904BA51AD15C7 /* HDHUDLoadingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44024D08C3E5FE039BC3F511B8BDB57 /* HDHUDLoadingContentView.swift */; };
 		AB3A43DFAC40058394934B71BFC4B62B /* Pods-DDFileBrowserDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7ACA57704BA45C15492F44414B9689 /* Pods-DDFileBrowserDemo-dummy.m */; };
 		AF960692DA393FC7DC26DDC508DAAF2A /* DDUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EB3D93886DBAF15C32196182FF3D28 /* DDUtils-dummy.m */; };
 		AFAA31CD55A2A3974F606B452E9FC489 /* UIColor+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8A2E2D7F53780939205C883CE6A0 /* UIColor+zx.swift */; };
-		B109E8C5AF304A12444378E2E40EA4AB /* ic_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9C2E89EAC75078C7B98F7D1F825B3A3 /* ic_error@3x.png */; };
+		B0567426F206C315B952F4A9E2E5A518 /* loading_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 3037377030921FE9E616C96F7DFF1FE3 /* loading_10.png */; };
+		B23D4DE767EC5803AF422389097D0E9B /* loading_7.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CE83F88F7BC02C68428C6F6C0ADC6F /* loading_7.png */; };
+		B3058710D1431346CD0CC8508175062C /* loading_19.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C7BEE3CA5DFE5DAF0FAE582DBFF6487 /* loading_19.png */; };
+		B41405B342EF32B5C629009534C63FA6 /* loading_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 35024F315678A5AA6BA7E1D9F43642DF /* loading_9.png */; };
 		B4C6E458C8C28E2866B66A6F5C50921E /* UIImage+zx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD23E0C0364F0F0CF96E32BD9B47985 /* UIImage+zx.swift */; };
-		B5263DE2B946E42072BD23DDB3B075BB /* ic_success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7120CECACA8AA2403DF56A1AB2176568 /* ic_success@3x.png */; };
-		B618BDCBFDAF48285BDF9A5D2F8B3785 /* loading_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D0398EB7A5AF6DE307B11FA9516A69C /* loading_2.png */; };
-		B86BB9C0E3CBE5FF37FB314FE54608BA /* loading_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F04FFC414D1C3577FD731D84ADEF /* loading_6.png */; };
+		B6373D9FE438C77D4792628A074FAD3F /* HDHUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B06DDD3537A15E8D58BDD412979B4 /* HDHUDContentView.swift */; };
+		B6AC207DE3A27A3730B98944EB62CFD7 /* ic_warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F47A431688DA2EF77262F1F44D18A6CF /* ic_warning@3x.png */; };
+		B950B6A03A87EF1AB85CCAFE1D56FB26 /* HDHUDWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A590A908FDC0BE2F32A12DAF386F9 /* HDHUDWindow.swift */; };
 		C0EC9263745CE740B1CAEE0E05E80510 /* DDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAB8096C1432C25D22912937D05564 /* DDUtils.swift */; };
-		C1227E195E289FA511361EBCF1FA0F13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		C3517E9AA964F8B238E8137EEAF2F153 /* loading_15.png in Resources */ = {isa = PBXBuildFile; fileRef = C52AED95D5508FFE5AFCEB9D39B88CF4 /* loading_15.png */; };
 		C373DBFB2CE9AE968DABAB3C99615E6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		D9C7DC0A8150A718A8A495EAE2900A2E /* DDUtils+system.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104EC96D74B8430FB35485508AA6C5A5 /* DDUtils+system.swift */; };
-		DDD1A5F1A5CEBD40D1E9C799A60219C2 /* loading_19.png in Resources */ = {isa = PBXBuildFile; fileRef = A385152A5840D60909B052BA01BA46FB /* loading_19.png */; };
-		E1071D9C712697AC7A18CE3DD64D8F91 /* HDHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DDBB854BD0FBFB0F79D77F367E4E0C15 /* HDHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8293FAE1C6339F069CED2B7364CC374 /* HDHUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9EF9DFE1AE178705B5215B7F0637D /* HDHUDContentView.swift */; };
-		F9F85F624E17705BFD634E94BE0F2135 /* HDHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 171397406C77AF36A19D3EAE5B7C9EA2 /* HDHUD-dummy.m */; };
-		FEAA9E7290BA354AC4477DA16EE90E73 /* HDHUDLabelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB677DA5D7ADC177EA10ED6C78161829 /* HDHUDLabelContentView.swift */; };
+		E254749F9285709A8B7359D703CD7B72 /* loading_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C5400FB8F9D5E1B5A052EAF29F8385 /* loading_4.png */; };
+		E50B8217F5758EFFB72614242227FF99 /* HDHUDTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C79D39C41DB0084938F9F8916A014 /* HDHUDTaskViewController.swift */; };
+		F691B5BE1D8762F2E00105708F9BF320 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		F99A9B06C518D4A3DE524CC612A4E801 /* loading_14.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1F954CE5BF55AC0DDF401C1A714931 /* loading_14.png */; };
+		FFB8CEBE27D080002B6752E3D77D8D57 /* ic_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12340F08521D0B666573BFB7EB65EDA0 /* ic_error@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4941AB035CEE004216D9D3CAB976C0D1 /* PBXContainerItemProxy */ = {
+		3D7E86CAD18C3808FDF2EA2821288025 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 64207C3A8C1C7AD39CB797C536F0540A;
 			remoteInfo = "HDHUD-HDHUD";
 		};
-		83A57DD611CB687B8D98CBD08EC8CABD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4413F0D084EA268B632AF2A8C0F07563;
-			remoteInfo = HDHUD;
-		};
-		904978613E67E172E9B32E818EB06F73 /* PBXContainerItemProxy */ = {
+		704D8B78C8CAAA4CA49A0B5BC90FEE1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 763460C4E0B28EA6B8A750D8642AF267;
 			remoteInfo = DDUtils;
+		};
+		7E5E004D3CCE4C9312587CCCF309E8B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4413F0D084EA268B632AF2A8C0F07563;
+			remoteInfo = HDHUD;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -94,87 +95,90 @@
 		00D6B430595638A61AF05164CBEA20FC /* HDHUD-HDHUD */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "HDHUD-HDHUD"; path = HDHUD.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D0418E0F49542143EAF5CF88564271 /* Data+zx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+zx.swift"; path = "Sources/core/utils/Data+zx.swift"; sourceTree = "<group>"; };
 		04FA4B277C6484DB8ED754E44A54F143 /* DDUtils+AppStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDUtils+AppStore.swift"; path = "Sources/core/ui/DDUtils+AppStore.swift"; sourceTree = "<group>"; };
-		0533DAA21E45A97E895752F7655B78E6 /* loading_7.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_7.png; path = pod/Assets/loading/loading_7.png; sourceTree = "<group>"; };
+		06636E85F18070D89A56F8AFE18225A0 /* HDTaskCloseButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDTaskCloseButton.swift; path = pod/Class/HDTaskCloseButton.swift; sourceTree = "<group>"; };
 		08345FCF9E2D38633FA208FE88CC967E /* DDUtilsNameSpace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDUtilsNameSpace.swift; path = Sources/core/core/DDUtilsNameSpace.swift; sourceTree = "<group>"; };
+		0C00E1EBB0A1A4FACAB760603B861ED8 /* loading_2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_2.png; path = pod/Assets/loading/loading_2.png; sourceTree = "<group>"; };
 		104EC96D74B8430FB35485508AA6C5A5 /* DDUtils+system.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDUtils+system.swift"; path = "Sources/core/utils/DDUtils+system.swift"; sourceTree = "<group>"; };
-		171397406C77AF36A19D3EAE5B7C9EA2 /* HDHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HDHUD-dummy.m"; sourceTree = "<group>"; };
-		1D0398EB7A5AF6DE307B11FA9516A69C /* loading_2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_2.png; path = pod/Assets/loading/loading_2.png; sourceTree = "<group>"; };
-		1D984E27F40A35D9BBFBDF422BA2E204 /* ic_warning@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_warning@3x.png"; path = "pod/Assets/ic_warning@3x.png"; sourceTree = "<group>"; };
-		201158EB92947DCD038AEDA68B3EA2D8 /* loading_3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_3.png; path = pod/Assets/loading/loading_3.png; sourceTree = "<group>"; };
+		12340F08521D0B666573BFB7EB65EDA0 /* ic_error@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_error@3x.png"; path = "pod/Assets/ic_error@3x.png"; sourceTree = "<group>"; };
+		2002E86C6395853711DAA75469340858 /* HDHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HDHUD.release.xcconfig; sourceTree = "<group>"; };
 		2289FACAC57AC7B01C9D3E4679DA1D9C /* Pods-DDFileBrowserDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DDFileBrowserDemo-Info.plist"; sourceTree = "<group>"; };
+		25468E42067CA3C18A00DCEF1B837261 /* HDHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HDHUD.modulemap; sourceTree = "<group>"; };
 		2CC741876CFA248400DCD758CF3F4412 /* UIView+zx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+zx.swift"; path = "Sources/core/ui/UIView+zx.swift"; sourceTree = "<group>"; };
-		30A407BC251FAF7B621AF08B3A0C734B /* loading_5.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_5.png; path = pod/Assets/loading/loading_5.png; sourceTree = "<group>"; };
+		3037377030921FE9E616C96F7DFF1FE3 /* loading_10.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_10.png; path = pod/Assets/loading/loading_10.png; sourceTree = "<group>"; };
+		324FF03FC3CEC7CD7FF9521CC95A639A /* loading_5.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_5.png; path = pod/Assets/loading/loading_5.png; sourceTree = "<group>"; };
+		35024F315678A5AA6BA7E1D9F43642DF /* loading_9.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_9.png; path = pod/Assets/loading/loading_9.png; sourceTree = "<group>"; };
+		371E328C0B624D2D9D78AE04D1449B09 /* loading_17.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_17.png; path = pod/Assets/loading/loading_17.png; sourceTree = "<group>"; };
 		40B05B9D55BA1995CD48F31E12A0553B /* DDUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DDUtils.debug.xcconfig; sourceTree = "<group>"; };
 		40B17DAA32BB1C5DEABB08BC2C2EF2C9 /* DDUtils.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DDUtils.modulemap; sourceTree = "<group>"; };
+		447AEF3E8EAD70006FF6E769886C2496 /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "pod/Class/UIView+Extension.swift"; sourceTree = "<group>"; };
 		44BAB8096C1432C25D22912937D05564 /* DDUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDUtils.swift; path = Sources/core/core/DDUtils.swift; sourceTree = "<group>"; };
-		45A038A3A1DE2AD60918A0D1CCDCE630 /* HDHUDTaskViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDTaskViewController.swift; path = pod/Class/HDHUDTaskViewController.swift; sourceTree = "<group>"; };
 		45CAC2A822B9F1B2B08E20C27F99385C /* DDUtils-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DDUtils-Info.plist"; sourceTree = "<group>"; };
+		482FE5FFE3BD0FFE84A9D8B5109A4BB8 /* HDHUDProgressContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDProgressContentView.swift; path = pod/Class/HDHUDProgressContentView.swift; sourceTree = "<group>"; };
+		486BCB911EF78FC301820913EFAC1899 /* HDHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUD.swift; path = pod/Class/HDHUD.swift; sourceTree = "<group>"; };
 		4C5E5C1E5C90B1D1179369C76192056B /* Pods-DDFileBrowserDemo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DDFileBrowserDemo"; path = Pods_DDFileBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		525D56C2FA21CF16B02F1C0565CD4AE0 /* HDHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HDHUD.debug.xcconfig; sourceTree = "<group>"; };
 		539022AAEB238D6555163E85030CC5A7 /* String+zx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+zx.swift"; path = "Sources/core/utils/String+zx.swift"; sourceTree = "<group>"; };
 		5571BA6FDA59021E6780B2B859E1E4D4 /* Pods-DDFileBrowserDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DDFileBrowserDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		560AA809DF0ABF5D25051300BEA52757 /* HDHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUD.swift; path = pod/Class/HDHUD.swift; sourceTree = "<group>"; };
-		5DAFA761CD39D4E98EA4CC0E43345CD3 /* HDHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HDHUD.modulemap; sourceTree = "<group>"; };
-		603B6EB72B9BB522634F0C36893AE59A /* HDHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HDHUD-prefix.pch"; sourceTree = "<group>"; };
-		6083B3980C91BF0E8500E29895E68C0B /* HDHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HDHUD-Info.plist"; sourceTree = "<group>"; };
 		60C3B7660460C1AB2BABB4C38CED5B52 /* Pods-DDFileBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DDFileBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		626D96C197BC43866D7C8F1A953B993B /* loading_17.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_17.png; path = pod/Assets/loading/loading_17.png; sourceTree = "<group>"; };
 		6C2CDD50D4A98718D8A29C3F76FE4521 /* Pods-DDFileBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DDFileBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6D9C460A7A77F1C0F9D9B1A0D6DB7E8D /* loading_8.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_8.png; path = pod/Assets/loading/loading_8.png; sourceTree = "<group>"; };
 		6E7ACA57704BA45C15492F44414B9689 /* Pods-DDFileBrowserDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DDFileBrowserDemo-dummy.m"; sourceTree = "<group>"; };
-		7036265034C1C46B27E60AEE06547E7D /* loading_9.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_9.png; path = pod/Assets/loading/loading_9.png; sourceTree = "<group>"; };
-		7114216B21ED321EAE22402DDEFB098D /* loading_18.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_18.png; path = pod/Assets/loading/loading_18.png; sourceTree = "<group>"; };
-		7120CECACA8AA2403DF56A1AB2176568 /* ic_success@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_success@3x.png"; path = "pod/Assets/ic_success@3x.png"; sourceTree = "<group>"; };
-		71B62196E3F707B8748AB33668627A2E /* HDTaskCloseButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDTaskCloseButton.swift; path = pod/Class/HDTaskCloseButton.swift; sourceTree = "<group>"; };
-		736A148833621818973E048BE4F15161 /* HDHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HDHUD.release.xcconfig; sourceTree = "<group>"; };
-		784E71FD29FCEB044A13AB38BB751AAB /* HDHUDWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDWindow.swift; path = pod/Class/HDHUDWindow.swift; sourceTree = "<group>"; };
 		78DD4DF315AFA1296FC17D52FB92D513 /* Pods-DDFileBrowserDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DDFileBrowserDemo.modulemap"; sourceTree = "<group>"; };
 		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		83C9DF8D92236C4EDDC915F8EF441A7A /* loading_10.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_10.png; path = pod/Assets/loading/loading_10.png; sourceTree = "<group>"; };
+		83E8E8F540A7155CBF1413199C7A5092 /* loading_12.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_12.png; path = pod/Assets/loading/loading_12.png; sourceTree = "<group>"; };
+		849453C1C5581EAD6751B2882F482178 /* loading_16.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_16.png; path = pod/Assets/loading/loading_16.png; sourceTree = "<group>"; };
 		8AEBC6DFE302DBE8D892C34FAD57DDF6 /* Date+zx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+zx.swift"; path = "Sources/core/utils/Date+zx.swift"; sourceTree = "<group>"; };
-		8E94F04FFC414D1C3577FD731D84ADEF /* loading_6.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_6.png; path = pod/Assets/loading/loading_6.png; sourceTree = "<group>"; };
+		8E3C2D4D3930B28673F7DD6122E436D0 /* loading_18.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_18.png; path = pod/Assets/loading/loading_18.png; sourceTree = "<group>"; };
+		96420334082CAF1740087A4956E4FBB3 /* HDHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HDHUD-Info.plist"; sourceTree = "<group>"; };
+		995C2D65EA37C4710146A3D0C8426C9D /* loading_3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_3.png; path = pod/Assets/loading/loading_3.png; sourceTree = "<group>"; };
+		9C7BEE3CA5DFE5DAF0FAE582DBFF6487 /* loading_19.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_19.png; path = pod/Assets/loading/loading_19.png; sourceTree = "<group>"; };
 		9C930B069EA32DA35F303B3CDFB040A5 /* DDUtils+file.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDUtils+file.swift"; path = "Sources/core/utils/DDUtils+file.swift"; sourceTree = "<group>"; };
-		9CD6717F034D78C4D221E9A7118CBAAC /* loading_0.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_0.png; path = pod/Assets/loading/loading_0.png; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A04F43AD614E5C7B13C0D97EB27B6187 /* HDHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HDHUD.debug.xcconfig; sourceTree = "<group>"; };
-		A385152A5840D60909B052BA01BA46FB /* loading_19.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_19.png; path = pod/Assets/loading/loading_19.png; sourceTree = "<group>"; };
-		A3C6A370E27272F73CD08913DA36A5DA /* loading_8.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_8.png; path = pod/Assets/loading/loading_8.png; sourceTree = "<group>"; };
+		A1C129087EB2339C29468F68760D7031 /* HDHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HDHUD-dummy.m"; sourceTree = "<group>"; };
+		A1C5400FB8F9D5E1B5A052EAF29F8385 /* loading_4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_4.png; path = pod/Assets/loading/loading_4.png; sourceTree = "<group>"; };
+		A392563E41BC0135E872DCD17550BF43 /* loading_15.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_15.png; path = pod/Assets/loading/loading_15.png; sourceTree = "<group>"; };
 		A3CC8A2E2D7F53780939205C883CE6A0 /* UIColor+zx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+zx.swift"; path = "Sources/core/ui/UIColor+zx.swift"; sourceTree = "<group>"; };
-		A9C2E89EAC75078C7B98F7D1F825B3A3 /* ic_error@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_error@3x.png"; path = "pod/Assets/ic_error@3x.png"; sourceTree = "<group>"; };
-		AB0D2A07F0D7EB6B76E43289DEE1500B /* HDHUDTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDTask.swift; path = pod/Class/HDHUDTask.swift; sourceTree = "<group>"; };
+		A592E9AA255EA2E907C171749A26C464 /* loading_1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_1.png; path = pod/Assets/loading/loading_1.png; sourceTree = "<group>"; };
 		AE255513E542A7635AA924C36C07E511 /* DDUtils */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DDUtils; path = DDUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12CAD6620FFCC69CE46C6B56B51F06E /* HDHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HDHUD-prefix.pch"; sourceTree = "<group>"; };
 		B3F854A285F6A989067196CE3C0C1D80 /* DDUtils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDUtils-prefix.pch"; sourceTree = "<group>"; };
-		B63A118E972DB1B5A9FCFD98EBD5386B /* loading_4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_4.png; path = pod/Assets/loading/loading_4.png; sourceTree = "<group>"; };
+		B5CE83F88F7BC02C68428C6F6C0ADC6F /* loading_7.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_7.png; path = pod/Assets/loading/loading_7.png; sourceTree = "<group>"; };
 		BBD23E0C0364F0F0CF96E32BD9B47985 /* UIImage+zx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+zx.swift"; path = "Sources/core/ui/UIImage+zx.swift"; sourceTree = "<group>"; };
-		BF665BF7EFC38B8E3598060CEC77F23B /* ResourceBundle-HDHUD-HDHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HDHUD-HDHUD-Info.plist"; sourceTree = "<group>"; };
+		BE1F954CE5BF55AC0DDF401C1A714931 /* loading_14.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_14.png; path = pod/Assets/loading/loading_14.png; sourceTree = "<group>"; };
 		C323754FABEC256412E2F0DD3F2FBEAB /* Pods-DDFileBrowserDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DDFileBrowserDemo-frameworks.sh"; sourceTree = "<group>"; };
-		C52AED95D5508FFE5AFCEB9D39B88CF4 /* loading_15.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_15.png; path = pod/Assets/loading/loading_15.png; sourceTree = "<group>"; };
-		C6885DE3A6CDEFB61A7AE10239F0509E /* loading_11.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_11.png; path = pod/Assets/loading/loading_11.png; sourceTree = "<group>"; };
-		C6A9EF9DFE1AE178705B5215B7F0637D /* HDHUDContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDContentView.swift; path = pod/Class/HDHUDContentView.swift; sourceTree = "<group>"; };
-		C8243798EF34400ECB43ED5319F08B2C /* HDHUDProgressContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDProgressContentView.swift; path = pod/Class/HDHUDProgressContentView.swift; sourceTree = "<group>"; };
-		C9DDE1BA291849536F7C95F4ACA94DA8 /* loading_12.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_12.png; path = pod/Assets/loading/loading_12.png; sourceTree = "<group>"; };
-		CEA26A9F0D8C524664C1A504D95B89B0 /* loading_13.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_13.png; path = pod/Assets/loading/loading_13.png; sourceTree = "<group>"; };
-		D0C59D11AD59C3A161D1861535C24736 /* icon_close@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "icon_close@3x.png"; path = "pod/Assets/icon_close@3x.png"; sourceTree = "<group>"; };
-		D37A7633757841B5110BA643A1D33069 /* loading_16.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_16.png; path = pod/Assets/loading/loading_16.png; sourceTree = "<group>"; };
-		D6601A637C24482C5D14B781B0960382 /* loading_1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_1.png; path = pod/Assets/loading/loading_1.png; sourceTree = "<group>"; };
+		C5F4CBD15E7BC777F940507F784BAE5F /* loading_13.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_13.png; path = pod/Assets/loading/loading_13.png; sourceTree = "<group>"; };
+		C9821939D476268E7891F58DEAF2159C /* loading_0.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_0.png; path = pod/Assets/loading/loading_0.png; sourceTree = "<group>"; };
+		C9E5D0D5FFAE779271789BE6BD7C663B /* loading_11.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_11.png; path = pod/Assets/loading/loading_11.png; sourceTree = "<group>"; };
+		D0173F4923B89B0F987A60B71BC0D55D /* ic_success@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_success@3x.png"; path = "pod/Assets/ic_success@3x.png"; sourceTree = "<group>"; };
+		D44024D08C3E5FE039BC3F511B8BDB57 /* HDHUDLoadingContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDLoadingContentView.swift; path = pod/Class/HDHUDLoadingContentView.swift; sourceTree = "<group>"; };
+		D67A590A908FDC0BE2F32A12DAF386F9 /* HDHUDWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDWindow.swift; path = pod/Class/HDHUDWindow.swift; sourceTree = "<group>"; };
 		D96849DC8179A45050CCBB78B6F1FF58 /* DDUtils+media.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDUtils+media.swift"; path = "Sources/core/utils/DDUtils+media.swift"; sourceTree = "<group>"; };
 		DBFBEE68AAA2DEFB6DC523C41D5E53F0 /* Pods-DDFileBrowserDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DDFileBrowserDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		DDBB854BD0FBFB0F79D77F367E4E0C15 /* HDHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HDHUD-umbrella.h"; sourceTree = "<group>"; };
 		DE04281375CDF8E0488D99B85A0E72E8 /* DDUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DDUtils.release.xcconfig; sourceTree = "<group>"; };
-		E768114ADF81B7B1E989505832FC1169 /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "pod/Class/UIView+Extension.swift"; sourceTree = "<group>"; };
-		E7C388EFF4B18103613130E82BCB939B /* loading_14.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_14.png; path = pod/Assets/loading/loading_14.png; sourceTree = "<group>"; };
+		E0991BB34CF0039EF8F27866B14B9794 /* ResourceBundle-HDHUD-HDHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HDHUD-HDHUD-Info.plist"; sourceTree = "<group>"; };
+		E42B06DDD3537A15E8D58BDD412979B4 /* HDHUDContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDContentView.swift; path = pod/Class/HDHUDContentView.swift; sourceTree = "<group>"; };
+		EA2C79D39C41DB0084938F9F8916A014 /* HDHUDTaskViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDTaskViewController.swift; path = pod/Class/HDHUDTaskViewController.swift; sourceTree = "<group>"; };
+		EAEC476172B43A0CB6B4F294BAC3E3C6 /* loading_6.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = loading_6.png; path = pod/Assets/loading/loading_6.png; sourceTree = "<group>"; };
 		EB296C918CD61376017F2F08D59398DB /* DDUtils+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DDUtils+UI.swift"; path = "Sources/core/ui/DDUtils+UI.swift"; sourceTree = "<group>"; };
-		EB677DA5D7ADC177EA10ED6C78161829 /* HDHUDLabelContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDLabelContentView.swift; path = pod/Class/HDHUDLabelContentView.swift; sourceTree = "<group>"; };
 		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F29B3355AF141E476510376520EE1FBA /* Pods-DDFileBrowserDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DDFileBrowserDemo-umbrella.h"; sourceTree = "<group>"; };
 		F2F3FFC200A9828121F3A8FC2AEB5EB1 /* DDUtils-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDUtils-umbrella.h"; sourceTree = "<group>"; };
 		F3EB3D93886DBAF15C32196182FF3D28 /* DDUtils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DDUtils-dummy.m"; sourceTree = "<group>"; };
+		F47A431688DA2EF77262F1F44D18A6CF /* ic_warning@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_warning@3x.png"; path = "pod/Assets/ic_warning@3x.png"; sourceTree = "<group>"; };
 		F88571EF7A1065FCA4B25640D9D218B8 /* HDHUD */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HDHUD; path = HDHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9D4FBF7F77DF2D14E8838181D3D8372 /* HDHUDLabelContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDLabelContentView.swift; path = pod/Class/HDHUDLabelContentView.swift; sourceTree = "<group>"; };
+		FAFE6C7C810231070652F2CCDB974320 /* HDHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HDHUD-umbrella.h"; sourceTree = "<group>"; };
+		FB540F5251F07387BB8F5735B4479EC2 /* icon_close@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "icon_close@3x.png"; path = "pod/Assets/icon_close@3x.png"; sourceTree = "<group>"; };
+		FE914E6E17B218A989C25C8E8C439122 /* HDHUDTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HDHUDTask.swift; path = pod/Class/HDHUDTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		25C74C079A4AF799388120BE22D75681 /* Frameworks */ = {
+		1C72C242C34F3B770727FF4EC14D93C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052F69936FAA5C8273185E6D1D8B1E56 /* Foundation.framework in Frameworks */,
+				F691B5BE1D8762F2E00105708F9BF320 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +190,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DF6ABA53A879B1EF6F9E41AA3B5CC024 /* Frameworks */ = {
+		C0AFE37D63914491E7B560FF56ABB6E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1227E195E289FA511361EBCF1FA0F13 /* Foundation.framework in Frameworks */,
-				6AE3F6C349068C4152681984206C2C74 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +208,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05E91F8D9F074D4FB81A53248F10203A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				25468E42067CA3C18A00DCEF1B837261 /* HDHUD.modulemap */,
+				A1C129087EB2339C29468F68760D7031 /* HDHUD-dummy.m */,
+				96420334082CAF1740087A4956E4FBB3 /* HDHUD-Info.plist */,
+				B12CAD6620FFCC69CE46C6B56B51F06E /* HDHUD-prefix.pch */,
+				FAFE6C7C810231070652F2CCDB974320 /* HDHUD-umbrella.h */,
+				525D56C2FA21CF16B02F1C0565CD4AE0 /* HDHUD.debug.xcconfig */,
+				2002E86C6395853711DAA75469340858 /* HDHUD.release.xcconfig */,
+				E0991BB34CF0039EF8F27866B14B9794 /* ResourceBundle-HDHUD-HDHUD-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HDHUD";
+			sourceTree = "<group>";
+		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +239,24 @@
 				ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		21A7D67EB3900C803AF3C659503E061C /* core */ = {
+			isa = PBXGroup;
+			children = (
+				486BCB911EF78FC301820913EFAC1899 /* HDHUD.swift */,
+				E42B06DDD3537A15E8D58BDD412979B4 /* HDHUDContentView.swift */,
+				F9D4FBF7F77DF2D14E8838181D3D8372 /* HDHUDLabelContentView.swift */,
+				D44024D08C3E5FE039BC3F511B8BDB57 /* HDHUDLoadingContentView.swift */,
+				482FE5FFE3BD0FFE84A9D8B5109A4BB8 /* HDHUDProgressContentView.swift */,
+				FE914E6E17B218A989C25C8E8C439122 /* HDHUDTask.swift */,
+				EA2C79D39C41DB0084938F9F8916A014 /* HDHUDTaskViewController.swift */,
+				D67A590A908FDC0BE2F32A12DAF386F9 /* HDHUDWindow.swift */,
+				06636E85F18070D89A56F8AFE18225A0 /* HDTaskCloseButton.swift */,
+				447AEF3E8EAD70006FF6E769886C2496 /* UIView+Extension.swift */,
+				3E9CD64F9AD2EC72A7100B079513F05B /* Resources */,
+			);
+			name = core;
 			sourceTree = "<group>";
 		};
 		366CF8FC34A0F1F34927E69E94F9A024 /* Pods-DDFileBrowserDemo */ = {
@@ -240,6 +276,37 @@
 			path = "Target Support Files/Pods-DDFileBrowserDemo";
 			sourceTree = "<group>";
 		};
+		3E9CD64F9AD2EC72A7100B079513F05B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				12340F08521D0B666573BFB7EB65EDA0 /* ic_error@3x.png */,
+				D0173F4923B89B0F987A60B71BC0D55D /* ic_success@3x.png */,
+				F47A431688DA2EF77262F1F44D18A6CF /* ic_warning@3x.png */,
+				FB540F5251F07387BB8F5735B4479EC2 /* icon_close@3x.png */,
+				C9821939D476268E7891F58DEAF2159C /* loading_0.png */,
+				A592E9AA255EA2E907C171749A26C464 /* loading_1.png */,
+				3037377030921FE9E616C96F7DFF1FE3 /* loading_10.png */,
+				C9E5D0D5FFAE779271789BE6BD7C663B /* loading_11.png */,
+				83E8E8F540A7155CBF1413199C7A5092 /* loading_12.png */,
+				C5F4CBD15E7BC777F940507F784BAE5F /* loading_13.png */,
+				BE1F954CE5BF55AC0DDF401C1A714931 /* loading_14.png */,
+				A392563E41BC0135E872DCD17550BF43 /* loading_15.png */,
+				849453C1C5581EAD6751B2882F482178 /* loading_16.png */,
+				371E328C0B624D2D9D78AE04D1449B09 /* loading_17.png */,
+				8E3C2D4D3930B28673F7DD6122E436D0 /* loading_18.png */,
+				9C7BEE3CA5DFE5DAF0FAE582DBFF6487 /* loading_19.png */,
+				0C00E1EBB0A1A4FACAB760603B861ED8 /* loading_2.png */,
+				995C2D65EA37C4710146A3D0C8426C9D /* loading_3.png */,
+				A1C5400FB8F9D5E1B5A052EAF29F8385 /* loading_4.png */,
+				324FF03FC3CEC7CD7FF9521CC95A639A /* loading_5.png */,
+				EAEC476172B43A0CB6B4F294BAC3E3C6 /* loading_6.png */,
+				B5CE83F88F7BC02C68428C6F6C0ADC6F /* loading_7.png */,
+				6D9C460A7A77F1C0F9D9B1A0D6DB7E8D /* loading_8.png */,
+				35024F315678A5AA6BA7E1D9F43642DF /* loading_9.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		49CB3E916FC92FA1C1CF99B61DE9ADC1 /* core */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,22 +314,6 @@
 				08345FCF9E2D38633FA208FE88CC967E /* DDUtilsNameSpace.swift */,
 			);
 			name = core;
-			sourceTree = "<group>";
-		};
-		4FA25DC93BC66313869A976BB3CB041B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5DAFA761CD39D4E98EA4CC0E43345CD3 /* HDHUD.modulemap */,
-				171397406C77AF36A19D3EAE5B7C9EA2 /* HDHUD-dummy.m */,
-				6083B3980C91BF0E8500E29895E68C0B /* HDHUD-Info.plist */,
-				603B6EB72B9BB522634F0C36893AE59A /* HDHUD-prefix.pch */,
-				DDBB854BD0FBFB0F79D77F367E4E0C15 /* HDHUD-umbrella.h */,
-				A04F43AD614E5C7B13C0D97EB27B6187 /* HDHUD.debug.xcconfig */,
-				736A148833621818973E048BE4F15161 /* HDHUD.release.xcconfig */,
-				BF665BF7EFC38B8E3598060CEC77F23B /* ResourceBundle-HDHUD-HDHUD-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/HDHUD";
 			sourceTree = "<group>";
 		};
 		5E6B5AB446444DB9C4A13DDB36E609E1 /* Targets Support Files */ = {
@@ -285,35 +336,14 @@
 			path = DDUtils;
 			sourceTree = "<group>";
 		};
-		836CAB9EDE5966EA69E4CEEC64C37481 /* Resources */ = {
+		A8EA4977765BD577B1B2A641B42EF6E0 /* HDHUD */ = {
 			isa = PBXGroup;
 			children = (
-				A9C2E89EAC75078C7B98F7D1F825B3A3 /* ic_error@3x.png */,
-				7120CECACA8AA2403DF56A1AB2176568 /* ic_success@3x.png */,
-				1D984E27F40A35D9BBFBDF422BA2E204 /* ic_warning@3x.png */,
-				D0C59D11AD59C3A161D1861535C24736 /* icon_close@3x.png */,
-				9CD6717F034D78C4D221E9A7118CBAAC /* loading_0.png */,
-				D6601A637C24482C5D14B781B0960382 /* loading_1.png */,
-				83C9DF8D92236C4EDDC915F8EF441A7A /* loading_10.png */,
-				C6885DE3A6CDEFB61A7AE10239F0509E /* loading_11.png */,
-				C9DDE1BA291849536F7C95F4ACA94DA8 /* loading_12.png */,
-				CEA26A9F0D8C524664C1A504D95B89B0 /* loading_13.png */,
-				E7C388EFF4B18103613130E82BCB939B /* loading_14.png */,
-				C52AED95D5508FFE5AFCEB9D39B88CF4 /* loading_15.png */,
-				D37A7633757841B5110BA643A1D33069 /* loading_16.png */,
-				626D96C197BC43866D7C8F1A953B993B /* loading_17.png */,
-				7114216B21ED321EAE22402DDEFB098D /* loading_18.png */,
-				A385152A5840D60909B052BA01BA46FB /* loading_19.png */,
-				1D0398EB7A5AF6DE307B11FA9516A69C /* loading_2.png */,
-				201158EB92947DCD038AEDA68B3EA2D8 /* loading_3.png */,
-				B63A118E972DB1B5A9FCFD98EBD5386B /* loading_4.png */,
-				30A407BC251FAF7B621AF08B3A0C734B /* loading_5.png */,
-				8E94F04FFC414D1C3577FD731D84ADEF /* loading_6.png */,
-				0533DAA21E45A97E895752F7655B78E6 /* loading_7.png */,
-				A3C6A370E27272F73CD08913DA36A5DA /* loading_8.png */,
-				7036265034C1C46B27E60AEE06547E7D /* loading_9.png */,
+				21A7D67EB3900C803AF3C659503E061C /* core */,
+				05E91F8D9F074D4FB81A53248F10203A /* Support Files */,
 			);
-			name = Resources;
+			name = HDHUD;
+			path = HDHUD;
 			sourceTree = "<group>";
 		};
 		B7B336E19E4DAB3DB90531F33595A40C /* utils */ = {
@@ -378,45 +408,26 @@
 			name = ui;
 			sourceTree = "<group>";
 		};
-		E796D6EEA2C70CF471765851219F42EE /* core */ = {
-			isa = PBXGroup;
-			children = (
-				560AA809DF0ABF5D25051300BEA52757 /* HDHUD.swift */,
-				C6A9EF9DFE1AE178705B5215B7F0637D /* HDHUDContentView.swift */,
-				EB677DA5D7ADC177EA10ED6C78161829 /* HDHUDLabelContentView.swift */,
-				C8243798EF34400ECB43ED5319F08B2C /* HDHUDProgressContentView.swift */,
-				AB0D2A07F0D7EB6B76E43289DEE1500B /* HDHUDTask.swift */,
-				45A038A3A1DE2AD60918A0D1CCDCE630 /* HDHUDTaskViewController.swift */,
-				784E71FD29FCEB044A13AB38BB751AAB /* HDHUDWindow.swift */,
-				71B62196E3F707B8748AB33668627A2E /* HDTaskCloseButton.swift */,
-				E768114ADF81B7B1E989505832FC1169 /* UIView+Extension.swift */,
-				836CAB9EDE5966EA69E4CEEC64C37481 /* Resources */,
-			);
-			name = core;
-			sourceTree = "<group>";
-		};
 		E9C78013BED83750759086CA88C71BB3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				6925978EEC745A1204D45A4E6D2B79C0 /* DDUtils */,
-				F4ED1A37602700299A549F24F630DB9C /* HDHUD */,
+				A8EA4977765BD577B1B2A641B42EF6E0 /* HDHUD */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		F4ED1A37602700299A549F24F630DB9C /* HDHUD */ = {
-			isa = PBXGroup;
-			children = (
-				E796D6EEA2C70CF471765851219F42EE /* core */,
-				4FA25DC93BC66313869A976BB3CB041B /* Support Files */,
-			);
-			name = HDHUD;
-			path = HDHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		64096DFC303FD3181E7264028671F716 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EF5E8E4FFDBB357E945EEDEAF5AB02B /* HDHUD-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F1E4EE1685B209EF3BD3848D41E7B35 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,30 +444,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0C40F0D76B64E5F6BC9DCF41E9E3454 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1071D9C712697AC7A18CE3DD64D8F91 /* HDHUD-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		4413F0D084EA268B632AF2A8C0F07563 /* HDHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99C7025BFB7778505E4F2DA4B5541E54 /* Build configuration list for PBXNativeTarget "HDHUD" */;
+			buildConfigurationList = D78EE34A0A04ABD7C08232BAD0E45B53 /* Build configuration list for PBXNativeTarget "HDHUD" */;
 			buildPhases = (
-				C0C40F0D76B64E5F6BC9DCF41E9E3454 /* Headers */,
-				573C21B7F6EFCDF32B71C7DBA42A39AE /* Sources */,
-				DF6ABA53A879B1EF6F9E41AA3B5CC024 /* Frameworks */,
-				ED3CD2EE599B871768DC4FFAB8257691 /* Resources */,
+				64096DFC303FD3181E7264028671F716 /* Headers */,
+				1C5059E10A79E23F09380DBD97ECF380 /* Sources */,
+				1C72C242C34F3B770727FF4EC14D93C6 /* Frameworks */,
+				7ECCF9055A4566C10E832B83DB8F07FC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5A225F3ED64E5F36A08355FCE7C2CFB9 /* PBXTargetDependency */,
+				A8FA8205C6536BFB27D9812A368C1ED4 /* PBXTargetDependency */,
 			);
 			name = HDHUD;
 			productName = HDHUD;
@@ -475,8 +478,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				57DE4159DE4B5B3AD0DE25EE69C0BF6B /* PBXTargetDependency */,
-				D80D48F9592237E9FC2B00847B4E0391 /* PBXTargetDependency */,
+				6F1B3D53B3953A32155F394B69286073 /* PBXTargetDependency */,
+				BE3741C43D7E7850D2C11659EF2B32FE /* PBXTargetDependency */,
 			);
 			name = "Pods-DDFileBrowserDemo";
 			productName = Pods_DDFileBrowserDemo;
@@ -485,11 +488,11 @@
 		};
 		64207C3A8C1C7AD39CB797C536F0540A /* HDHUD-HDHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 732EC0BD054E7F0D06120145B297CEB1 /* Build configuration list for PBXNativeTarget "HDHUD-HDHUD" */;
+			buildConfigurationList = 8F98FE668DB66E0D53067F802BFF59B0 /* Build configuration list for PBXNativeTarget "HDHUD-HDHUD" */;
 			buildPhases = (
-				C8C063028A972D4B9351A2A71EE91FBA /* Sources */,
-				25C74C079A4AF799388120BE22D75681 /* Frameworks */,
-				B4A740B714FCEDC66D358F32EC949863 /* Resources */,
+				35DF126DDE9AE98B015FC1CEB18C63E1 /* Sources */,
+				C0AFE37D63914491E7B560FF56ABB6E8 /* Frameworks */,
+				9FFF5BC4EA0CA2D1C5D067C7A78CD08F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -551,49 +554,49 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7ECCF9055A4566C10E832B83DB8F07FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DAA250F00AD198C9D56590D5CA3D185 /* HDHUD-HDHUD in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FFF5BC4EA0CA2D1C5D067C7A78CD08F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFB8CEBE27D080002B6752E3D77D8D57 /* ic_error@3x.png in Resources */,
+				3483439FD92DAC5ACB9FBF21C469A252 /* ic_success@3x.png in Resources */,
+				B6AC207DE3A27A3730B98944EB62CFD7 /* ic_warning@3x.png in Resources */,
+				A560A3AAB1E7FF0BA3D918A6074B6136 /* icon_close@3x.png in Resources */,
+				049993BAA54F8702810EDD0D8572618D /* loading_0.png in Resources */,
+				040B9C093A5F0F2DD979065F2C9E121E /* loading_1.png in Resources */,
+				B0567426F206C315B952F4A9E2E5A518 /* loading_10.png in Resources */,
+				8CE7CB0AD5DE604260382ED6C2BA489A /* loading_11.png in Resources */,
+				8E9B3FE2B7A351B1266D71F257DA49C2 /* loading_12.png in Resources */,
+				A5E16D02E01ED8D8DAD2A70E1E524C2B /* loading_13.png in Resources */,
+				F99A9B06C518D4A3DE524CC612A4E801 /* loading_14.png in Resources */,
+				5D561E6F1541C29687AEA701EB4E1CB6 /* loading_15.png in Resources */,
+				92C993BC1162FA949F1543E8C2B8BC8A /* loading_16.png in Resources */,
+				77B8D0555C6141B221F8CEF32725E05F /* loading_17.png in Resources */,
+				4B3EAE769A1D8089C11DF01CACFBDE6C /* loading_18.png in Resources */,
+				B3058710D1431346CD0CC8508175062C /* loading_19.png in Resources */,
+				1566A34EAF0B722586AE512F52420DF1 /* loading_2.png in Resources */,
+				04F3AC6F57B27E42BB7D4C9D4F43A077 /* loading_3.png in Resources */,
+				E254749F9285709A8B7359D703CD7B72 /* loading_4.png in Resources */,
+				2D08B843F5AB5D7AC275703573AA283B /* loading_5.png in Resources */,
+				816E0CA9008133F9B90010972B61C34E /* loading_6.png in Resources */,
+				B23D4DE767EC5803AF422389097D0E9B /* loading_7.png in Resources */,
+				492631B189F019E62BD5A16F0BF9C4FB /* loading_8.png in Resources */,
+				B41405B342EF32B5C629009534C63FA6 /* loading_9.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2F06CA99C93834A31523EF3A949D238 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4A740B714FCEDC66D358F32EC949863 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B109E8C5AF304A12444378E2E40EA4AB /* ic_error@3x.png in Resources */,
-				B5263DE2B946E42072BD23DDB3B075BB /* ic_success@3x.png in Resources */,
-				99703FCFB7694DD90581DF2E6ACEF382 /* ic_warning@3x.png in Resources */,
-				10F5B13DED946B75BBEF0783E35B4EAD /* icon_close@3x.png in Resources */,
-				739B282672A6E02B0056CAC508FC2E7A /* loading_0.png in Resources */,
-				4AA94E1DED1FE794102ABFF248BCA1F9 /* loading_1.png in Resources */,
-				175DEE61F37C02907225AA038BFB4158 /* loading_10.png in Resources */,
-				451F1D5DE251C4874B62BD8A35769AD3 /* loading_11.png in Resources */,
-				48D44790F632B22C8132481A6C6E58A3 /* loading_12.png in Resources */,
-				2B65F48009D4A71CA1A61A0EB8D8CD4A /* loading_13.png in Resources */,
-				8166458D824B57322570565F021021C3 /* loading_14.png in Resources */,
-				C3517E9AA964F8B238E8137EEAF2F153 /* loading_15.png in Resources */,
-				6D9631A02AFD5BD4C653A1767AA8800A /* loading_16.png in Resources */,
-				813E8DC0FBC898D8F5B687362DB62F5B /* loading_17.png in Resources */,
-				4BE096198BDCB73BDD39BE1DB6E6B205 /* loading_18.png in Resources */,
-				DDD1A5F1A5CEBD40D1E9C799A60219C2 /* loading_19.png in Resources */,
-				B618BDCBFDAF48285BDF9A5D2F8B3785 /* loading_2.png in Resources */,
-				A7A87A56296DB7D339B14CFB966C9B76 /* loading_3.png in Resources */,
-				7D6743A31AA6816BDB63332F8762CCF8 /* loading_4.png in Resources */,
-				76FC16AF51810DB546B00E15ACEA97F5 /* loading_5.png in Resources */,
-				B86BB9C0E3CBE5FF37FB314FE54608BA /* loading_6.png in Resources */,
-				649EA29B04CECDFED2E4E569E739D4D1 /* loading_7.png in Resources */,
-				1676C91D71810DB4BCB5BA170FE61F75 /* loading_8.png in Resources */,
-				2E9A03367C9D8C9E43F8B4FE0D6D2BF3 /* loading_9.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED3CD2EE599B871768DC4FFAB8257691 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				18883935CA7CBEDFD55E1BB94811FD32 /* HDHUD-HDHUD in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +610,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1C5059E10A79E23F09380DBD97ECF380 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3937589E513876A8AACA5FC633056C3E /* HDHUD.swift in Sources */,
+				23B3DF8B203EC74D5C40118BC019E77B /* HDHUD-dummy.m in Sources */,
+				B6373D9FE438C77D4792628A074FAD3F /* HDHUDContentView.swift in Sources */,
+				8F334D3553DC9857C6B9D2651A46D2C8 /* HDHUDLabelContentView.swift in Sources */,
+				A72F0C694DD69430179904BA51AD15C7 /* HDHUDLoadingContentView.swift in Sources */,
+				9BBB671653B147FACA1641C1086ECA71 /* HDHUDProgressContentView.swift in Sources */,
+				009D46F0B4C9712589BD19C7E57D1F4C /* HDHUDTask.swift in Sources */,
+				E50B8217F5758EFFB72614242227FF99 /* HDHUDTaskViewController.swift in Sources */,
+				B950B6A03A87EF1AB85CCAFE1D56FB26 /* HDHUDWindow.swift in Sources */,
+				4FED010315AE3D72EC10B6A8F4EFEFAF /* HDTaskCloseButton.swift in Sources */,
+				314169390F736869EB1971E1EE819D72 /* UIView+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		264045B1404492D48C7FB60FE1D8DB09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -628,20 +649,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		573C21B7F6EFCDF32B71C7DBA42A39AE /* Sources */ = {
+		35DF126DDE9AE98B015FC1CEB18C63E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D4091D199BB033BABE9C10AC2C75BFD /* HDHUD.swift in Sources */,
-				F9F85F624E17705BFD634E94BE0F2135 /* HDHUD-dummy.m in Sources */,
-				F8293FAE1C6339F069CED2B7364CC374 /* HDHUDContentView.swift in Sources */,
-				FEAA9E7290BA354AC4477DA16EE90E73 /* HDHUDLabelContentView.swift in Sources */,
-				0C1E845678933F9200609547B825B2C5 /* HDHUDProgressContentView.swift in Sources */,
-				21E87A512720DB4810A0188348C1D378 /* HDHUDTask.swift in Sources */,
-				165787F6B75F79FDA0796977D7C67751 /* HDHUDTaskViewController.swift in Sources */,
-				23365F0E065DB17896B01C7864A2C9AE /* HDHUDWindow.swift in Sources */,
-				48EA807790E073C9E72CA729B6194E2E /* HDTaskCloseButton.swift in Sources */,
-				53927828AB440629E0E48A4DA7928529 /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,33 +664,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8C063028A972D4B9351A2A71EE91FBA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		57DE4159DE4B5B3AD0DE25EE69C0BF6B /* PBXTargetDependency */ = {
+		6F1B3D53B3953A32155F394B69286073 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DDUtils;
 			target = 763460C4E0B28EA6B8A750D8642AF267 /* DDUtils */;
-			targetProxy = 904978613E67E172E9B32E818EB06F73 /* PBXContainerItemProxy */;
+			targetProxy = 704D8B78C8CAAA4CA49A0B5BC90FEE1B /* PBXContainerItemProxy */;
 		};
-		5A225F3ED64E5F36A08355FCE7C2CFB9 /* PBXTargetDependency */ = {
+		A8FA8205C6536BFB27D9812A368C1ED4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "HDHUD-HDHUD";
 			target = 64207C3A8C1C7AD39CB797C536F0540A /* HDHUD-HDHUD */;
-			targetProxy = 4941AB035CEE004216D9D3CAB976C0D1 /* PBXContainerItemProxy */;
+			targetProxy = 3D7E86CAD18C3808FDF2EA2821288025 /* PBXContainerItemProxy */;
 		};
-		D80D48F9592237E9FC2B00847B4E0391 /* PBXTargetDependency */ = {
+		BE3741C43D7E7850D2C11659EF2B32FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HDHUD;
 			target = 4413F0D084EA268B632AF2A8C0F07563 /* HDHUD */;
-			targetProxy = 83A57DD611CB687B8D98CBD08EC8CABD /* PBXContainerItemProxy */;
+			targetProxy = 7E5E004D3CCE4C9312587CCCF309E8B5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -721,6 +725,62 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		15919CD3F174CE694B74C8C35C5EEECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 525D56C2FA21CF16B02F1C0565CD4AE0 /* HDHUD.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/HDHUD/HDHUD-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/HDHUD/HDHUD-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HDHUD/HDHUD.modulemap";
+				PRODUCT_MODULE_NAME = HDHUD;
+				PRODUCT_NAME = HDHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		284BEE6A104C7EAB6650C1B7B625656B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2002E86C6395853711DAA75469340858 /* HDHUD.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HDHUD";
+				IBSC_MODULE = HDHUD;
+				INFOPLIST_FILE = "Target Support Files/HDHUD/ResourceBundle-HDHUD-HDHUD-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = HDHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -830,62 +890,6 @@
 			};
 			name = Release;
 		};
-		46064C9B2176CC5A0EE0476FA8F62075 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A04F43AD614E5C7B13C0D97EB27B6187 /* HDHUD.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/HDHUD/HDHUD-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/HDHUD/HDHUD-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/HDHUD/HDHUD.modulemap";
-				PRODUCT_MODULE_NAME = HDHUD;
-				PRODUCT_NAME = HDHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		52097D407967A5AF13FDCC6C2AB370C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A04F43AD614E5C7B13C0D97EB27B6187 /* HDHUD.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HDHUD";
-				IBSC_MODULE = HDHUD;
-				INFOPLIST_FILE = "Target Support Files/HDHUD/ResourceBundle-HDHUD-HDHUD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = HDHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -987,45 +991,22 @@
 			};
 			name = Debug;
 		};
-		79EE7A31EFE3965D1E00A26A968757FF /* Release */ = {
+		9CAFDF735D04C718E463DD924E05CDCF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 736A148833621818973E048BE4F15161 /* HDHUD.release.xcconfig */;
+			baseConfigurationReference = 525D56C2FA21CF16B02F1C0565CD4AE0 /* HDHUD.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/HDHUD/HDHUD-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/HDHUD/HDHUD-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HDHUD";
+				IBSC_MODULE = HDHUD;
+				INFOPLIST_FILE = "Target Support Files/HDHUD/ResourceBundle-HDHUD-HDHUD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/HDHUD/HDHUD.modulemap";
-				PRODUCT_MODULE_NAME = HDHUD;
 				PRODUCT_NAME = HDHUD;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 		C300B1EC20E3875391543006D3F78D49 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1066,20 +1047,43 @@
 			};
 			name = Debug;
 		};
-		C433DC0A41E879CEAC233C5126E3DCD5 /* Release */ = {
+		D6118F709E5D6B0DD33C7DEEC6A5F3EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 736A148833621818973E048BE4F15161 /* HDHUD.release.xcconfig */;
+			baseConfigurationReference = 2002E86C6395853711DAA75469340858 /* HDHUD.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HDHUD";
-				IBSC_MODULE = HDHUD;
-				INFOPLIST_FILE = "Target Support Files/HDHUD/ResourceBundle-HDHUD-HDHUD-Info.plist";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/HDHUD/HDHUD-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/HDHUD/HDHUD-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HDHUD/HDHUD.modulemap";
+				PRODUCT_MODULE_NAME = HDHUD;
 				PRODUCT_NAME = HDHUD;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1113,20 +1117,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		732EC0BD054E7F0D06120145B297CEB1 /* Build configuration list for PBXNativeTarget "HDHUD-HDHUD" */ = {
+		8F98FE668DB66E0D53067F802BFF59B0 /* Build configuration list for PBXNativeTarget "HDHUD-HDHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52097D407967A5AF13FDCC6C2AB370C0 /* Debug */,
-				C433DC0A41E879CEAC233C5126E3DCD5 /* Release */,
+				9CAFDF735D04C718E463DD924E05CDCF /* Debug */,
+				284BEE6A104C7EAB6650C1B7B625656B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99C7025BFB7778505E4F2DA4B5541E54 /* Build configuration list for PBXNativeTarget "HDHUD" */ = {
+		D78EE34A0A04ABD7C08232BAD0E45B53 /* Build configuration list for PBXNativeTarget "HDHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				46064C9B2176CC5A0EE0476FA8F62075 /* Debug */,
-				79EE7A31EFE3965D1E00A26A968757FF /* Release */,
+				15919CD3F174CE694B74C8C35C5EEECB /* Debug */,
+				D6118F709E5D6B0DD33C7DEEC6A5F3EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

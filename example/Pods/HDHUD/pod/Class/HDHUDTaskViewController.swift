@@ -52,10 +52,6 @@ extension HDHUDTaskViewController {
                 self.yConstraint = mStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: self.contentOffset.y)
             case .bottom:
                 self.yConstraint = mStackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: self.contentOffset.y)
-            case .navigationBarMask:
-                self.yConstraint = mStackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.contentOffset.y)
-            case .tabBarMask:
-                self.yConstraint = mStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.contentOffset.y)
             }
             self.yConstraint?.isActive = true
             self.view.layoutIfNeeded()

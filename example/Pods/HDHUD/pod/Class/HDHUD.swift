@@ -12,7 +12,6 @@ public enum HDHUDIconType {
     case warn
     case error
     case success
-    case loading
 }
 
 public enum HDHUDContentDirection {
@@ -25,8 +24,6 @@ public enum HDHUDDisplayPosition {
     case top
     case center
     case bottom
-    case navigationBarMask
-    case tabBarMask
 }
 
 public enum HDHUDDisplayTypee {
@@ -49,7 +46,7 @@ func URLPathHDBoundle(named: String?) -> String? {
 }
 
 open class HDHUD {
-    public static var displayPosition: HDHUDDisplayPosition = .top
+    public static var displayPosition: HDHUDDisplayPosition = .center
     public static var displayType: HDHUDDisplayTypee = .sequence
     ///images
     public static var warnImage = UIImageHDBoundle(named: "ic_warning")
@@ -71,6 +68,7 @@ open class HDHUD {
     public static var isMask = false
     //private members
     private static var sequenceTask = [HDHUDTask]()
+    private var loadingTask: HDHUDTask? //only one loading
     static let shared = HDHUD()
 }
 
@@ -85,57 +83,51 @@ public extension HDHUD {
     ///   - didAppear: callback after the HUD is appear
     ///   - completion: callback after the HUD is closed
     @discardableResult
-    static func show(_ text: String?, icon: HDHUDIconType = .none, direction: HDHUDContentDirection = .horizontal, duration: TimeInterval = 3.5, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDTask {
+    static func show(_ text: String?, icon: HDHUDIconType = .none, direction: HDHUDContentDirection = .horizontal, duration: TimeInterval = 3.5,  closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDTask {
         //创建任务
         let task = HDHUDTask(duration: duration, closeButtonDelay: closeButtonDelay, didAppear: didAppear, completion: completion)
         //显示的页面
         task.contentView = HDHUDLabelContentView(content: text, icon: icon, direction: direction)
         //展示
-        self.show(task: task)
+        self._show(task: task)
         return task
     }
     
     @discardableResult
-    static func show(icon: HDHUDIconType, direction: HDHUDContentDirection = .horizontal, duration: TimeInterval = 3.5, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDTask {
-        return self.show(nil, icon: icon, direction: direction, duration: duration, closeButtonDelay: closeButtonDelay, didAppear: didAppear, completion: completion)
+    static func showLoading(text: String? = nil, direction: HDHUDContentDirection = .vertical, duration: TimeInterval = -1, closeButtonDelay: TimeInterval = 3, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDLoadingTask {
+        self.hideLoading()
+        //
+        let task = HDHUDLoadingTask(duration: duration, closeButtonDelay: closeButtonDelay, didAppear: didAppear, completion: completion)
+        task.contentView = HDHUDLoadingContentView(content: text, direction: direction)
+        self.shared.loadingTask = task
+        self._show(task: task)
+        return task
     }
 
     //display progress hud
     @discardableResult
-    static func show(progress: Float, text: String? = nil, direction: HDHUDContentDirection = .horizontal, duration: TimeInterval = 6, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDProgressTask {
+    static func show(progress: Float, text: String? = nil, direction: HDHUDContentDirection = .vertical, duration: TimeInterval = 6, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDProgressTask {
         let task = HDHUDProgressTask(duration: duration, closeButtonDelay: closeButtonDelay, didAppear: didAppear, completion: completion)
         //显示的页面
         task.contentView = HDHUDProgressContentView(text: text, direction: direction)
         task.progress = progress
         //展示
-        self.show(task: task)
-        return task
-    }
-
-    //display customview
-    @discardableResult
-    static func show(customView: UIView, duration: TimeInterval = 3.5, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) -> HDHUDTask {
-        //创建任务
-        let task = HDHUDTask(duration: duration, closeButtonDelay: closeButtonDelay, didAppear: didAppear, completion: completion)
-        //显示的页面
-        task.contentView = customView
-        //展示
-        self.show(task: task)
-        return task
-    }
-
-    //display use task
-    static func show(task: HDHUDTask) {
         self._show(task: task)
+        return task
     }
-
+    
     static func hide(animation: Bool = true) {
         self._hide(animation: animation)
     }
     
-    static func hide(task: HDHUDTask?, animation: Bool = true) {
+    static func hide(task: HDHUDTask, animation: Bool = true) {
         self._hide(task: task, animation: animation)
     }
+    
+    static func hideLoading(animation: Bool = false) {
+        self._hide(task: self.shared.loadingTask, animation: animation)
+    }
+
 }
 
 ///MARK: Private Method
@@ -150,6 +142,7 @@ private extension HDHUD {
         //视图
         let contentView = task.contentView
         if task.closeButtonDelay >= 0 {
+            //显示关闭按钮
             if task.closeButton == nil {
                 let closeButton = HDTaskCloseButton(task: task)
                 closeButton.addTarget(shared, action: #selector(_onClickCloseButton(_:)), for: .touchUpInside)
@@ -189,7 +182,7 @@ private extension HDHUD {
     }
     
     static func _hide(task: HDHUDTask?, animation: Bool = true) {
-        guard let taskContentVC = HDHUDWindow.shared.rootViewController as? HDHUDTaskViewController, let task = task else { return  }
+        guard let taskContentVC = HDHUDWindow.shared.rootViewController as? HDHUDTaskViewController, let task = task else { return }
         task.isVisible = false
         if let index = self.sequenceTask.firstIndex(of: task) {
             task.closeButton?.removeFromSuperview()
@@ -197,13 +190,21 @@ private extension HDHUD {
             self.sequenceTask.remove(at: index)
         }
         if let completion = task.completion {
-            completion()
+            if animation {
+                completion()
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    completion()
+                }
+            }
         }
         taskContentVC.hideToast(contentView: task.contentView, animation: animation)
     }
 
     @objc func _onClickCloseButton(_ sender: HDTaskCloseButton) {
-        HDHUD.hide(task: sender.task)
+        if let task = sender.task {
+            HDHUD.hide(task: task)
+        }
     }
 }
 

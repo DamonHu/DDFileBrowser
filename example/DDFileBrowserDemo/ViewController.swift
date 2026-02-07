@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 
     @objc func _writeData() {
         print(DDUtils.shared.getFileDirectory(type: .caches))
-        for i in 0..<300000 {
+        for i in 0..<150 {
             //写入测试数据
             let path = Bundle.main.path(forResource: "1470296169586813", ofType: "jpg")
             if let path = path, let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {

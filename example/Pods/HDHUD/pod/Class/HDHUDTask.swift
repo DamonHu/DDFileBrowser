@@ -13,9 +13,9 @@ open class HDHUDTask: NSObject {
     public var completion: (()->Void)? = nil
     public var isVisible: Bool = false
     
-    var closeButtonDelay: TimeInterval = -1
     var duration: TimeInterval = 3.5
     var contentView: UIView = UIView()
+    var closeButtonDelay: TimeInterval = -1
     var closeButton: UIButton?
 
     init(duration: TimeInterval = 3.5, closeButtonDelay: TimeInterval = -1, didAppear: (()->Void)? = nil, completion: (()->Void)? = nil) {
@@ -27,19 +27,23 @@ open class HDHUDTask: NSObject {
     }
 }
 
+open class HDHUDLoadingTask: HDHUDTask {
+    
+}
+
 open class HDHUDProgressTask: HDHUDTask {
     public var progress: Float = 0 {
-        willSet {
+        didSet {
             if let contentView = self.contentView as? HDHUDProgressContentView {
-                contentView.progress = newValue
+                contentView.progress = self.progress
             }
         }
     }
     
     public var text: String? = nil {
-        willSet {
+        didSet {
             if let contentView = self.contentView as? HDHUDProgressContentView {
-                contentView.text = newValue
+                contentView.text = self.text
             }
         }
     }
